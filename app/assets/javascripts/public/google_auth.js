@@ -57,33 +57,6 @@ var helper = (function() {
       handleAuthResult);
     },
 
-
-
-
-    /**
-     * Retrieves and renders the authenticated user's Google+ profile.
-     */
-    renderProfile: function() {
-      var request = gapi.client.plus.people.get( {'userId' : 'me'} );
-      request.execute( function(profile) {
-          $('#profile').empty();
-          if (profile.error) {
-            $('#profile').append(profile.error);
-            return;
-          }
-          $('#profile').append(
-              $('<p><img src=\"' + profile.image.url + '\"></p>'));
-          $('#profile').append(
-              $('<p>Hello ' + profile.displayName + '!<br />Tagline: ' +
-              profile.tagline + '<br />About: ' + profile.aboutMe + '</p>'));
-          if (profile.cover && profile.coverPhoto) {
-            $('#profile').append(
-                $('<p><img src=\"' + profile.cover.coverPhoto.url + '\"></p>'));
-          }
-        });
-      $('#authOps').show('slow');
-      $('#gConnect').hide();
-    },
     /**
      * Calls the server endpoint to disconnect the app for the user.
      */
@@ -127,35 +100,7 @@ var helper = (function() {
         data: this.authResult.code
       });
     },
-    /**
-     * Calls the server endpoint to get the list of people visible to this app.
-     */
-    people: function() {
-      $.ajax({
-        type: 'GET',
-        url: window.location.href + '/people',
-        contentType: 'application/octet-stream; charset=utf-8',
-        success: function(result) {
-          helper.appendCircled(result);
-        },
-        processData: false
-      });
-    },
-    /**
-     * Displays visible People retrieved from server.
-     *
-     * @param {Object} people A list of Google+ Person resources.
-     */
-    appendCircled: function(people) {
-      $('#visiblePeople').empty();
 
-      $('#visiblePeople').append('Number of people visible to this app: ' +
-          people.totalItems + '<br/>');
-      for (var personIndex in people.items) {
-        person = people.items[personIndex];
-        $('#visiblePeople').append('<img src="' + person.image.url + '">');
-      }
-    },
   };
 })();
 
