@@ -3,7 +3,7 @@ body {
 }
 
 .pre-auth {
-  /*display: none;*/
+  display: none;
 }
 
 .post-auth {
@@ -26,3 +26,7 @@ body {
 #video-list > li:hover {
   color: blue;
 }
+
+/*#google-login{
+  display: none;
+}*/

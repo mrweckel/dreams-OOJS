@@ -1,25 +1,26 @@
-$(document).ready(function() {
-  console.log("hello")
   // Retrieve your client ID from the Google APIs Console at
   // https://code.google.com/apis/console.
   var OAUTH2_CLIENT_ID = '340894032158-a7ro9gvu0cm86sotbepj9pei5sgi1nk9.apps.googleusercontent.com';
   var OAUTH2_SCOPES = [
-    // 'https://www.googleapis.com/auth/yt-analytics.readonly',
     'https://www.googleapis.com/auth/youtube'
   ];
 
 
   // The Google APIs JS client invokes this callback automatically after loading.
   // See http://code.google.com/p/google-api-javascript-client/wiki/Authentication
-  window.onJSClientLoad = function() {
-    gapi.auth.init(function() {
-      window.setTimeout(checkAuth, 1);
-      console.log("This is checkAuth:")
-      console.log(checkAuth);
+
+  // window.onJSClientLoad = function(){
+  //   authInit;
+  // }
+  $(document).ready(function(){
+    $(".login").on("click","a#google-login",function(event){
+        event.preventDefault();
+        gapi.auth.init(function() {
+          window.setTimeout(checkAuth, 1);
+          checkAuth();
+        });
     });
-  };
-
-
+  });
   // Attempt the immediate OAuth 2 client flow as soon as the page loads.
   // If the currently logged-in Google Account has previously authorized
   // OAUTH2_CLIENT_ID, then it will succeed with no user intervention.
@@ -74,7 +75,6 @@ $(document).ready(function() {
   }
 
   /* In later steps, add additional functions above this line. */
-}());
 
 function loadAPIClientInterfaces() {
   console.log("counsel");
