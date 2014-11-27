@@ -6,15 +6,8 @@ GoogleAuth.Keys = {
 }
 
 GoogleAuth.View = {}
+
 GoogleAuth.Controller = {}
-
-
-  // Retrieve your client ID from the Google APIs Console at
-  // https://code.google.com/apis/console.
-  // var OAUTH2_CLIENT_ID = '340894032158-a7ro9gvu0cm86sotbepj9pei5sgi1nk9.apps.googleusercontent.com';
-  // var OAUTH2_SCOPES = [
-  //   'https://www.googleapis.com/auth/youtube'
-  // ];
 
 
   // The Google APIs JS client invokes this callback automatically after loading.
