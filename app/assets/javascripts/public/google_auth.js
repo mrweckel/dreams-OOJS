@@ -1,5 +1,5 @@
-(function() {
-
+$(document).ready(function() {
+  console.log("hello")
   // Retrieve your client ID from the Google APIs Console at
   // https://code.google.com/apis/console.
   var OAUTH2_CLIENT_ID = '340894032158-a7ro9gvu0cm86sotbepj9pei5sgi1nk9.apps.googleusercontent.com';
@@ -14,6 +14,8 @@
   window.onJSClientLoad = function() {
     gapi.auth.init(function() {
       window.setTimeout(checkAuth, 1);
+      console.log("This is checkAuth:")
+      console.log(checkAuth);
     });
   };
 
@@ -39,6 +41,7 @@
       // that should be visible after auth succeeds.
       $('.pre-auth').hide();
       $('.post-auth').show();
+      console.log(authResult)
 
       loadAPIClientInterfaces();
     } else {
@@ -71,9 +74,10 @@
   }
 
   /* In later steps, add additional functions above this line. */
-})();
+}());
 
 function loadAPIClientInterfaces() {
+  console.log("counsel");
     gapi.client.load('youtube', 'v3', function() {
     });
   }
