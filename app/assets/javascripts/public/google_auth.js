@@ -1,133 +1,79 @@
-  (function() {
-    var po = document.createElement('script');
-    po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://plus.google.com/js/client:plusone.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(po, s);
-  })();
+(function() {
 
-var helper = (function() {
-  var authResult = undefined;
+  // Retrieve your client ID from the Google APIs Console at
+  // https://code.google.com/apis/console.
+  var OAUTH2_CLIENT_ID = '340894032158-a7ro9gvu0cm86sotbepj9pei5sgi1nk9.apps.googleusercontent.com';
+  var OAUTH2_SCOPES = [
+    // 'https://www.googleapis.com/auth/yt-analytics.readonly',
+    'https://www.googleapis.com/auth/youtube'
+  ];
 
-  return {
-    /**
-     * Hides the sign-in button and connects the server-side app after
-     * the user successfully signs in.
-     *
-     * @param {Object} authResult An Object which contains the access token and
-     *   other authentication information.
-     */
-    onSignInCallback: function(authResult) {
-      $('#authResult').html('Auth Result:<br/>');
-      for (var field in authResult) {
-        $('#authResult').append(' ' + field + ': ' + authResult[field] + '<br/>');
-        console.log("This is the auth result:");
-        console.log(authResult);
-      }
-      if (authResult['access_token']) {
-        // The user is signed in
-        this.authResult = authResult;
-        helper.connectServer();
-        // After we load the Google+ API, render the profile data from Google+.
-        gapi.client.load('youtube','v3',this.renderProfile);
-      } else if (authResult['error']) {
-        // There was an error, which means the user is not signed in.
-        // As an example, you can troubleshoot by writing to the console:
-        console.log('There was an error: ' + authResult['error']);
-        $('#authResult').append('Logged out');
-        $('#authOps').hide('slow');
-        $('#gConnect').show();
-      }
-      var url = "http://stackoverflow.com";
-      $(location).attr('/pitches',url);
-      console.log('authResult', authResult);
-    },
 
-    googleApiClientReady: function() {
-      gapi.auth.init(function() {
+  // The Google APIs JS client invokes this callback automatically after loading.
+  // See http://code.google.com/p/google-api-javascript-client/wiki/Authentication
+  window.onJSClientLoad = function() {
+    gapi.auth.init(function() {
       window.setTimeout(checkAuth, 1);
-     });
-    },
-
-    checkAuth: function () {
-      gapi.auth.authorize({
-      client_id: authResult.client_id,
-      scope: 'https://www.googleapis.com/auth/youtube',
-      immediate: true},
-      handleAuthResult);
-    },
-
-    /**
-     * Calls the server endpoint to disconnect the app for the user.
-     */
-    disconnectServer: function() {
-      // Revoke the server tokens
-      $.ajax({
-        type: 'POST',
-        url: window.location.href + '/disconnect',
-        async: false,
-        success: function(result) {
-          console.log('revoke response: ' + result);
-          $('#authOps').hide();
-          $('#profile').empty();
-          $('#visiblePeople').empty();
-          $('#authResult').empty();
-          $('#gConnect').show();
-        },
-        error: function(e) {
-          console.log(e);
-        }
-      });
-    },
-    /**
-     * Calls the server endpoint to connect the app for the user. The client
-     * sends the one-time authorization code to the server and the server
-     * exchanges the code for its own tokens to use for offline API access.
-     * For more information, see:
-     *   https://developers.google.com/+/web/signin/server-side-flow
-     */
-    connectServer: function() {
-      console.log(this.authResult.code);
-      $.ajax({
-        type: 'POST',
-        url: window.location.href + '/connect?state={{ STATE }}',
-        contentType: 'application/octet-stream; charset=utf-8',
-        success: function(result) {
-          console.log(result);
-          helper.people();
-        },
-        processData: false,
-        data: this.authResult.code
-      });
-    },
-
+    });
   };
+
+
+  // Attempt the immediate OAuth 2 client flow as soon as the page loads.
+  // If the currently logged-in Google Account has previously authorized
+  // OAUTH2_CLIENT_ID, then it will succeed with no user intervention.
+  // Otherwise, it will fail and the user interface that prompts for
+  // authorization will need to be displayed.
+  function checkAuth() {
+    gapi.auth.authorize({
+      client_id: OAUTH2_CLIENT_ID,
+      scope: OAUTH2_SCOPES,
+      immediate: true
+    }, handleAuthResult);
+  }
+
+
+  // Handle the result of a gapi.auth.authorize() call.
+  function handleAuthResult(authResult) {
+    if (authResult) {
+      // Auth was successful. Hide auth prompts and show things
+      // that should be visible after auth succeeds.
+      $('.pre-auth').hide();
+      $('.post-auth').show();
+
+      loadAPIClientInterfaces();
+    } else {
+      // Auth was unsuccessful. Show things related to prompting for auth
+      // and hide the things that should be visible after auth succeeds.
+      $('.post-auth').hide();
+      $('.pre-auth').show();
+
+      // Make the #login-link clickable. Attempt a non-immediate OAuth 2 client
+      // flow. The current function will be called when that flow completes.
+      $('#login-link').click(function() {
+        gapi.auth.authorize({
+          client_id: OAUTH2_CLIENT_ID,
+          scope: OAUTH2_SCOPES,
+          immediate: false
+        }, handleAuthResult);
+      });
+    }
+  }
+
+
+  // Helper method to display a message on the page.
+  function displayMessage(message) {
+    $('#message').text(message).show();
+  }
+
+  // Helper method to hide a previously displayed message on the page.
+  function hideMessage() {
+    $('#message').hide();
+  }
+
+  /* In later steps, add additional functions above this line. */
 })();
 
-/**
- * Perform jQuery initialization and check to ensure that you updated your
- * client ID.
- */
-$(document).ready(function() {
-  $('#disconnect').click(helper.disconnectServer);
-  if ($('[data-clientid="YOUR_CLIENT_ID"]').length > 0) {
-    alert('This sample requires your OAuth credentials (client ID) ' +
-        'from the Google APIs console:\n' +
-        '    https://code.google.com/apis/console/#:access\n\n' +
-        'Find and replace YOUR_CLIENT_ID with your client ID and ' +
-        'YOUR_CLIENT_SECRET with your client secret in the project sources.'
-    );
+function loadAPIClientInterfaces() {
+    gapi.client.load('youtube', 'v3', function() {
+    });
   }
-});
-
-/**
- * Calls the helper method that handles the authentication flow.
- *
- * @param {Object} authResult An Object which contains the access token and
- *   other authentication information.
- */
-function onSignInCallback(authResult) {
-  helper.onSignInCallback(authResult);
-}
-
-
