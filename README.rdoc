@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/unknownbreaker/dreams.svg?style=svg)](https://circleci.com/gh/unknownbreaker/dreams)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
