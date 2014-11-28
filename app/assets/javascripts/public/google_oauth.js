@@ -32,8 +32,7 @@ GoogleAuth.View = {}
       if (authResult) {
         // Auth was successful. Hide auth prompts and show things
         // that should be visible after auth succeeds.
-        $('.pre-auth').hide();
-        $('.post-auth').show();
+        GoogleAuth.View.authSuccess();
         console.log(authResult);
         GoogleAuth.Controller.loadAPIClientInterfaces();
 
@@ -48,8 +47,7 @@ GoogleAuth.View = {}
     } else {
       // Auth was unsuccessful. Show things related to prompting for auth
       // and hide the things that should be visible after auth succeeds.
-      $('.post-auth').hide();
-      $('.pre-auth').show();
+      GoogleAuth.View.authFail();
 
       // Make the #login-link clickable. Attempt a non-immediate OAuth 2 client
       // flow. The current function will be called when that flow completes.
@@ -75,15 +73,26 @@ GoogleAuth.View = {}
     });
 
   // Helper method to display a message on the page.
-  GoogleAuth.View.displayMessage = function(message) {
-    $('#message').text(message).show();
-  }
+  GoogleAuth.View = {
+    authSuccess: function(){
+      $('.pre-auth').hide();
+      $('.post-auth').show();
+    },
+
+    authFail: function(){
+      $('.post-auth').hide();
+      $('.pre-auth').show();
+    },
+
+    displayMessage: function(message) {
+      $('#message').text(message).show();
+    },
 
   // Helper method to hide a previously displayed message on the page.
-  GoogleAuth.View.hideMessage = function() {
-    $('#message').hide();
-  }
-
+    hideMessage: function() {
+      $('#message').hide();
+    }
+}
   /* In later steps, add additional functions above this line. */
 
 GoogleAuth.Controller.loadAPIClientInterfaces = function() {
