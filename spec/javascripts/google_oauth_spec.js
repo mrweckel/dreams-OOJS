@@ -1,5 +1,5 @@
 describe('Google_Oauth', function() {
-  
+
 	beforeEach(function() {
 		google = GoogleAuth;
 		google_controller = google.Controller
@@ -24,11 +24,18 @@ describe('Google_Oauth', function() {
   	expect(spy).toHaveBeenCalled();
   });
 
-   it("should spy on handleAuthResult method", function() {
+  it("should spy on handleAuthResult method", function() {
   	var spy = spyOn(google_controller, 'handleAuthResult');
   	google_controller.handleAuthResult();
   	expect(spy).toHaveBeenCalled();
   });
+
+  it("should spy on handleAuthResult method", function() {
+  	var spy = spyOn(google_controller, 'loadAPIClientInterfaces');
+  	google_controller.loadAPIClientInterfaces();
+  	expect(spy).toHaveBeenCalled();
+  });
+
 
 
 });
