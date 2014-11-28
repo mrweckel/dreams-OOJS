@@ -1,23 +1,18 @@
 var GoogleAuth = {}
 
-GoogleAuth.Keys = {
-  client_id: '340894032158-a7ro9gvu0cm86sotbepj9pei5sgi1nk9.apps.googleusercontent.com',
-  scopes: ['https://www.googleapis.com/auth/youtube']
-}
+  GoogleAuth.Keys = {
+    client_id: '340894032158-a7ro9gvu0cm86sotbepj9pei5sgi1nk9.apps.googleusercontent.com',
+    scopes: ['https://www.googleapis.com/auth/youtube']
+  }
 
-GoogleAuth.View = {}
+  GoogleAuth.View = {}
 
-  // The Google APIs JS client invokes this callback automatically after loading.
-  // See http://code.google.com/p/google-api-javascript-client/wiki/Authentication
-
-
-  // Attempt the immediate OAuth 2 client flow as soon as the page loads.
-  // If the currently logged-in Google Account has previously authorized
-  // OAUTH2_CLIENT_ID, then it will succeed with no user intervention.
-  // Otherwise, it will fail and the user interface that prompts for
-  // authorization will need to be displayed.
 
   GoogleAuth.Controller = {
+    receiveMessage: function(event){
+      if (event.origin !== "https://accounts.google.com") return;
+    },
+
     checkAuth: function() {
       gapi.auth.authorize({
         client_id: GoogleAuth.Keys.client_id,
