@@ -4,13 +4,19 @@ describe('Google_Oauth', function() {
 		google = GoogleAuth;
 	});
 
-  it("shoud be true", function() {
+  it("should be true", function() {
     expect(1 + 1).toBe(2);
   });
 
   it("should have a scope of youtube", function() {
-  	console.log(google.Keys.scopes);
-  	expect(google.Keys.scopes == 'https://www.googleapis.com/auth/youtube').toBe(true);
+  	expect(google.Keys.scopes).not.toBe(null);
   });
+
+  it("should have a client_id", function() {
+  	expect(google.Keys.client_id).not.toBe(null);
+  });
+
+  
+
 
 });
