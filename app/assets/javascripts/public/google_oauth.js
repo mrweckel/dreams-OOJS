@@ -29,14 +29,18 @@ var GoogleAuth = {}
         // that should be visible after auth succeeds.
         GoogleAuth.View.authSuccess();
         console.log(authResult);
+
         GoogleAuth.Controller.loadAPIClientInterfaces();
 
-      // $.ajax{
-      //   type:"POST",
-      //   url: url,
-      //   data: authResult,
-      //   dataType:'JSON'
-      // }
+        var token = authResult.access_token;
+        console.log(token)
+
+      $.ajax({
+        type:"POST",
+        url: "/login",
+        data: token,
+        dataType:'JSON'
+      });
 
 
     } else {
