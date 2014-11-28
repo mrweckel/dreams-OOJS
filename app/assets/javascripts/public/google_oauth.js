@@ -37,10 +37,12 @@ var GoogleAuth = {}
 
       $.ajax({
         type:"POST",
-        url: "/login",
-        data: token,
+        url: "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=" + token,
         dataType:'JSON'
+      }).done(function(data){
+        console.log(data);
       });
+
 
 
     } else {
