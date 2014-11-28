@@ -34,7 +34,6 @@ css_files:
 # defaults to spec/javascripts
 spec_dir: 
   - spec/javascripts
-  - ../engine/spec/javascripts
 
 # list of file expressions to include as helpers into spec runner
 # relative path from spec_dir
