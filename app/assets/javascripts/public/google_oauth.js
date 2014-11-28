@@ -62,16 +62,6 @@ GoogleAuth.View = {}
     }
   }
 
-  $(document).ready(function(){
-      $(".login").on("click","a#google-login", function(event){
-          event.preventDefault();
-          gapi.auth.init(function() {
-            window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
-            //
-        });
-      });
-    });
-
   // Helper method to display a message on the page.
   GoogleAuth.View = {
     authSuccess: function(){
@@ -93,6 +83,16 @@ GoogleAuth.View = {}
       $('#message').hide();
     }
 }
+
+$(document).ready(function(){
+      $(".login").on("click","a#google-login", function(event){
+          event.preventDefault();
+          gapi.auth.init(function() {
+            window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
+            //
+        });
+      });
+    });
   /* In later steps, add additional functions above this line. */
 
 GoogleAuth.Controller.loadAPIClientInterfaces = function() {
