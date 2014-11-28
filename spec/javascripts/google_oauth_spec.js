@@ -2,6 +2,7 @@ describe('Google_Oauth', function() {
   
 	beforeEach(function() {
 		google = GoogleAuth;
+		google_controller = google.Controller
 	});
 
   it("should be true", function() {
@@ -16,7 +17,12 @@ describe('Google_Oauth', function() {
   	expect(google.Keys.client_id).not.toBe(null);
   });
 
-  
+// Spy allows you to fake a method instead of actually firing/running the method
+  it("should spy on checkAuth", function() {
+  	var spy = spyOn(google_controller, 'checkAuth');
+  	google_controller.checkAuth();
+  	expect(spy).toHaveBeenCalled();
+  });
 
 
 });
