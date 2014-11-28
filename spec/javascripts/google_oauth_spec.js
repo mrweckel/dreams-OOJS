@@ -18,9 +18,15 @@ describe('Google_Oauth', function() {
   });
 
 // Spy allows you to fake a method instead of actually firing/running the method
-  it("should spy on checkAuth", function() {
+  it("should spy on checkAuth method", function() {
   	var spy = spyOn(google_controller, 'checkAuth');
   	google_controller.checkAuth();
+  	expect(spy).toHaveBeenCalled();
+  });
+
+   it("should spy on handleAuthResult method", function() {
+  	var spy = spyOn(google_controller, 'handleAuthResult');
+  	google_controller.handleAuthResult();
   	expect(spy).toHaveBeenCalled();
   });
 
