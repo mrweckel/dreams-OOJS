@@ -1,12 +1,12 @@
 describe('Google_Oauth', function() {
 
-	beforeEach(function() {
-		google = GoogleAuth;
-		google_controller = google.Controller
-	});
-
-  it("should be true", function() {
-    expect(1 + 1).toBe(2);
+  var google;
+  var google_controller;
+  beforeEach(function() { google = GoogleAuth;
+    google_controller = google.Controller;
+   });
+  afterEach (function() { google_controller = undefined; 
+    google = undefined;
   });
 
   it("should have a scope of youtube", function() {
@@ -30,12 +30,10 @@ describe('Google_Oauth', function() {
   	expect(spy).toHaveBeenCalled();
   });
 
-  it("should spy on handleAuthResult method", function() {
-  	var spy = spyOn(google_controller, 'loadAPIClientInterfaces');
-  	google_controller.loadAPIClientInterfaces();
+  it("should spy on receiveMessage method", function() {
+  	var spy = spyOn(google_controller, 'receiveMessage');
+  	google_controller.receiveMessage();
   	expect(spy).toHaveBeenCalled();
   });
-
-
 
 });
