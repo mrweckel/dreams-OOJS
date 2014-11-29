@@ -23,7 +23,7 @@ GoogleAuth.View = {}
         client_id: GoogleAuth.Keys.client_id,
         scope: GoogleAuth.Keys.scopes,
         immediate: false },
-        GoogleAuth.Controller.handleAuthResult);
+        GoogleAuth.Controller.handleAuthResult;
       },
 
 

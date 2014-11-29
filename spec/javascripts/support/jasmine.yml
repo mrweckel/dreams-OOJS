@@ -17,8 +17,8 @@ css_dir: "app/assets/stylesheets"
 # list of file expressions to include as source files
 # relative path from src_dir
 src_files:
+ - "app/assets/javascripts/public/google_oauth.js"
  - "application.{js.coffee,js,coffee}"
- - /public/javascripts/google_oauth.js
 
 # list of file expressions to include as css files
 # relative path from css_dir
