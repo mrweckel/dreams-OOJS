@@ -4,23 +4,23 @@ var DivPlayer = {
 
   DivPlayer.Controller = {
     createAndDestroy: function(){
-      var playerArea = document.getElementById('player-area');
-      DivPlayer.View.divAppend(playerArea,"div","new_player_","inner");
-      DivPlayer.View.divRemove(playerArea);
+      var player_area = document.getElementById('player-area');
+      DivPlayer.View.divAppend(player_area,"div","new_player_","inner");
+      DivPlayer.View.divRemove(player_area);
     }
   }
 
   DivPlayer.View = {
     initiallyPlaceDivs: function(num){
-      var playerArea = document.getElementById('player-area');
+      var player_area = document.getElementById('player-area');
       for (var i=0; i<num; i++){
-        DivPlayer.View.divAppend(playerArea,"div","new_player_","inner");
+        DivPlayer.View.divAppend(player_area,"div","new_player_","inner");
       }
     },
 
     divRemove: function(area){
-      var divToBeDeleted = area.firstChild
-      divToBeDeleted.remove();
+      var div_to_be_deleted = area.firstChild
+      div_to_be_deleted.remove();
     },
 
     divAppend: function(area,eleToCreate,id_name,class_name){
