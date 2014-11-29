@@ -30,12 +30,10 @@ describe('Google_Oauth', function() {
   	expect(spy).toHaveBeenCalled();
   });
 
-  it("should spy on handleAuthResult method", function() {
-  	var spy = spyOn(google_controller, 'loadAPIClientInterfaces');
-  	google_controller.loadAPIClientInterfaces();
+  it("should spy on receiveMessage method", function() {
+  	var spy = spyOn(google_controller, 'receiveMessage');
+  	google_controller.receiveMessage();
   	expect(spy).toHaveBeenCalled();
   });
-
-
 
 });
