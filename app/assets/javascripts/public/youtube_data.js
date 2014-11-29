@@ -82,7 +82,7 @@ YouTubeData.Account = {
   }
 }
 
-
+var videos_collection = [];
 
 YouTubeData.View = {
 
@@ -109,7 +109,7 @@ YouTubeData.View = {
       aElement.attr('href', '#');
       aElement.text(title);
       aElement.click(function() {
-        console.log(videoId)
+        videos_collection.push(videoId)
         //  this is the part that needs to put in the array for
       });
 

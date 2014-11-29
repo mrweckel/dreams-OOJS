@@ -23,7 +23,7 @@
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
-      var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
+ 
 
       VideoMaker = function(userVideos) {
         this.playList = [];
@@ -34,7 +34,7 @@
 
 
 
-      var userList = new VideoMaker(myVideo)
+      var userList = new VideoMaker(videos_collection)
       // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
       var player;
