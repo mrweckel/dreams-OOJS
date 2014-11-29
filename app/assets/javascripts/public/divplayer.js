@@ -1,45 +1,41 @@
-window.onload = function(){
-  initiallyCreateDivs();
-  setInterval(createAndDestroy,1000)//time interval will be based on video runtime
-  }
+var DivPlayer = {
+  counter: 1
+};
 
-function createAndDestroy(){
-  var playerArea = document.getElementById('player-area');
-  divAppend(playerArea);
-  divRemove(playerArea);
-}
-
-function divRemove(area){
-  var divToBeDeleted = area.firstChild
-  console.log(area)
-  console.log("These are the divs to be deleted: " + divToBeDeleted)
-  divToBeDeleted.remove();
-  // area.removeChild(area.getElementsByTag('div')[0])
-}
-
-//----------------------------------------------
-var functionCounter = 1
-function initiallyCreateDivs(){
-  var playerArea = document.getElementById('player-area');
-  if (functionCounter < 5){
-        divAppend(playerArea);
-        functionCounter++
+  DivPlayer.Controller = {
+    createAndDestroy: function(){
+      var playerArea = document.getElementById('player-area');
+      DivPlayer.View.divAppend(playerArea,"div","new_player_","inner");
+      DivPlayer.View.divRemove(playerArea);
     }
-}
-
-//----------------------------------------------
-var divCounter = 1;
-function divAppend(area){
-    var ele = document.createElement("div");
-    ele.setAttribute("id","new_player" + divCounter);
-    ele.setAttribute("class","inner");
-    ele.innerHTML="fuck you "; //YTplayer instead of "fuck you"
-
-    area.appendChild(ele);
-    console.log(ele)
-    divCounter ++
-
   }
 
+  DivPlayer.View = {
+    initiallyPlaceDivs: function(num){
+      var playerArea = document.getElementById('player-area');
+      for (var i=0; i<num; i++){
+        DivPlayer.View.divAppend(playerArea,"div","new_player_","inner");
+      }
+    },
 
+    divRemove: function(area){
+      var divToBeDeleted = area.firstChild
+      divToBeDeleted.remove();
+    },
 
+    divAppend: function(area,eleToCreate,id_name,class_name){
+      var ele = document.createElement(eleToCreate);
+      ele.setAttribute("id", id_name + DivPlayer.counter);
+      ele.setAttribute("class",class_name);
+      ele.innerHTML="!!!!REPLACE ME!!!!"; //PLACE YT PLAYER HERE
+
+      area.appendChild(ele);
+      DivPlayer.counter ++
+    }
+  }
+
+//-------------------------------------------------------//
+window.onload = function(){
+  DivPlayer.View.initiallyPlaceDivs(3);
+  setInterval(DivPlayer.Controller.createAndDestroy,1000)//time interval will be based on video runtime
+  }
