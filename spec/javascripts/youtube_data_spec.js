@@ -27,10 +27,16 @@ describe('Youtube_Data', function() {
   	expect(spy).toHaveBeenCalled();
   });
 
-  it("should have getUserChannel call request execute method", function() {
+  it("should have getUserChannel call request method", function() {
     var spy = spyOn(youtube_account, 'getUserChannel');
     youtube_account.getUserChannel();
     expect(youtube_account.getUserChannel.request).not.toBe(null);
   });
+
+  // it("should have getUserChannel call getPlaylistItems method", function() {
+  //   var spy = spyOn(youtube_account, 'getUserChannel');
+  //   youtube_account.getUserChannel();
+  //   expect(spy.getPlaylistItems()).toHaveBeenCalled();
+  // });
 
 });
