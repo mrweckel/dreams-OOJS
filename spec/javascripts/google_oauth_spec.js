@@ -1,12 +1,12 @@
 describe('Google_Oauth', function() {
 
-	beforeEach(function() {
-		google = GoogleAuth;
-		google_controller = google.Controller
-	});
-
-  it("should be true", function() {
-    expect(1 + 1).toBe(2);
+  var google;
+  var google_controller;
+  beforeEach(function() { google = GoogleAuth;
+    google_controller = google.Controller;
+   });
+  afterEach (function() { google_controller = undefined; 
+    google = undefined;
   });
 
   it("should have a scope of youtube", function() {
