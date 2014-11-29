@@ -97,9 +97,21 @@ YouTubeData.Account = {
         VideoPlayer.main(response.items);
         console.log(response.items)
         user_uploaded_videos = [];
-        user_uploaded_videos.push(response.items)
+        user_videos_player1 = [];
+        user_videos_player2 = [];
+        user_uploaded_videos = user_uploaded_videos.concat(response.items)
         console.log(user_uploaded_videos)
-        user_videos_player1 = _.filter(user_uploaded_videos, function(num) {return num % 2 == 0;});
+        
+        for(i = 0; i < user_uploaded_videos.length; i++) {
+          if(i % 2 === 0) {
+            user_videos_player1.push(user_uploaded_videos[i])
+            } else {
+            user_videos_player2.push(user_uploaded_videos[i])
+            }
+        }
+
+        VideoPlayer.main(user_videos_player1)
+        VideoPlayer.main(user_videos_player)
 
 //         var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
 // => [2, 4, 6]
