@@ -98,14 +98,14 @@ $(document).ready(function(){
   /* In later steps, add additional functions above this line. */
 
 GoogleAuth.Controller.loadAPIClientInterfaces = function() {
-    gapi.client.load('youtube', 'v3', function() {
-      gapi.client.load('youtubeAnalytics', 'v1', function() {
-        // After both client interfaces load, use the Data API to request
-        // information about the authenticated user's channel.
-        GoogleAuth.Controller.getUserChannel();
-      });
+  gapi.client.load('youtube', 'v3', function() {
+    gapi.client.load('youtubeAnalytics', 'v1', function() {
+      // After both client interfaces load, use the Data API to request
+      // information about the authenticated user's channel.
+      YouTubeData.Account.getUserChannel();
     });
-  }
+  });
+}
 
 
 
