@@ -112,10 +112,21 @@ VideoPlayer = {
       },
     });
 
+    player = new YT.Player('ytplayer', {
+      height: '390',
+      width: '640',
+      'videoId': userList.playList,
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange,
+      },
+    });
+
     dreamPlaylist(userList.cueList)
   }
 }
 
+<<<<<<< HEAD
 VideoPlayer2 = {
   main: function(videos) {
     // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
@@ -203,6 +214,8 @@ VideoPlayer2 = {
   }
 }
 
+=======
+>>>>>>> underscore.js, filtering for videos
 
 
 // <script>
