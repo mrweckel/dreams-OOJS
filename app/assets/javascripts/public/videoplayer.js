@@ -23,7 +23,7 @@
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
- 
+
 
       VideoMaker = function(userVideos) {
         this.playList = [];
@@ -34,26 +34,14 @@
 
 
 
-      var userList = new VideoMaker(videos_collection)
+      // var userList = new VideoMaker(videos_collection)
       // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
-      var player;
-      function onYouTubeIframeAPIReady() {
-    
-        player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          'videoId': userList.playList,
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange,
-          },
-        });
-      }
 
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
         event.target.playVideo();
+        dreamPlaylist(userList.cueList)
       }
 
       // 5. The API calls this function when the player's state changes.
@@ -63,10 +51,10 @@
       function onPlayerStateChange(event) {
         console.log(event.data)
 
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
-          done = true;
-        }
+        // if (event.data == YT.PlayerState.PLAYING && !done) {
+        //   setTimeout(stopVideo, 6000);
+        //   done = true;
+        // }
       }
 
       function stopVideo() {
@@ -79,29 +67,44 @@
       }
 
       function playTheVideo(video) {
-        player.loadVideoById({
-          'videoId': video, 
-          'startSeconds': 40, 
-          'endSeconds': 50, 
-          'suggestedQuality': 'large'});
-        
-        dreamPlaylist(userList.cueList);
+        player.addEventListener('onReady', function() {
+          player.loadVideoById({
+            'videoId': video,
+            'startSeconds': 40,
+            'endSeconds': 50,
+            'suggestedQuality': 'large'});
+
+          dreamPlaylist(userList.cueList);
+      });
       }
 
-        
+
       function videoList(videoId) {
         playTheVideo(videoId);
         player.playVideo();
       }
-      
 
 
-      function videoTimer(array) { 
-          setTimeout(function() { videoList(array[0])}, 10000)
+
+      function videoTimer(array) {
+        console.log(array);
+          setTimeout(function() { videoList(array[0])}, 5000)
         }
- 
- dreamPlaylist(userList.cueList)
+
+ // dreamPlaylist(userList.cueList)
 
 
 
- 
+      var player;
+      function onYouTubeIframeAPIReady() {
+
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          'videoId': userList.playList,
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange,
+          },
+        });
+      }

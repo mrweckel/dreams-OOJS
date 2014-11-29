@@ -73,18 +73,21 @@ YouTubeData.Account = {
       } else {
         // Get the jQuery wrapper for #video-list once outside the loop.
 
-        console.log(response.items);
-
-
-
+        // console.log(response.items[0].id);
+        videos_collection;
+        // console.log(videos_collection);
         YouTubeData.View.showVideoTitles(response);
+
+
+
 
       }
     });
   }
 }
 
-var videos_collection = [];
+        var videos_collection = [];
+        var userList;
 
 YouTubeData.View = {
 
@@ -111,7 +114,19 @@ YouTubeData.View = {
       aElement.attr('href', '#');
       aElement.text(title);
       aElement.click(function() {
-        videos_collection.push(videoId)
+        // for(var i=0; i<response.items.length; i++){
+        //   videos_collection[i] = response.items[i].id
+        // }
+
+        videos_collection = videos_collection.concat(['4H1vINZnm14', 'YMlG5YYTY1Q', 'jIq_CzIntrE'])
+        // console.log(response.items);
+        // videos_collection = videos_collection.concat(response.items);
+        console.log(videos_collection);
+
+        userList = new VideoMaker(videos_collection);
+        onYouTubeIframeAPIReady();
+
+
         //  this is the part that needs to put in the array for
       });
 
