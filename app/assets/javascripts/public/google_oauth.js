@@ -18,8 +18,8 @@ var GoogleAuth = {}
         client_id: GoogleAuth.Keys.client_id,
         scope: GoogleAuth.Keys.scopes,
         immediate: false },
-        GoogleAuth.Controller.handleAuthResult;
-      },
+        GoogleAuth.Controller.handleAuthResult);
+    },
 
 
   // Handle the result of a gapi.auth.authorize() call.
@@ -40,7 +40,8 @@ var GoogleAuth = {}
         url: "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=" + token,
         dataType:'JSON'
       }).done(function(data){
-        // Use to send data to
+        // Use to send auth data to elsewhere
+        console.log(data);
       });
 
 
