@@ -7,3 +7,24 @@
   height: 2px;
   background: #dbe4eb;
 }
+
+.loadbar-btn {
+  -moz-box-shadow: 0 1px 1px #874;
+  -webkit-box-shadow: 0 1px 1px #874;
+  box-shadow: 0 1px 1px #874;
+  color: BLACK;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 1px 0 #bbb;
+  display: inline;
+  padding: 0.6em 2em;
+  border: 1px #761 solid;
+  background: -moz-linear-gradient(top, #ddaa55, #998811);
+  background: -webkit-linear-gradient(top, #ddaa55, #998811);
+  background: linear-gradient(to bottom, #ddaa55, #998811);
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+

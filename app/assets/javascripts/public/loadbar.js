@@ -1,4 +1,4 @@
-(function() {
+
   var doProgress, setProgressBarWidth;
 
   setProgressBarWidth = function(width) {
@@ -7,17 +7,25 @@
 
   doProgress = function(done) {
     return setTimeout((function() {}, setProgressBarWidth("30%"), setTimeout((function() {
-      setProgressBarWidth("60%");
+      setProgressBarWidth("35%");
       return setTimeout((function() {
         setProgressBarWidth("100%");
         return setTimeout((function() {
           return done();
-        }), 1400);
-      }), 1500);
-    }), 1300)), 1000);
+        }), 3000);
+      }), 3000);
+    }), 1500)), 1500);
   };
 
   doProgress(function() {
     return setProgressBarWidth("0");
   });
-}).call(this);
+
+
+$(document).ready(function(){
+  $('.loadbar-btn').click(function() {
+    return doProgress(function() {
+      return setProgressBarWidth("0");
+    });
+  });
+});
