@@ -20,11 +20,4 @@
   doProgress(function() {
     return setProgressBarWidth("0");
   });
-
-  $('.js-do-progress').click(function() {
-    return doProgress(function() {
-      return setProgressBarWidth("0");
-    });
-  });
-
 }).call(this);
