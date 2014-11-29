@@ -1,20 +1,4 @@
 /* http://nanobar.micronube.com/  ||  https://github.com/jacoborus/nanobar/    MIT LICENSE */
-var options = {
-  bg: '#acf',
-  // leave target blank for global nanobar
-  target: document.getElementById('myDivId'),
-  // id for new nanobar
-  id: 'mynano'
-};
-
-var nanobar = new Nanobar( options );
-
-//move bar
-nanobar.go( 30 ); // size bar 30%
-
-// Finish progress bar
-nanobar.go(100);
-
 console.log("in nanobar.js file");
 var Nanobar = (function () {
 
@@ -147,3 +131,4 @@ console.log("in Nanobar function");
 		}
 	};
 });
+
