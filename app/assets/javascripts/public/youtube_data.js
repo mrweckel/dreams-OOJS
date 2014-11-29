@@ -78,7 +78,7 @@ YouTubeData.Account = {
         // console.log(videos_collection);
         YouTubeData.View.showVideoTitles(response);
 
-
+        VideoPlayer.main(response.items);
 
 
       }
