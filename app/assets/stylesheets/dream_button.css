@@ -23,13 +23,13 @@
 }
 
 .login a:hover{
-	color: black;
-	background-color: white;
-	border: solid white .1em;
+color: black;
+background-color: white;
+border: solid white .1em;
 }
 
 .login a:active{
-	color: black;
-	background-color: white;
-	border: solid white .1em;
+color: black;
+background-color: white;
+border: solid white .1em;
 }
