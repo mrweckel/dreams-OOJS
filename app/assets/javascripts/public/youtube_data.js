@@ -73,18 +73,21 @@ YouTubeData.Account = {
       } else {
         // Get the jQuery wrapper for #video-list once outside the loop.
 
-        console.log(response.items);
-
-
-
+        // console.log(response.items[0].id);
+        videos_collection;
+        // console.log(videos_collection);
         YouTubeData.View.showVideoTitles(response);
+
+        VideoPlayer.main(response.items);
+
 
       }
     });
   }
 }
 
-var videos_collection = [];
+        var videos_collection = [];
+        var userList;
 
 YouTubeData.View = {
 
@@ -111,8 +114,9 @@ YouTubeData.View = {
       aElement.attr('href', '#');
       aElement.text(title);
       aElement.click(function() {
-        videos_collection.push(videoId)
-        //  this is the part that needs to put in the array for
+
+        // can use this for clicking on stuff, if needed.
+        // should be DRYed out though....
       });
 
       // Call the jQuery.append() method to add the new <a> element to
