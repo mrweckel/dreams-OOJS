@@ -10,6 +10,8 @@ YouTubeData.Account = {
       part: 'id, contentDetails'
     });
     request.execute(function(response) {
+    console.log("printing response from getUserChannel");
+    console.log(response);
       if ('error' in response) {
         displayMessage(response.error.message);
       } else {
