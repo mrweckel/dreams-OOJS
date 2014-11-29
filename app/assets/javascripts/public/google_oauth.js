@@ -18,8 +18,8 @@ var GoogleAuth = {}
         client_id: GoogleAuth.Keys.client_id,
         scope: GoogleAuth.Keys.scopes,
         immediate: false },
-        GoogleAuth.Controller.handleAuthResult;
-      },
+        GoogleAuth.Controller.handleAuthResult);
+    },
 
 
   // Handle the result of a gapi.auth.authorize() call.
