@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def create
+<<<<<<< HEAD
     if !User.exists?(user_id: params[:userId])
       @user = User.new(user_id: params[:userId])
       if @user.save
@@ -27,4 +28,15 @@ class UsersController < ApplicationController
     params.require(:user).permit!
   end
 
+=======
+    @user = User.create(user_params)
+    redirect_to
+  end
+
+  # Use this to privatize user's google/youtube id
+  # def user_params
+  #   params.require(:user).permit(:YT_uid)
+  # end
+
+>>>>>>> Sets up create new account with user's youtube id params
 end
