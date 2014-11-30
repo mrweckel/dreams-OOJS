@@ -29,10 +29,12 @@ var GoogleAuth = {}
         // that should be visible after auth succeeds.
         GoogleAuth.View.authSuccess();
         console.log(authResult);
+        $('#menu-toggle').fadeOut('fast');
+        setTimeout(LoadBar.Controller.go, 1000);
 
-        return LoadBar.Controller.doProgress(function() {
-          return LoadBar.Controller.setProgressBarWidth("0");
-        });
+        // return LoadBar.Controller.doProgress(function() {
+        //   return LoadBar.Controller.setProgressBarWidth("0");
+        // });
 
 
         // GoogleAuth.Controller.loadAPIClientInterfaces();
@@ -95,7 +97,7 @@ var GoogleAuth = {}
 $(document).ready(function(){
       $(".modal-btn").on("click","a", function(event){
           event.preventDefault();
-          $("#dream-modal").fadeOut('fast');
+          $("#dream-modal").hide();
           gapi.auth.init(function() {
             window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
             //

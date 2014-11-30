@@ -16,13 +16,10 @@ var LoadBar = {}
         }), 3000);
       }), 3000);
     }), 1500)), 1500);
-    }
-  }
+    },
 
-$(document).ready(function(){
-  $('.loadbar-btn').click(function() {
-    return LoadBar.Controller.doProgress(function() {
+    go: function() {return LoadBar.Controller.doProgress(function() {
       return LoadBar.Controller.setProgressBarWidth("0");
-    });
-  });
-});
+           });
+        }
+  }
