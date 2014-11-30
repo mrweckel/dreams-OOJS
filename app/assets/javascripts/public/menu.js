@@ -8,4 +8,14 @@ $(document).ready(function () {
 			$('#menu-toggle').addClass('open');
 		}
 	});
+
+  $('a#dream-btn').click(function(event){
+    event.preventDefault();
+    if($('#dreams-select').hasClass('open')){
+      $('#menu').removeClass('open');
+      $('#dreams-select').removeClass('open');
+    } else {
+      $('#dreams-select').addClass('open');
+    }
+  })
 });
