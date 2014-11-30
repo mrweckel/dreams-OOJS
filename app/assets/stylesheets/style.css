@@ -58,7 +58,7 @@ a {
 
 #lean_overlay {
     position: fixed;
-    z-index:100;
+    z-index: 98;
     top: 0px;
     left: 0px;
     height:100%;
@@ -71,6 +71,8 @@ a {
   display:none;
   width: 800px;
   height: 400px;
+  position: absolute;
+
   /*background-color: #FFF;*/
 
 }
