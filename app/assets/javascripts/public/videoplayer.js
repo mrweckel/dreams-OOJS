@@ -20,8 +20,6 @@ VideoPlayer = {
       this.cueList = this.cueList.concat(userVideos)
     }
 
-
-
     var userList1 = new VideoMaker(videos)
 
     function onPlayerReady(event) {
@@ -33,7 +31,7 @@ VideoPlayer = {
       console.log(event.data)
 
       if (event.data == YT.PlayerState.PLAYING && !done) {
-        setTimeout(stopVideo, 6000);
+        setTimeout(stopVideo, 10000);
         done = true;
       }
     }
@@ -66,7 +64,7 @@ VideoPlayer = {
 
 
     function videoTimer(array) {
-      setTimeout(function() { videoList(array[0])}, 20000)
+      setTimeout(function() { videoList(array[0])}, 12000)
     }
 
     player = new YT.Player('player', {
