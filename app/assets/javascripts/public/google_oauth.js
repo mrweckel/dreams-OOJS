@@ -90,6 +90,7 @@ var GoogleAuth = {}
 $(document).ready(function(){
       $(".modal-btn").on("click","a", function(event){
           event.preventDefault();
+          $("#dream-modal").fadeOut('fast');
           gapi.auth.init(function() {
             window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
             //
@@ -104,7 +105,8 @@ GoogleAuth.Controller.loadAPIClientInterfaces = function() {
       // After both client interfaces load, use the Data API to request
       // information about the authenticated user's channel.
       YouTubeData.Account.getUserChannel();
-      $('#dreams-select').addClass('open')
+      // $('#dreams-select').addClass('open');
+
     });
   });
 }
