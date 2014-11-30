@@ -94,7 +94,7 @@ YouTubeData.Account = {
             }
         }
 
-        VideoPlayer.main(response.items);
+        // VideoPlayer.main(response.items);
 
         console.log(response.items)
         user_uploaded_videos = [];
@@ -110,15 +110,10 @@ YouTubeData.Account = {
             user_videos_player2.push(user_uploaded_videos[i])
             }
         }
-        VideoPlayer.main(user_videos_player1)
-        VideoPlayer.main(user_videos_player)
 
-//         var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
-// => [2, 4, 6]
+        VideoPlayer.main(user_videos_player1);
+        VideoPlayer2.main(user_videos_player2);
 
-
-        VideoPlayer.main(user_videos_player1));
-        VideoPlayer2.main(user_videos_player2));
 
       }
     });
