@@ -110,7 +110,7 @@ GoogleAuth.Controller.loadAPIClientInterfaces = function() {
       // After both client interfaces load, use the Data API to request
       // information about the authenticated user's channel.
       YouTubeData.Account.getUserChannel();
-      // $e('#dreams-select').addClass('open');
+      // $('#dreams-select').addClass('open');
 
     });
   });
