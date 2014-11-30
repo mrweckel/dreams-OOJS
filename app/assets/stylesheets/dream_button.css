@@ -3,10 +3,11 @@
 	height: 400px;
 	margin: auto;
 	text-align: center;
+	/*position: fixed;*/
 }
 
 .login {
-	margin-top:25%;
+	margin-top: 20%;
 }
 
 .login a{
