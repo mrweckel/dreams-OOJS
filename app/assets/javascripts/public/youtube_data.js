@@ -101,7 +101,7 @@ YouTubeData.Account = {
         }
 
         // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
-        var myVideo2 = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "ORhEE9VVg", "qYZF6oIZtfc", "yHvFL92RXP4", "b1XGPvbWn0A"]
+        var myVideo2 = ["l-gQLqv9f4o", "OPdbdjctx2I", "I3anjdi8lB4", "veFZPU8G8EU", "_ptjpy_oShY", "ORhEE9VVg", "za2rJeIa9KQ", "yHvFL92RXP4", "b1XGPvbWn0A"]
 
 
         VideoPlayer.main(videoArr);
@@ -121,7 +121,7 @@ YouTubeData.Account = {
                               }, 40000);
         setTimeout(function() { $('#player').hide()
                                 $('#ytplayer').show()
-                              }, 51000);
+                              }, 52000);
         setTimeout(function() { $('#ytplayer').hide()
                                 $('#player').show()
                               }, 59000);
