@@ -85,7 +85,7 @@ YouTubeData.Account = {
         user_videos_player2 = [];
         user_uploaded_videos = user_uploaded_videos.concat(response.items)
         console.log(user_uploaded_videos)
-        
+
         for(i = 0; i < user_uploaded_videos.length; i++) {
           if(i % 2 === 0) {
             user_videos_player1.push(user_uploaded_videos[i])
