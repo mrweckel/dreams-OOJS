@@ -10,8 +10,6 @@ YouTubeData.Account = {
       part: 'id, contentDetails'
     });
     request.execute(function(response) {
-    console.log("printing response from getUserChannel");
-    console.log(response);
       if ('error' in response) {
         displayMessage(response.error.message);
       } else {
@@ -167,7 +165,7 @@ YouTubeData.View = {
       // the <li> element, and the <li> element to the parent
       // list, which is identified by the 'videoList' variable.
       liElement.append(aElement);
-      videoList.append(liElement);
+      $('#dreams-select').append(liElement);
     });
 
     if (videoList.children().length == 0) {

@@ -10,6 +10,18 @@
 	box-shadow: 0px 0px 30px black;
 }
 
+#dreams-select {
+	transition: all 1s ease;
+	position: fixed;
+	width: 0%;
+	top: 0;
+	left: -200px;
+	background-color:rgba(0, 0, 0, 0.5);
+	height: 100%;
+	z-index: 999;
+	box-shadow: 0px 0px 30px black;
+}
+
 #menu h1{
 	font-family: 'Oswald', sans-serif;
 	color: white;
@@ -64,4 +76,10 @@
 
 #menu-toggle.open {
 	left: 400px;
+}
+
+#dreams-select.open {
+	left: 0;
+	width: 400px;
+	display: block;
 }
