@@ -116,7 +116,10 @@ VideoPlayer = {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f9b1c9ab32f6cbfb39d42b686227da7fb4e8b15d
 VideoPlayer2 = {
   main: function(videos) {
     // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
@@ -205,6 +208,10 @@ VideoPlayer2 = {
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f9b1c9ab32f6cbfb39d42b686227da7fb4e8b15d
 // <script>
 //   // Load the IFrame Player API code asynchronously.
 //   var tag = document.createElement('script');
