@@ -35,9 +35,30 @@ VideoPlayer = {
       //   done = true;
       // }
       if (event.data == YT.PlayerState.PLAYING) {
-        setTimeout($('#player').fadeOut(3000), 4000)
+       setTimeout(function() {$('#player').fadeIn(3000)}, 10000)
+       setInterval( function() {if (player.getCurrentTime() > 8) {
+        $('#player').fadeOut(2000)
+        };}, 1000)
+        };
       }
-    }
+
+
+  // setInterval( function() {if (player.getCurrentTime() > 8) {
+  //   $('#player').fadeOut(3000)
+  // };}, 1000)
+
+
+
+
+  // if (player.getCurrentTime() > 8) {
+  //   $('#player').fadeOut(3000)
+  // };
+
+
+
+    // function fadeOutTimer() {
+    //   setTimeout(function() {$('#player').fadeOut(3000)}, 10000)
+    // }
 
     function stopVideo() {
       player.stopVideo();
@@ -67,7 +88,7 @@ VideoPlayer = {
 
 
     function videoTimer(array) {
-      setTimeout(function() { videoList(array[0])}, 12000)
+      setTimeout(function() { videoList(array[0])}, 10000)
     }
 
     player = new YT.Player('player', {
