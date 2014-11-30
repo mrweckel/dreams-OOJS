@@ -5,7 +5,6 @@ class CreateVideos < ActiveRecord::Migration
       t.string :YT_video_id
       t.string :start_time
       t.string :end_time
-      t.integer :order_number
 
       t.timestamps
     end
