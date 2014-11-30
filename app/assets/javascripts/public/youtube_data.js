@@ -105,24 +105,24 @@ YouTubeData.Account = {
 
 
         VideoPlayer.main(videoArr);
-        setTimeout(function() { $('#player').fadeOut(2000)
-                                $('#player').fadeIn(4000)
-                              }, 10000);
-        setTimeout(function() { $('#player').fadeOut(2000)
-                                $('#player').fadeIn(4000)
-                              }, 22000);
-        setTimeout(function() { $('#player').fadeOut(2000)
-                                $('#player').fadeIn(4000)
-                              }, 34000);
-        setTimeout(function() { $('#player').fadeOut(5000)
-                                $('#player').fadeIn(5000)
-                              }, 40000);
-        setTimeout(function() { $('#player').fadeOut(5000)
-                                $('#player').fadeIn(5000)
-                              }, 50000);
-        setTimeout(function() { $('#player').fadeOut(5000)
-                                $('#player').fadeIn(5000)
-                              }, 60000);
+        // setTimeout(function() { $('#player').fadeOut(2000)
+        //                         $('#player').fadeIn(4000)
+        //                       }, 10000);
+        // setTimeout(function() { $('#player').fadeOut(2000)
+        //                         $('#player').fadeIn(4000)
+        //                       }, 22000);
+        // setTimeout(function() { $('#player').fadeOut(2000)
+        //                         $('#player').fadeIn(4000)
+        //                       }, 34000);
+        // setTimeout(function() { $('#player').fadeOut(5000)
+        //                         $('#player').fadeIn(5000)
+        //                       }, 40000);
+        // setTimeout(function() { $('#player').fadeOut(5000)
+        //                         $('#player').fadeIn(5000)
+        //                       }, 50000);
+        // setTimeout(function() { $('#player').fadeOut(5000)
+        //                         $('#player').fadeIn(5000)
+        //                       }, 60000);
       }
     });
   }
