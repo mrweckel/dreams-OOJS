@@ -110,9 +110,12 @@ YouTubeData.Account = {
             user_videos_player2.push(user_uploaded_videos[i])
             }
         }
+        // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
+        var myVideo2 = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
+        
 
         VideoPlayer.main(user_videos_player1);
-        VideoPlayer2.main(user_videos_player2);
+        VideoPlayer2.main(myVideo2);
 
 
       }

@@ -27,16 +27,18 @@ function onYouTubeIframeAPIReady() {
 
   // VideoPlayer.main();
 
+
+
 }
 
 VideoPlayer = {
   main: function(videos) {
-    // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
+    var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
 
-    var myVideo = [];
-    for(var i = 0; i < videos.length; i++) {
-      myVideo[i] = videos[i].id;
-    }
+    // var myVideo = [];
+    // for(var i = 0; i < videos.length; i++) {
+    //   myVideo[i] = videos[i].id;
+    // }
 
     console.log(myVideo);
 
@@ -49,7 +51,7 @@ VideoPlayer = {
 
 
 
-    var userList = new VideoMaker(myVideo)
+    var userList1 = new VideoMaker(myVideo)
     // 3. This function creates an <iframe> (and YouTube player)
     //    after the API code downloads.
 
@@ -87,7 +89,7 @@ VideoPlayer = {
         'endSeconds': 10,
         'suggestedQuality': 'large'});
 
-      dreamPlaylist(userList.cueList);
+      dreamPlaylist(userList1.cueList);
     }
 
 
@@ -105,25 +107,25 @@ VideoPlayer = {
     player = new YT.Player('player', {
       height: '390',
       width: '640',
-      'videoId': userList.playList,
+      'videoId': userList1.playList,
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange,
       },
     });
 
-    dreamPlaylist(userList.cueList)
+    dreamPlaylist(userList1.cueList)
   }
 }
 
 VideoPlayer2 = {
   main: function(videos) {
-    // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
+    var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
 
-    var myVideo = [];
-    for(var i = 0; i < videos.length; i++) {
-      myVideo[i] = videos[i].id;
-    }
+    // var myVideo = [];
+    // for(var i = 0; i < videos.length; i++) {
+    //   myVideo[i] = videos[i].id;
+    // }
 
     console.log(myVideo);
 
@@ -204,21 +206,3 @@ VideoPlayer2 = {
 }
 
 
-// <script>
-//   // Load the IFrame Player API code asynchronously.
-//   var tag = document.createElement('script');
-//   tag.src = "https://www.youtube.com/player_api";
-//   var firstScriptTag = document.getElementsByTagName('script')[0];
-//   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-//   // Replace the 'ytplayer' element with an <iframe> and
-//   // YouTube player after the API code downloads.
-//   var player;
-//   function onYouTubePlayerAPIReady() {
-//     player = new YT.Player('ytplayer', {
-//       height: '390',
-//       width: '640',
-//       videoId: 'M7lc1UVf-VE'
-//     });
-//   }
-// </script>
