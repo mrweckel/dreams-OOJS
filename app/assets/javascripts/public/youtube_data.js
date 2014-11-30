@@ -94,8 +94,8 @@ YouTubeData.Account = {
             }
         }
 
-        VideoPlayer.main(user_videos_player1));
-        VideoPlayer2.main(user_videos_player2));
+        VideoPlayer.main(user_videos_player1);
+        VideoPlayer2.main(user_videos_player2);
 
       }
     });
