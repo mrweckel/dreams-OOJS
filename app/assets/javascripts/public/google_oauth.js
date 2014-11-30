@@ -87,15 +87,15 @@ var GoogleAuth = {}
     }
 }
 
-$(document).ready(function(){
-      $(".login").on("click","a#dream-btn", function(event){
-          event.preventDefault();
-          gapi.auth.init(function() {
-            window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
-            //
-        });
-      });
-    });
+// $(document).ready(function(){
+//       $(".login").on("click","a#dream-btn", function(event){
+//           event.preventDefault();
+//           gapi.auth.init(function() {
+//             window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
+//             //
+//         });
+//       });
+//     });
   /* In later steps, add additional functions above this line. */
 
 GoogleAuth.Controller.loadAPIClientInterfaces = function() {
