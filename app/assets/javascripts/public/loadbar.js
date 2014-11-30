@@ -6,10 +6,11 @@ var LoadBar = {}
     },
 
     doProgress: function(done){
-    return setTimeout((function() {}, setProgressBarWidth("30%"), setTimeout((function() {
-      setProgressBarWidth("35%");
+      var self = this;
+    return setTimeout((function() {}, self.setProgressBarWidth("33%"), setTimeout((function() {
+      self.setProgressBarWidth("66%");
       return setTimeout((function() {
-        setProgressBarWidth("100%");
+        self.setProgressBarWidth("100%");
         return setTimeout((function() {
           return done();
         }), 3000);
@@ -18,11 +19,10 @@ var LoadBar = {}
     }
   }
 
-
 $(document).ready(function(){
   $('.loadbar-btn').click(function() {
     return LoadBar.Controller.doProgress(function() {
-      return setProgressBarWidth("0");
+      return LoadBar.Controller.setProgressBarWidth("0");
     });
   });
 });
