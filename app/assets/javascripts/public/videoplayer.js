@@ -27,16 +27,18 @@ function onYouTubeIframeAPIReady() {
 
   // VideoPlayer.main();
 
+
+
 }
 
 VideoPlayer = {
   main: function(videos) {
-    // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
+    var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
 
-    var myVideo = [];
-    for(var i = 0; i < videos.length; i++) {
-      myVideo[i] = videos[i].id;
-    }
+    // var myVideo = [];
+    // for(var i = 0; i < videos.length; i++) {
+    //   myVideo[i] = videos[i].id;
+    // }
 
     console.log(myVideo);
 
@@ -49,7 +51,7 @@ VideoPlayer = {
 
 
 
-    var userList = new VideoMaker(myVideo)
+    var userList1 = new VideoMaker(myVideo)
     // 3. This function creates an <iframe> (and YouTube player)
     //    after the API code downloads.
 
@@ -87,7 +89,7 @@ VideoPlayer = {
         'endSeconds': 10,
         'suggestedQuality': 'large'});
 
-      dreamPlaylist(userList.cueList);
+      dreamPlaylist(userList1.cueList);
     }
 
 
@@ -105,25 +107,25 @@ VideoPlayer = {
     player = new YT.Player('player', {
       height: '390',
       width: '640',
-      'videoId': userList.playList,
+      'videoId': userList1.playList,
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange,
       },
     });
 
-    dreamPlaylist(userList.cueList)
+    dreamPlaylist(userList1.cueList)
   }
 }
 
 VideoPlayer2 = {
   main: function(videos) {
-    // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
+    var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
 
-    var myVideo = [];
-    for(var i = 0; i < videos.length; i++) {
-      myVideo[i] = videos[i].id;
-    }
+    // var myVideo = [];
+    // for(var i = 0; i < videos.length; i++) {
+    //   myVideo[i] = videos[i].id;
+    // }
 
     console.log(myVideo);
 
