@@ -43,6 +43,11 @@ VideoPlayer = {
       }
 
 
+    function onPlayerError(event) {
+      console.log(event);
+    }
+
+
   // setInterval( function() {if (player.getCurrentTime() > 8) {
   //   $('#player').fadeOut(3000)
   // };}, 1000)
@@ -88,8 +93,12 @@ VideoPlayer = {
 
 
     function videoTimer(array) {
-      setTimeout(function() { videoList(array[0])}, 10000)
+      if(array.length > 0) {
+        setTimeout(function() { videoList(array[0])}, 10000);
+      }
     }
+
+
 
     player = new YT.Player('player', {
       height: '720',
@@ -103,6 +112,7 @@ VideoPlayer = {
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange,
+        'onError': onPlayerError
       },
     });
 
