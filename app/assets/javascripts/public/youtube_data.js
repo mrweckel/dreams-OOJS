@@ -86,9 +86,6 @@ YouTubeData.Account = {
         user_videos_player2 = [];
         user_uploaded_videos = user_uploaded_videos.concat(response.items)
         console.log(user_uploaded_videos)
-<<<<<<< HEAD
-=======
-        
         for(i = 0; i < user_uploaded_videos.length; i++) {
           if(i % 2 === 0) {
             user_videos_player1.push(user_uploaded_videos[i])
@@ -99,20 +96,6 @@ YouTubeData.Account = {
 
         VideoPlayer.main(user_videos_player1)
         VideoPlayer.main(user_videos_player)
-
-//         var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
-// => [2, 4, 6]
->>>>>>> add filter logic for the collection of user videos
-
-        for(i = 0; i < user_uploaded_videos.length; i++) {
-          if(i % 2 === 0) {
-            user_videos_player1.push(user_uploaded_videos[i])
-            } else {
-            user_videos_player2.push(user_uploaded_videos[i])
-            }
-        }
-        VideoPlayer.main(user_videos_player1);
-        VideoPlayer2.main(user_videos_player2);
 
       }
     });
