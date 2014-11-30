@@ -33,14 +33,14 @@ function onYouTubeIframeAPIReady() {
 
 VideoPlayer = {
   main: function(videos) {
-    var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
+    // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
 
     // var myVideo = [];
     // for(var i = 0; i < videos.length; i++) {
     //   myVideo[i] = videos[i].id;
     // }
 
-    console.log(myVideo);
+    // console.log(myVideo);
 
     VideoMaker = function(userVideos) {
       this.playList = [];
@@ -51,7 +51,7 @@ VideoPlayer = {
 
 
 
-    var userList1 = new VideoMaker(myVideo)
+    var userList1 = new VideoMaker(videos)
     // 3. This function creates an <iframe> (and YouTube player)
     //    after the API code downloads.
 
@@ -101,7 +101,7 @@ VideoPlayer = {
 
 
     function videoTimer(array) {
-      setTimeout(function() { videoList(array[0])}, 10000)
+      setTimeout(function() { videoList(array[0])}, 20000)
     }
 
     player = new YT.Player('player', {
@@ -120,14 +120,14 @@ VideoPlayer = {
 
 VideoPlayer2 = {
   main: function(videos) {
-    var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
+    // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
 
     // var myVideo = [];
     // for(var i = 0; i < videos.length; i++) {
     //   myVideo[i] = videos[i].id;
     // }
 
-    console.log(myVideo);
+    // console.log(myVideo);
 
     VideoMaker = function(userVideos) {
       this.playList = [];
@@ -138,7 +138,7 @@ VideoPlayer2 = {
 
 
 
-    var userList2 = new VideoMaker(myVideo)
+    var userList2 = new VideoMaker(videos)
     // 3. This function creates an <iframe> (and YouTube player)
     //    after the API code downloads.
 
@@ -154,10 +154,10 @@ VideoPlayer2 = {
     function onPlayerStateChange(event) {
       console.log(event.data)
 
-      if (event.data == YT.PlayerState.PLAYING && !done) {
-        setTimeout(stopVideo, 6000);
-        done = true;
-      }
+      // if (event.data == YT.PlayerState.PLAYING && !done) {
+      //   setTimeout(stopVideo, 6000);
+      //   done = true;
+      // }
     }
 
     function stopVideo() {
@@ -173,7 +173,7 @@ VideoPlayer2 = {
       player.loadVideoById({
         'videoId': video,
         'startSeconds': 2,
-        'endSeconds': 10,
+        'endSeconds': 22,
         'suggestedQuality': 'large'});
 
       dreamPlaylist(userList2.cueList);

@@ -79,22 +79,6 @@ YouTubeData.Account = {
         YouTubeData.View.showVideoTitles(response);
 
         // VideoPlayer.main(response.items);
-        console.log(response.items)
-        user_uploaded_videos = [];
-        user_videos_player1 = [];
-        user_videos_player2 = [];
-        user_uploaded_videos = user_uploaded_videos.concat(response.items)
-        console.log(user_uploaded_videos)
-        
-        for(i = 0; i < user_uploaded_videos.length; i++) {
-          if(i % 2 === 0) {
-            user_videos_player1.push(user_uploaded_videos[i])
-            } else {
-            user_videos_player2.push(user_uploaded_videos[i])
-            }
-        }
-
-        // VideoPlayer.main(response.items);
 
         console.log(response.items)
         user_uploaded_videos = [];
@@ -110,12 +94,25 @@ YouTubeData.Account = {
             user_videos_player2.push(user_uploaded_videos[i])
             }
         }
+
+        var videoArr = [];
+        for(var i = 0; i < response.items.length; i++) {
+          videoArr[i] = response.items[i].id;
+        }
+
         // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
         var myVideo2 = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
         
 
-        VideoPlayer.main(user_videos_player1);
+        VideoPlayer.main(videoArr);
+        $('#ytplayer').hide()
         VideoPlayer2.main(myVideo2);
+        setTimeout(function() { $('#player').hide()
+                                $('#ytplayer').show()
+                              }, 12000);
+        setTimeout(function() { $('#ytplayer').hide()
+                                $('#player').show()
+                              }, 20000);
 
 
       }
