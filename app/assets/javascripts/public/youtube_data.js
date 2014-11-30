@@ -135,7 +135,6 @@ YouTubeData.View = {
       if (this.statistics.viewCount == 0) {
         return;
       }
-
       var title = this.snippet.title;
       var videoId = this.id;
 
@@ -148,8 +147,10 @@ YouTubeData.View = {
       // <a> element as a clickable link.
       aElement.attr('href', '#');
       aElement.text(title);
-      aElement.click(function() {
-
+      aElement.click(function() { 
+        console.log(videoId)
+        videos_collection.push(videoId)
+        console.log(videos_collection)
         // can use this for clicking on stuff, if needed.
         // should be DRYed out though....
       });
