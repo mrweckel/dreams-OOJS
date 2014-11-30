@@ -43,6 +43,11 @@ VideoPlayer = {
       }
 
 
+    function onPlayerError(event) {
+      console.log(event);
+    }
+
+
   // setInterval( function() {if (player.getCurrentTime() > 8) {
   //   $('#player').fadeOut(3000)
   // };}, 1000)
@@ -103,6 +108,7 @@ VideoPlayer = {
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange,
+        'onError': onPlayerError
       },
     });
 
