@@ -31,7 +31,8 @@ YouTubeData.Account = {
     // https://developers.google.com/youtube/v3/docs/playlistItems/list
     var request = gapi.client.youtube.playlistItems.list({
       playlistId: listId,
-      part: 'snippet'
+      part: 'snippet',
+      maxResults: 50
     });
 
     request.execute(function(response) {
