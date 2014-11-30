@@ -13,14 +13,47 @@ a {
   top:50%;
   left:50%;
   width:400px;  /* adjust as per your needs */
-  height:200px;   /* adjust as per your needs */
-  margin-left:-150px;   /* negative half of width above */
+  height:0px;   /* adjust as per your needs */
+  margin-left:-200px;   /* negative half of width above */
   margin-top:-150px;
+  text-align: center;
 
 }
 
-#modal-font{
+#modal-font.signin{
   color: #FFF;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:400px;  /* adjust as per your needs */
+  height:25px;   /* adjust as per your needs */
+  margin-left:-200px;   /* negative half of width above */
+  margin-top:-75px;
+  text-align: center;
+}
+
+#modal-font.or{
+  color: #FFF;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:400px;  /* adjust as per your needs */
+  height:25px;   /* adjust as per your needs */
+  margin-left:-200px;   /* negative half of width above */
+  margin-top:25px;
+  text-align: center;
+}
+
+#modal-font.random{
+  color: #FFF;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:400px;  /* adjust as per your needs */
+  height:25px;   /* adjust as per your needs */
+  margin-left:-200px;   /* negative half of width above */
+  margin-top:50px;
+  text-align: center;
 }
 
 #lean_overlay {
@@ -42,20 +75,21 @@ a {
 
 }
 
-.modal-div{
+.modal-btn{
   width: 300px;
   height: 400px;
   margin: auto;
   text-align: center;
+  z-index: 11001;
   /*position: fixed;*/
 }
 
-.modal-div {
+.modal-btn{
   margin-top: 20%;
 }
 
-.modal-div a{
-  font-size: 2em;
+.modal-btn a{
+  font-size: 1em;
   text-decoration: none;
   background-color:rgba(0, 0, 0, 0.5);
   border: solid white .1em;
@@ -67,13 +101,13 @@ a {
   transition: background-color .5s;
 }
 
-.modal-div a:hover{
+.modal-btn a:hover{
   color: black;
   background-color: white;
   border: solid white .1em;
 }
 
-.modal-div a:active{
+.modal-btn a:active{
   color: black;
   background-color: white;
   border: solid white .1em;
