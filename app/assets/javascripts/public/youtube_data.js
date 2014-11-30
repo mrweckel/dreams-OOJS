@@ -105,24 +105,22 @@ YouTubeData.Account = {
 
 
         VideoPlayer.main(videoArr);
-        $('#ytplayer').hide()
-        VideoPlayer2.main(myVideo2);
+        setTimeout(function() { $('#player').fadeOut(5000)
+                                $('#player').fadeIn(5000)
+                              }, 5000);
         setTimeout(function() { $('#player').hide()
-                                $('#ytplayer').show()
-                              }, 12000);
-        setTimeout(function() { $('#ytplayer').hide()
                                 $('#player').show()
                               }, 20000);
         setTimeout(function() { $('#player').hide()
-                                $('#ytplayer').show()
+                                $('#player').show()
                               }, 32000);
-        setTimeout(function() { $('#ytplayer').hide()
+        setTimeout(function() { $('#player').hide()
                                 $('#player').show()
                               }, 40000);
         setTimeout(function() { $('#player').hide()
-                                $('#ytplayer').show()
+                                $('#player').show()
                               }, 52000);
-        setTimeout(function() { $('#ytplayer').hide()
+        setTimeout(function() { $('#player').hide()
                                 $('#player').show()
                               }, 59000);
       }

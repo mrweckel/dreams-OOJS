@@ -33,14 +33,6 @@ function onYouTubeIframeAPIReady() {
 
 VideoPlayer = {
   main: function(videos) {
-    // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
-
-    // var myVideo = [];
-    // for(var i = 0; i < videos.length; i++) {
-    //   myVideo[i] = videos[i].id;
-    // }
-
-    // console.log(myVideo);
 
     VideoMaker = function(userVideos) {
       this.playList = [];
@@ -85,8 +77,8 @@ VideoPlayer = {
     function playTheVideo(video) {
       player.loadVideoById({
         'videoId': video,
-        'startSeconds': 5,
-        'endSeconds': 10,
+        'startSeconds': 2,
+        'endSeconds': 12,
         'suggestedQuality': 'large'});
 
       dreamPlaylist(userList1.cueList);
