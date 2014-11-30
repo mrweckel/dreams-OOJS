@@ -13,11 +13,8 @@ matt = User.create([{google_username: "weckz", YT_uid: "abc123"}])
 dream1 = Dream.create(dream_name: "sports")
 dream2 = Dream.create(dream_name: "children")
 
-video1 = Video.create([{YT_video_id: 1, start_time:"2", end_time:"12"}])
-video2 = Video.create([{YT_video_id: 2, start_time:"3", end_time:"13"}])
+video1 = Video.create(YT_video_id: 1, start_time:"2", end_time:"12")
+video2 = Video.create(YT_video_id: 2, start_time:"3", end_time:"13")
 
 dream1.videos << video1
 dream2.videos << video2
-
-james.dreams << dream1
-matt.dreams << dream2

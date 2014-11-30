@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20141130183643) do
 
   create_table "videos", force: true do |t|
     t.integer  "dream_id"
+    t.integer  "user_id"
     t.string   "YT_video_id"
     t.string   "start_time"
     t.string   "end_time"
