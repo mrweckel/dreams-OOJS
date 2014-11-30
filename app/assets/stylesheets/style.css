@@ -9,6 +9,14 @@ a {
 
 #modal-header {
   color: #FFF;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:400px;  /* adjust as per your needs */
+  height:200px;   /* adjust as per your needs */
+  margin-left:-150px;   /* negative half of width above */
+  margin-top:-150px;
+
 }
 
 #modal-font{
