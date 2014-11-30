@@ -1,3 +1,7 @@
+body {
+  background-color: #000;
+}
+
 p {
 	font-family: 'Quattrocento', serif;
 }
@@ -113,4 +117,19 @@ a {
   color: black;
   background-color: white;
   border: solid white .1em;
+}
+
+.movieOff {
+    color: #FFFFFF;
+    text-align: center;
+
+    -webkit-transition: opacity 3s ease-in-out;
+    -moz-transition: opacity 3s ease-in-out;
+    -ms-transition: opacity 3s ease-in-out;
+    -o-transition: opacity 3s ease-in-out;
+     opacity: 1;
+}
+
+.movieOn {
+  display:block ;
 }
