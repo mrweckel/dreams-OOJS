@@ -30,9 +30,12 @@ VideoPlayer = {
     function onPlayerStateChange(event) {
       console.log(event.data)
 
-      if (event.data == YT.PlayerState.PLAYING && !done) {
-        setTimeout(stopVideo, 10000);
-        done = true;
+      // if (event.data == YT.PlayerState.PLAYING && !done) {
+      //   setTimeout(stopVideo, 10000);
+      //   done = true;
+      // }
+      if (event.data == YT.PlayerState.PLAYING) {
+        setTimeout($('#player').fadeOut(3000), 4000)
       }
     }
 
