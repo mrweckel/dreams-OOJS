@@ -1,21 +1,5 @@
-// Enter a client ID for a web application from the Google Developer Console.
-// The provided clientId will only work if the sample is run directly from
-// https://google-api-javascript-client.googlecode.com/hg/samples/authSample.html
-// In your Developer Console project, add a JavaScript origin that corresponds to the domain
-// where you will be running the script.
 var clientId = '974537623396-tvvr2jn442jsf1ifr4qblfhaje5cd0i2.apps.googleusercontent.com';
-
-// Enter the API key from the Google Develoepr Console - to handle any unauthenticated
-// requests in the code.
-// The provided key works for this sample only when run from
-// https://google-api-javascript-client.googlecode.com/hg/samples/authSample.html
-// To use in your own application, replace this API key with your own.
 var apiKey = 'AIzaSyBHlHFpUocBCj-VbXZXy5BKaIkvXh2jpgI';
-
-// // To enter one or more authentication scopes, refer to the documentation for the API.
-// var scopes = 'https://www.googleapis.com/auth/plus.me';
-
-// Use a button to handle authentication the first time.
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
@@ -24,23 +8,10 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 function onYouTubeIframeAPIReady() {
-
-  // VideoPlayer.main();
-
-
-
 }
 
 VideoPlayer = {
   main: function(videos) {
-    // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
-
-    // var myVideo = [];
-    // for(var i = 0; i < videos.length; i++) {
-    //   myVideo[i] = videos[i].id;
-    // }
-
-    // console.log(myVideo);
 
     VideoMaker = function(userVideos) {
       this.playList = [];
@@ -48,117 +19,46 @@ VideoPlayer = {
       this.playList = userVideos.shift()
       this.cueList = this.cueList.concat(userVideos)
     }
-
-
 
     var userList1 = new VideoMaker(videos)
-    // 3. This function creates an <iframe> (and YouTube player)
-    //    after the API code downloads.
 
-    // 4. The API will call this function when the video player is ready.
     function onPlayerReady(event) {
       event.target.playVideo();
     }
 
-    // 5. The API calls this function when the player's state changes.
-    //    The function indicates that when playing a video (state=1),
-    //    the player should play for six seconds and then stop.
-    var done = false;
-    function onPlayerStateChange(event) {
-      console.log(event.data)
-
-      if (event.data == YT.PlayerState.PLAYING && !done) {
-        setTimeout(stopVideo, 6000);
-        done = true;
-      }
-    }
-
-    function stopVideo() {
-      player.stopVideo();
-    }
-
-    function dreamPlaylist(videoarray) {
-      videoarray.shift()
-      videoTimer(videoarray)
-    }
-
-    function playTheVideo(video) {
-      player.loadVideoById({
-        'videoId': video,
-        'startSeconds': 5,
-        'endSeconds': 10,
-        'suggestedQuality': 'large'});
-
-      dreamPlaylist(userList1.cueList);
-    }
-
-
-    function videoList(videoId) {
-      playTheVideo(videoId);
-      player.playVideo();
-    }
-
-
-
-    function videoTimer(array) {
-      setTimeout(function() { videoList(array[0])}, 20000)
-    }
-
-    player = new YT.Player('player', {
-      height: '390',
-      width: '640',
-      'videoId': userList1.playList,
-      events: {
-        'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange,
-      },
-    });
-
-    dreamPlaylist(userList1.cueList)
-  }
-}
-
-VideoPlayer2 = {
-  main: function(videos) {
-    // var myVideo = ["l-gQLqv9f4o", "OPdbdjctx2I", "6IwmqLAp1Fk", "veFZPU8G8EU", "BPJ0729NVjw", "2v2IBLDJij8", "ORhEE9VVg"]
-
-    // var myVideo = [];
-    // for(var i = 0; i < videos.length; i++) {
-    //   myVideo[i] = videos[i].id;
-    // }
-
-    // console.log(myVideo);
-
-    VideoMaker = function(userVideos) {
-      this.playList = [];
-      this.cueList = [];
-      this.playList = userVideos.shift()
-      this.cueList = this.cueList.concat(userVideos)
-    }
-
-
-
-    var userList2 = new VideoMaker(videos)
-    // 3. This function creates an <iframe> (and YouTube player)
-    //    after the API code downloads.
-
-    // 4. The API will call this function when the video player is ready.
-    function onPlayerReady(event) {
-      event.target.playVideo();
-    }
-
-    // 5. The API calls this function when the player's state changes.
-    //    The function indicates that when playing a video (state=1),
-    //    the player should play for six seconds and then stop.
     var done = false;
     function onPlayerStateChange(event) {
       console.log(event.data)
 
       // if (event.data == YT.PlayerState.PLAYING && !done) {
-      //   setTimeout(stopVideo, 6000);
+      //   setTimeout(stopVideo, 10000);
       //   done = true;
       // }
-    }
+      if (event.data == YT.PlayerState.PLAYING) {
+       setTimeout(function() {$('#player').fadeIn(3000)}, 10000)
+       setInterval( function() {if (player.getCurrentTime() > 8) {
+        $('#player').fadeOut(2000)
+        };}, 1000)
+        };
+      }
+
+
+  // setInterval( function() {if (player.getCurrentTime() > 8) {
+  //   $('#player').fadeOut(3000)
+  // };}, 1000)
+
+
+
+
+  // if (player.getCurrentTime() > 8) {
+  //   $('#player').fadeOut(3000)
+  // };
+
+
+
+    // function fadeOutTimer() {
+    //   setTimeout(function() {$('#player').fadeOut(3000)}, 10000)
+    // }
 
     function stopVideo() {
       player.stopVideo();
@@ -173,10 +73,10 @@ VideoPlayer2 = {
       player.loadVideoById({
         'videoId': video,
         'startSeconds': 2,
-        'endSeconds': 22,
+        'endSeconds': 12,
         'suggestedQuality': 'large'});
 
-      dreamPlaylist(userList2.cueList);
+      dreamPlaylist(userList1.cueList);
     }
 
 
@@ -185,20 +85,28 @@ VideoPlayer2 = {
       player.playVideo();
     }
 
+
+
     function videoTimer(array) {
       setTimeout(function() { videoList(array[0])}, 10000)
     }
 
-    player = new YT.Player('ytplayer', {
-      height: '390',
-      width: '640',
-      'videoId': userList2.playList,
+    player = new YT.Player('player', {
+      height: '720',
+      width: '1280',
+      'videoId': userList1.playList,
+      playerVars: {
+        controls: 0,
+        disablekb: 1,
+        showinfo: 0
+      },
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange,
       },
     });
 
-    dreamPlaylist(userList2.cueList)
+    dreamPlaylist(userList1.cueList)
   }
 }
+
