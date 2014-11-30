@@ -93,8 +93,12 @@ VideoPlayer = {
 
 
     function videoTimer(array) {
-      setTimeout(function() { videoList(array[0])}, 10000)
+      if(array.length > 0) {
+        setTimeout(function() { videoList(array[0])}, 10000);
+      }
     }
+
+
 
     player = new YT.Player('player', {
       height: '720',
