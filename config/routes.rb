@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :users
+  resources :dreams
+  resources :videos
+
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root to: 'dreams#index'
 
