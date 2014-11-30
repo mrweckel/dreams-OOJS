@@ -92,9 +92,14 @@ VideoPlayer = {
     }
 
     player = new YT.Player('player', {
-      height: '390',
-      width: '640',
+      height: '720',
+      width: '1280',
       'videoId': userList1.playList,
+      playerVars: {
+        controls: 0,
+        disablekb: 1,
+        showinfo: 0
+      },
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange,
