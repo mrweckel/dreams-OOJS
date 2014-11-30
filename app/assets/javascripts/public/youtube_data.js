@@ -31,7 +31,8 @@ YouTubeData.Account = {
     // https://developers.google.com/youtube/v3/docs/playlistItems/list
     var request = gapi.client.youtube.playlistItems.list({
       playlistId: listId,
-      part: 'snippet'
+      part: 'snippet',
+      maxResults: 50
     });
 
     request.execute(function(response) {
@@ -78,8 +79,24 @@ YouTubeData.Account = {
         // console.log(videos_collection);
         YouTubeData.View.showVideoTitles(response);
 
-        VideoPlayer.main(response.items);
+        // VideoPlayer.main(response.items);
+        console.log(response.items)
+        user_uploaded_videos = [];
+        user_videos_player1 = [];
+        user_videos_player2 = [];
+        user_uploaded_videos = user_uploaded_videos.concat(response.items)
+        console.log(user_uploaded_videos)
 
+        for(i = 0; i < user_uploaded_videos.length; i++) {
+          if(i % 2 === 0) {
+            user_videos_player1.push(user_uploaded_videos[i])
+            } else {
+            user_videos_player2.push(user_uploaded_videos[i])
+            }
+        }
+
+        VideoPlayer.main(user_videos_player1);
+        VideoPlayer2.main(user_videos_player2);
 
       }
     });
@@ -88,6 +105,7 @@ YouTubeData.Account = {
 
         var videos_collection = [];
         var userList;
+        var userList2;
 
 YouTubeData.View = {
 
