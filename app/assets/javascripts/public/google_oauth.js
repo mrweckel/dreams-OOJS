@@ -88,7 +88,7 @@ var GoogleAuth = {}
 }
 
 $(document).ready(function(){
-      $(".dream-modal").on("click","modal-btn", function(event){
+      $(".modal-btn").on("click","a", function(event){
           event.preventDefault();
           gapi.auth.init(function() {
             window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
