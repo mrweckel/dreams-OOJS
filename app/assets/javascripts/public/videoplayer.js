@@ -28,12 +28,22 @@ VideoPlayer = {
 
     var done = false;
     function onPlayerStateChange(event) {
-      console.log(event.data)
+      console.log('onPlayerStateChange', event)
 
       // if (event.data == YT.PlayerState.PLAYING && !done) {
       //   setTimeout(stopVideo, 10000);
       //   done = true;
       // }
+      var past_first = false;
+
+       if (event.data == YT.PlayerState.PLAYING && !past_first) {
+        past_first = true; 
+       $('#player').fadeIn(3000) 
+       // setInterval( function() {if (player.getCurrentTime() > 8) {
+       //  $('#player').fadeOut(3000)
+        // };}, 1000)
+        };
+
       if (event.data == YT.PlayerState.PLAYING) {
        setTimeout(function() {$('#player').fadeIn(3000)}, 10000)
        setInterval( function() {if (player.getCurrentTime() > 8) {
