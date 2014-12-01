@@ -50,20 +50,10 @@ YouTubeSearch.SearchBar = {
           // console.log(response.data.items);
           YouTubeSearch.SearchBar.compileVideoObjects(response.data.items);
 
-          if( response.data.items ){
-            results.empty();
-            $.each( response.data.items, function(i, data) {
-              results.append('<div class="youtube">\
-                <img src="' + data.thumbnail.sqDefault + '" alt="" />\
-                <h3><a href="javascript:void(0)" onclick="$.youtubePlay(\'' + data.id + '\', \'' + data.content[5] + '\')">' + data.title + '</a></h3>\
-                <p>' + data.description + '</p>\
-                </div>\
-                <div class="youtubeplay" id="' + data.id + '"></div>');
-            });
-          }
-          else {
-            results.html('<div class="fail"><strong>' + query + '</strong> no videos found!</div>');
-          }
+          console.log(results_values)
+
+          VideoPlayer.main(results_values);
+
         }
       });
     }
@@ -74,10 +64,11 @@ YouTubeSearch.SearchBar = {
   },
 
   parseVideoObject: function(video_object) {
-    return {
-      video_id: video_object.id,
-      duration: video_object.duration
-    }
+    return video_object.id;
+    // return {
+    //   video_id: video_object.id,
+    //   duration: video_object.duration
+    // }
   },
 
   compileVideoObjects: function(video_objects) {
