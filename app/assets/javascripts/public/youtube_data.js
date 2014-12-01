@@ -23,17 +23,19 @@ YouTubeData.Account = {
         YouTubeData.Account.getPlaylistItems(uploadsListId);
         console.log("Starting AJAX.........");
         console.log("Printing apiKey: " + apiKey);
+        console.log("Printing response: " + response);
         var yt_uid;
-        $("body").append(response.items[0].contentDetails.googlePlusUserId);
         $.ajax({
           url: '/users',
           type: 'POST',
           dataType: 'json',
-          data: { user_params: response },
+          data: { userId: response.items[0].contentDetails.googlePlusUserId }
         }).done(function(response) {
           console.log(response);
           console.log("SUCCESS");
-        })
+        }).fail(function() {
+          console.log("error");
+        });
       }
     });
   },

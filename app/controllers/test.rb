@@ -1,0 +1,19 @@
+ Parameters: {"user"=>
+              {"kind"=>"youtube#channelListResponse",
+               "etag"=>"\"SXtVtkiDWqZpl4dTpZv5nFU7t-8/dpCBw4n9HM7YO5Z9433RO3PTW3A\"",
+               "pageInfo"=>
+                  {"totalResults"=>"1",
+                   "resultsPerPage"=>"1"},
+                   "items"=>
+                      {"0"=>
+                        {"kind"=>"youtube#channel",
+                          "etag"=>"\"SXtVtkiDWqZpl4dTpZv5nFU7t-8/LAhOjeAPjfYiNqHbpMkptSEjibE\"",
+                          "id"=>"UC-hNs6q-CMsDnpk4jRxNxlg",
+                          "contentDetails"=>
+                            {"relatedPlaylists"=>
+                              {"likes"=>"LL-hNs6q-CMsDnpk4jRxNxlg",
+                               "favorites"=>"FL-hNs6q-CMsDnpk4jRxNxlg",
+                               "uploads"=>"UU-hNs6q-CMsDnpk4jRxNxlg",
+                               "watchHistory"=>"HL-hNs6q-CMsDnpk4jRxNxlg",
+                               "watchLater"=>"WL-hNs6q-CMsDnpk4jRxNxlg"},
+                               "googlePlusUserId"=>"114441421880355793851"}}}, "result"=>{"kind"=>"youtube#channelListResponse", "etag"=>"\"SXtVtkiDWqZpl4dTpZv5nFU7t-8/dpCBw4n9HM7YO5Z9433RO3PTW3A\"", "pageInfo"=>{"totalResults"=>"1", "resultsPerPage"=>"1"}, "items"=>{"0"=>{"kind"=>"youtube#channel", "etag"=>"\"SXtVtkiDWqZpl4dTpZv5nFU7t-8/LAhOjeAPjfYiNqHbpMkptSEjibE\"", "id"=>"UC-hNs6q-CMsDnpk4jRxNxlg", "contentDetails"=>{"relatedPlaylists"=>{"likes"=>"LL-hNs6q-CMsDnpk4jRxNxlg", "favorites"=>"FL-hNs6q-CMsDnpk4jRxNxlg", "uploads"=>"UU-hNs6q-CMsDnpk4jRxNxlg", "watchHistory"=>"HL-hNs6q-CMsDnpk4jRxNxlg", "watchLater"=>"WL-hNs6q-CMsDnpk4jRxNxlg"}, "googlePlusUserId"=>"114441421880355793851"}}}}}}
