@@ -30,14 +30,9 @@ var GoogleAuth = {}
         GoogleAuth.View.authSuccess();
         console.log(authResult);
         $('#menu-toggle').fadeOut('fast');
-        setTimeout(LoadBar.Controller.go, 1000);
+        setTimeout(function(){LoadBar.Controller.go();}, 1000);
 
-        // return LoadBar.Controller.doProgress(function() {
-        //   return LoadBar.Controller.setProgressBarWidth("0");
-        // });
-
-
-        // GoogleAuth.Controller.loadAPIClientInterfaces();
+        GoogleAuth.Controller.loadAPIClientInterfaces();
 
         var token = authResult.access_token;
         console.log(token)
@@ -111,8 +106,8 @@ GoogleAuth.Controller.loadAPIClientInterfaces = function() {
     gapi.client.load('youtubeAnalytics', 'v1', function() {
       // After both client interfaces load, use the Data API to request
       // information about the authenticated user's channel.
-      YouTubeData.Account.getUserChannel();
-      // $('#dreams-select').addClass('open');
+      BackGround.View.blackOut();
+      setTimeout(function(){YouTubeData.Account.getUserChannel()},13500);
 
     });
   });
