@@ -3,7 +3,8 @@
 	height: 400px;
 	margin: auto;
 	text-align: center;
-	/*position: fixed;*/
+	/*z-index: 99;*/
+
 }
 
 .login {

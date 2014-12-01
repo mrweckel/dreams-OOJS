@@ -4,6 +4,7 @@ var results_values = [];
 
 YouTubeSearch = {}
 
+
 YouTubeSearch.SearchBar = {
   main: function() {
     $('#youtube').autocomplete({
@@ -58,7 +59,6 @@ YouTubeSearch.SearchBar = {
           // video_objects = YouTubeSearch.SearchBar.sampleVideoObjects(video_objects);
 
           YouTubeSearch.SearchBar.compileVideoObjects(video_objects);
-
           console.log(results_values);
 
           BackGround.View.blackOut();
@@ -74,10 +74,7 @@ YouTubeSearch.SearchBar = {
 
   parseVideoObject: function(video_object) {
     return video_object.id;
-    // return {
-    //   video_id: video_object.id,
-    //   duration: video_object.duration
-    // }
+
   },
 
   compileVideoObjects: function(video_objects) {
@@ -90,8 +87,6 @@ YouTubeSearch.SearchBar = {
     return _(video_objects).sample(10);
   }
 }
-
-
 
 $(document).ready(function() {
   $(".random-dream").on("click","a", function(event){
