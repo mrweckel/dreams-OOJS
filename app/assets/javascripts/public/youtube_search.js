@@ -54,6 +54,8 @@ YouTubeSearch.SearchBar = {
 
           VideoPlayer.main(results_values);
 
+          $("#dream-modal-container").hide();
+
         }
       });
     }
