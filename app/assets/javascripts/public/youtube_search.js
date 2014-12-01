@@ -27,28 +27,32 @@ YouTubeSearch.SearchBar = {
       },
       /* You can use transaction is selected here to */
       select: function( event, ui ) {
-        $.youtubeAPI(ui.item.label);
+        $.youtubeAPI(ui.item.label, 20); // Change integer to change number of search results
       }
     });
 
 
     $('button#submit').click(function(){
       var value = $('input#youtube').val();
-      $.youtubeAPI(value);
+      $.youtubeAPI(value, 20); // Change integer to change number of search results
     });
 
 
-    $.youtubeAPI = function(query){
+    $.youtubeAPI = function(query, max_results){
       $.ajax({
         type: 'GET',
-        url: 'http://gdata.youtube.com/feeds/api/videos?q=' + query + '&max-results=20&v=2&alt=jsonc',
+        url: 'http://gdata.youtube.com/feeds/api/videos?q=' + query + '&max-results=' + max_results + '&v=2&alt=jsonc',
         dataType: 'jsonp',
         success: function( response ){
 
-          // console.log(response.data.items);
-          YouTubeSearch.SearchBar.compileVideoObjects(response.data.items);
+          var video_objects = response.data.items;
 
-          console.log(results_values)
+          // UNCOMMENT HERE FOR TRULY RANDOM SAMPLING OF SEARCH RESULTS
+          // video_objects = YouTubeSearch.SearchBar.sampleVideoObjects(video_objects);
+
+          YouTubeSearch.SearchBar.compileVideoObjects(video_objects);
+
+          console.log(results_values);
 
           BackGround.View.blackOut();
 
@@ -73,8 +77,14 @@ YouTubeSearch.SearchBar = {
     for(var i = 0; i < video_objects.length; i++) {
       results_values[i] = (YouTubeSearch.SearchBar.parseVideoObject(video_objects[i]));
     }
+  },
+
+  sampleVideoObjects: function(video_objects) {
+    return _(video_objects).sample(10);
   }
 }
+
+
 
 $(document).ready(function() {
   $(".random-dream").on("click","a", function(event){
