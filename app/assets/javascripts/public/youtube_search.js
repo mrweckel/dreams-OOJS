@@ -11,7 +11,7 @@ YouTubeSearch.SearchBar = {
         /* Google Developer ID (optional) */
         /* Search keyword */
         var query = request.term;
-        /* youtube sorgusu */
+        /* youtube query */
         $.ajax({
           url: "http://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q="+query+"&key="+apiKey+"&format=5&alt=json&callback=?",
           dataType: 'jsonp',
@@ -39,8 +39,6 @@ YouTubeSearch.SearchBar = {
 
 
     $.youtubeAPI = function(query){
-      var results = $('#results');
-      results.html('Searching...');
       $.ajax({
         type: 'GET',
         url: 'http://gdata.youtube.com/feeds/api/videos?q=' + query + '&max-results=20&v=2&alt=jsonc',
@@ -60,10 +58,6 @@ YouTubeSearch.SearchBar = {
 
         }
       });
-    }
-    $.youtubePlay = function(yid, frame){
-      $('.youtubeplay').slideUp().empty();
-      $('#'+yid).slideDown().html('<iframe src="'+ frame +'&autoplay=1" style="width: 100%; box-sizing: border-box; height: 300px" />');
     }
   },
 
