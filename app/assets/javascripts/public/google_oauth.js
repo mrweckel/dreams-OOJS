@@ -33,7 +33,7 @@ var GoogleAuth = {}
 
         GoogleAuth.Controller.loadAPIClientInterfaces();
 
-        var token = authResult.access_token;
+        token = authResult.access_token;
         console.log(token)
 
       $.ajax({
@@ -86,15 +86,38 @@ var GoogleAuth = {}
 }
 
 $(document).ready(function(){
-      $(".sign-in").on("click","a", function(event){
-          event.preventDefault();
-          $("#dream-modal").hide();
-          gapi.auth.init(function() {
-            window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
-            //
-        });
-      });
+  $(".sign-in").on("click","a", function(event){
+    event.preventDefault();
+    $("#dream-modal").hide();
+    gapi.auth.init(function() {
+      window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
     });
+  });
+
+  $("#wake-up").on("click", "a",function(event){
+    // event.preventDefault();
+    // gapi.auth.signOut();
+    var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token
+  //   $("a").attr("href", logout);
+    $.ajax({
+      type: 'GET',
+      url: logout,
+      async: false,
+      contentType: "application/json",
+      dataType: 'jsonp',
+      success: function(nullResponse) {
+        // Do something now that user is disconnected
+        // The response is always undefined.
+        },
+      error: function(e) {
+        // Handle the error
+        // console.log(e);
+        // You could point users to manually disconnect if unsuccessful
+        // https://plus.google.com/apps
+      }
+    });
+  });
+});
   /* In later steps, add additional functions above this line. */
 
 GoogleAuth.Controller.loadAPIClientInterfaces = function() {
