@@ -4,7 +4,6 @@ var results_values = [];
 
 YouTubeSearch = {}
 
-
 YouTubeSearch.SearchBar = {
   main: function() {
     $('#youtube').autocomplete({
@@ -80,6 +79,7 @@ YouTubeSearch.SearchBar = {
     for(var i = 0; i < video_objects.length; i++) {
       results_values[i] = (YouTubeSearch.SearchBar.parseVideoObject(video_objects[i]));
     }
+
   },
 
   sampleVideoObjects: function(video_objects) {
