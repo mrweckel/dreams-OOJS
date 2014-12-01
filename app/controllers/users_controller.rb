@@ -70,19 +70,6 @@ before_filter :require_user, only: :show
     rescue ActiveRecord::RecordNotFound
   end
 
-  def create
-    @user = User.new(users_params)
-    @user.save
-  end
-
-  def show
-    @user = User.find(sessions[:id])
-  end
-
-  def fileContent
-    @user = User.where(:user_response)
-  end
-
   # Use this to privatize user's google/youtube id
   # def user_params
   #   params.require(:user).permit(:YT_uid)
