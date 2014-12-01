@@ -15,7 +15,7 @@ class DreamsController < ApplicationController
   end
 
   def show
-    @dreams = Dream.find(id)
+    @dreams = Dream.find(sessions[:YT_uid])
   end
 
 end
