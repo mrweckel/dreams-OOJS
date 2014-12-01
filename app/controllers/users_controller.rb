@@ -40,7 +40,6 @@ before_filter :require_user, only: :show
     redirect_to
 =======
     respond_to do |format|
-      format.html
       format.json
     end
     @user = User.new(user_params)

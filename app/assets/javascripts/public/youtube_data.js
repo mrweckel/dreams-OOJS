@@ -22,19 +22,37 @@ YouTubeData.Account = {
         // Use the uploads playlist ID to retrieve the list of uploaded videos.
         YouTubeData.Account.getPlaylistItems(uploadsListId);
         console.log("Starting AJAX.........");
-        console.log()
+        console.log("Printing apiKey: " + apiKey);
+        var yt_uid;
+        $("body").append(response.items[0].contentDetails.googlePlusUserId);
         $.ajax({
-          url: "https://www.googleapis.com/plus/v1/people/"+response.items[0].contentDetails.googlePlusUserId,
-          // url: "https://gdata.youtube.com/feeds/api/users/default",
-          type: 'GET',
+          url: '/users',
+          type: 'POST',
           dataType: 'json',
-          data: { response: response },
-          success: function(youtubeData) {
-            console.log("SUCCESS");
-            console.log(youtubeData);
-          }
+          data: { user_params: response },
+        }).done(function(response) {
+          console.log("SUCCESS");
         })
+
+        // // getGooglePlusUserId
+        // $.ajax({
+        //   // url: "https://www.googleapis.com/plus/v1/people/"+response.items[0].contentDetails.googlePlusUserId,
+        //   url: "https://www.googleapis.com/youtube/v3channels?part=contentDetails&mine=true"
+        //   type: 'GET',
+        //   dataType: 'json',
+        //   data: { response: response },
+        //   success: function(youtubeData) {
+        //     console.log("SUCCESS");
+        //     console.log(youtubeData);
+        //   }
+        // }).done(function (response) {
+        //   yt_uid = response.googlePlusUserId;
+        // })
+
+        // // createNewUser
+        // $.ajax({ url: '/users', type: 'POST', })
       }
+
     });
   },
 

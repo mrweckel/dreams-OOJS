@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users do
-    member do
-      get 'fileContent'
-    end
-  end
+  resources :users
   resources :dreams
   resources :videos
 
