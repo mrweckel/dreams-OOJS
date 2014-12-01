@@ -90,7 +90,7 @@ var GoogleAuth = {}
 }
 
 $(document).ready(function(){
-      $(".modal-btn").on("click","a", function(event){
+      $(".sign-in").on("click","a", function(event){
           event.preventDefault();
           $("#dream-modal").hide();
           gapi.auth.init(function() {
