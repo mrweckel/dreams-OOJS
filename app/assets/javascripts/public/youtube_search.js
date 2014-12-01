@@ -84,7 +84,7 @@ $(document).ready(function() {
   $(".random-dream").on("click","a", function(event){
     event.preventDefault();
     $("#dream-modal").hide();
-    $("#dream-modal-container").fadeIn('slow');
+    $("#dream-modal-container").fadeIn(1000);
     window.setTimeout(function() {
       YouTubeSearch.SearchBar.main();
     }, 1);
