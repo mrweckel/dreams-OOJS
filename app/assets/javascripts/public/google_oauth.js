@@ -49,12 +49,9 @@ var GoogleAuth = {}
 
 
     } else {
-      // Auth was unsuccessful. Show things related to prompting for auth
-      // and hide the things that should be visible after auth succeeds.
+
       GoogleAuth.View.authFail();
 
-      // Make the #login-link clickable. Attempt a non-immediate OAuth 2 client
-      // flow. The current function will be called when that flow completes.
       $('#login-link').click(function() {
         gapi.auth.authorize({
           client_id: GoogleAuth.Keys.client_id,
@@ -67,7 +64,7 @@ var GoogleAuth = {}
 
   }
 
-  // Helper method to display a message on the page.
+
   GoogleAuth.View = {
     authSuccess: function(){
       $('.pre-auth').hide();

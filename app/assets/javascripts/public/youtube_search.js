@@ -58,7 +58,6 @@ YouTubeSearch.SearchBar = {
           // video_objects = YouTubeSearch.SearchBar.sampleVideoObjects(video_objects);
 
           YouTubeSearch.SearchBar.compileVideoObjects(video_objects);
-
           console.log(results_values);
 
           BackGround.View.blackOut();
@@ -74,24 +73,19 @@ YouTubeSearch.SearchBar = {
 
   parseVideoObject: function(video_object) {
     return video_object.id;
-    // return {
-    //   video_id: video_object.id,
-    //   duration: video_object.duration
-    // }
   },
 
   compileVideoObjects: function(video_objects) {
     for(var i = 0; i < video_objects.length; i++) {
       results_values[i] = (YouTubeSearch.SearchBar.parseVideoObject(video_objects[i]));
     }
+
   },
 
   sampleVideoObjects: function(video_objects) {
     return _(video_objects).sample(10);
   }
 }
-
-
 
 $(document).ready(function() {
   $(".random-dream").on("click","a", function(event){
@@ -102,4 +96,6 @@ $(document).ready(function() {
       YouTubeSearch.SearchBar.main();
     }, 1);
   });
-})
+});
+
+
