@@ -1,5 +1,3 @@
-* { padding: 0; margin: 0; list-style: none; font-family: Arial }
-
 .youtubeplay { display: none; background: #ddd; padding: 10px }
 .youtube {
     border: 1px solid #ddd;
@@ -21,13 +19,11 @@
 
 .youtube_search {
     padding: 10px
-    position: fixed;
-    left: 50%;
-    margin-left: 15em;
 }
-.youtube_search h2 {
+.youtube_search p {
     font-weight: normal;
-    padding-bottom: 10px
+    color: #FFF;
+    padding-bottom: 5px
 }
 
 .fail {
@@ -36,4 +32,17 @@
     color: #fff;
     font-size: 12px;
     padding: 5px;
+}
+
+
+
+#dream-modal-container {
+    display: none;
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    z-index: 12000;
+    /*background-color: #FFF;*/
 }

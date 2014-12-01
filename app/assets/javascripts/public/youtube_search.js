@@ -11,7 +11,7 @@ YouTubeSearch.SearchBar = {
         /* Google Developer ID (optional) */
         /* Search keyword */
         var query = request.term;
-        /* youtube sorgusu */
+        /* youtube query */
         $.ajax({
           url: "http://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q="+query+"&key="+apiKey+"&format=5&alt=json&callback=?",
           dataType: 'jsonp',
@@ -39,8 +39,6 @@ YouTubeSearch.SearchBar = {
 
 
     $.youtubeAPI = function(query){
-      var results = $('#results');
-      results.html('Searching...');
       $.ajax({
         type: 'GET',
         url: 'http://gdata.youtube.com/feeds/api/videos?q=' + query + '&max-results=20&v=2&alt=jsonc',
@@ -50,34 +48,25 @@ YouTubeSearch.SearchBar = {
           // console.log(response.data.items);
           YouTubeSearch.SearchBar.compileVideoObjects(response.data.items);
 
-          if( response.data.items ){
-            results.empty();
-            $.each( response.data.items, function(i, data) {
-              results.append('<div class="youtube">\
-                <img src="' + data.thumbnail.sqDefault + '" alt="" />\
-                <h3><a href="javascript:void(0)" onclick="$.youtubePlay(\'' + data.id + '\', \'' + data.content[5] + '\')">' + data.title + '</a></h3>\
-                <p>' + data.description + '</p>\
-                </div>\
-                <div class="youtubeplay" id="' + data.id + '"></div>');
-            });
-          }
-          else {
-            results.html('<div class="fail"><strong>' + query + '</strong> no videos found!</div>');
-          }
+          console.log(results_values)
+
+          BackGround.View.blackOut();
+
+          setTimeout(function() {VideoPlayer.main(results_values)}, 13500);
+          LoadBar.Controller.go();
+          $("#dream-modal-container").hide();
+
         }
       });
-    }
-    $.youtubePlay = function(yid, frame){
-      $('.youtubeplay').slideUp().empty();
-      $('#'+yid).slideDown().html('<iframe src="'+ frame +'&autoplay=1" style="width: 100%; box-sizing: border-box; height: 300px" />');
     }
   },
 
   parseVideoObject: function(video_object) {
-    return {
-      video_id: video_object.id,
-      duration: video_object.duration
-    }
+    return video_object.id;
+    // return {
+    //   video_id: video_object.id,
+    //   duration: video_object.duration
+    // }
   },
 
   compileVideoObjects: function(video_objects) {
@@ -88,5 +77,12 @@ YouTubeSearch.SearchBar = {
 }
 
 $(document).ready(function() {
-    YouTubeSearch.SearchBar.main();
+  $(".random-dream").on("click","a", function(event){
+    event.preventDefault();
+    $("#dream-modal").hide();
+    $("#dream-modal-container").fadeIn(1000);
+    window.setTimeout(function() {
+      YouTubeSearch.SearchBar.main();
+    }, 1);
+  });
 })
