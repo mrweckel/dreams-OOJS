@@ -74,7 +74,6 @@ YouTubeSearch.SearchBar = {
 
   parseVideoObject: function(video_object) {
     return video_object.id;
-
   },
 
   compileVideoObjects: function(video_objects) {
@@ -97,4 +96,6 @@ $(document).ready(function() {
       YouTubeSearch.SearchBar.main();
     }, 1);
   });
-})
+});
+
+
