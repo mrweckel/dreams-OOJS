@@ -75,6 +75,10 @@ before_filter :require_user, only: :show
     @user.save
   end
 
+  def show
+    @user = User.find(sessions[:id])
+  end
+
   def fileContent
     @user = User.where(:user_response)
   end
