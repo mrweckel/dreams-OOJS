@@ -36,17 +36,6 @@ var GoogleAuth = {}
         token = authResult.access_token;
         console.log(token)
 
-      $.ajax({
-        type:"POST",
-        url: "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=" + token,
-        dataType:'JSON'
-      }).done(function(data){
-        // Use to send auth data to elsewhere
-        console.log(data);
-      });
-
-
-
     } else {
 
       GoogleAuth.View.authFail();
@@ -95,10 +84,7 @@ $(document).ready(function(){
   });
 
   $("#wake-up").on("click", "a",function(event){
-    // event.preventDefault();
-    // gapi.auth.signOut();
     var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token
-  //   $("a").attr("href", logout);
     $.ajax({
       type: 'GET',
       url: logout,
@@ -106,14 +92,8 @@ $(document).ready(function(){
       contentType: "application/json",
       dataType: 'jsonp',
       success: function(nullResponse) {
-        // Do something now that user is disconnected
-        // The response is always undefined.
         },
       error: function(e) {
-        // Handle the error
-        // console.log(e);
-        // You could point users to manually disconnect if unsuccessful
-        // https://plus.google.com/apps
       }
     });
   });
