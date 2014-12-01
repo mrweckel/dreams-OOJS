@@ -79,5 +79,12 @@ YouTubeSearch.SearchBar = {
 }
 
 $(document).ready(function() {
-    YouTubeSearch.SearchBar.main();
+  $(".random-dream").on("click","a", function(event){
+    event.preventDefault();
+    $("#dream-modal").hide();
+    $("#dream-modal-container").fadeIn('slow');
+    window.setTimeout(function() {
+      YouTubeSearch.SearchBar.main();
+    }, 1);
+  });
 })
