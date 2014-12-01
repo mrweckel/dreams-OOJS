@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20141130183643) do
 
   create_table "users", force: true do |t|
     t.string   "google_username"
-    t.string   "YT_uid"
+    t.string   "googlePlusUserId"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

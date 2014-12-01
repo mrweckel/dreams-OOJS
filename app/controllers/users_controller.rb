@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if !User.exists?(user_id: params[:userId])
       @user = User.new(user_id: params[:userId])
       if @user.save
@@ -50,12 +51,20 @@ class UsersController < ApplicationController
     p "*"*200
     p user_params[googlePlusUserId]
 >>>>>>> Removes fileContent method from user controller
+=======
+    p "*"*200
+    p user_params
+>>>>>>> Committing before team standup
     @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id # this will need to be YT_uid
       else
         # redirect_to #unauthorized_user_path
       end
+    # Will need if we need to have an error for non-user to send a json back to google/youtube
+    # respond_to do |format|
+    #   format.json
+    # end
   end
 
   def show
@@ -85,7 +94,7 @@ class UsersController < ApplicationController
 
   # Use this to privatize user's google/youtube id
   def user_params
-    params.require(:user).permit!
+    params.require(:user).permit(:googlePlusUserId)
   end
 
 >>>>>>> Sets up create new account with user's youtube id params

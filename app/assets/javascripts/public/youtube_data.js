@@ -31,6 +31,7 @@ YouTubeData.Account = {
           dataType: 'json',
           data: { user_params: response },
         }).done(function(response) {
+          console.log(response);
           console.log("SUCCESS");
         })
       }
