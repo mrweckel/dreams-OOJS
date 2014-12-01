@@ -24,7 +24,6 @@ YouTubeData.Account = {
         console.log("Starting AJAX.........");
         console.log("Printing apiKey: " + apiKey);
         console.log("Printing response: " + response);
-        var yt_uid;
         $.ajax({
           url: '/users',
           type: 'POST',
