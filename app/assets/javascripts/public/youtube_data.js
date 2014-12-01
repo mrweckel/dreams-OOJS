@@ -33,26 +33,7 @@ YouTubeData.Account = {
         }).done(function(response) {
           console.log("SUCCESS");
         })
-
-        // // getGooglePlusUserId
-        // $.ajax({
-        //   // url: "https://www.googleapis.com/plus/v1/people/"+response.items[0].contentDetails.googlePlusUserId,
-        //   url: "https://www.googleapis.com/youtube/v3channels?part=contentDetails&mine=true"
-        //   type: 'GET',
-        //   dataType: 'json',
-        //   data: { response: response },
-        //   success: function(youtubeData) {
-        //     console.log("SUCCESS");
-        //     console.log(youtubeData);
-        //   }
-        // }).done(function (response) {
-        //   yt_uid = response.googlePlusUserId;
-        // })
-
-        // // createNewUser
-        // $.ajax({ url: '/users', type: 'POST', })
       }
-
     });
   },
 
