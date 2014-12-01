@@ -35,6 +35,28 @@
 }
 
 
+.ui-autocomplete-input, .ui-autocomplete a.ui-corner-all.sbiAnchor:hover {
+    font-family: 'Quattrocento', serif;
+    font-size: 12px;
+    width: 200px;
+    height: 25px;
+}
+
+.ui-menu {
+    list-style:none;
+    padding: 0px;
+    margin: 0;
+    display:block;
+    width:227px;
+}
+
+.ui-menu .ui-menu-item {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quattrocento', serif;
+    font-size: 14px;
+}
+
 
 #dream-modal-container {
     display: none;
