@@ -28,7 +28,7 @@ YouTubeData.Account = {
           // dataType: 'jsonp',
           data: { response: response },
           success: function(response) {
-            console.log("MOTHER FUCKING SUCCESS");
+            console.log("SUCCESS");
             console.log(response);
           }
         })
