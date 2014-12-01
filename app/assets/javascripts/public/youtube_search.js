@@ -31,6 +31,13 @@ YouTubeSearch.SearchBar = {
       }
     });
 
+    $('input#youtube').keyup(function(event){
+      event.preventDefault();
+      if(event.keyCode == 13){
+        var value = $('input#youtube').val();
+        $.youtubeAPI(value, 20); // Change integer to change number of search results
+      }
+    });
 
     $('button#submit').click(function(){
       var value = $('input#youtube').val();
