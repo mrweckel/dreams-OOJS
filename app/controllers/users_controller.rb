@@ -70,6 +70,11 @@ before_filter :require_user, only: :show
     rescue ActiveRecord::RecordNotFound
   end
 
+  def create
+    @user = User.new(users_params)
+    @user.save
+  end
+
   def fileContent
     @user = User.where(:user_response)
   end
