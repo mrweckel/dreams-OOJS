@@ -57,6 +57,10 @@
     font-size: 14px;
 }
 
+.ui-front {
+    z-index: 9001;
+}
+
 
 #dream-modal-container {
     display: none;
@@ -65,6 +69,6 @@
     position: absolute;
     top: 40%;
     left: 40%;
-    z-index: 12000;
+    z-index: 9000;
     /*background-color: #FFF;*/
 }
