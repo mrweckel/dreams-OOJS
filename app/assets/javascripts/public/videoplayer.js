@@ -39,9 +39,6 @@ VideoPlayer = {
        if (event.data == YT.PlayerState.PLAYING && !past_first) {
         past_first = true; 
        $('#player').fadeIn(3000) 
-       // setInterval( function() {if (player.getCurrentTime() > 8) {
-       //  $('#player').fadeOut(3000)
-        // };}, 1000)
         };
 
       if (event.data == YT.PlayerState.PLAYING) {
