@@ -12,6 +12,7 @@ YouTubeData.Account = {
       if ('error' in response) {
         // displayMessage(response.error.message);
       } else {
+        displayMessage(response.error.message);
         // We will need the channel's channel ID to make calls to the
         // Analytics API. The channel ID looks like "UCdLFeWKpkLhkguiMZUp8lWA".
         channelId = response.items[0].id;
@@ -20,6 +21,17 @@ YouTubeData.Account = {
         var uploadsListId = response.items[0].contentDetails.relatedPlaylists.uploads;
         // Use the uploads playlist ID to retrieve the list of uploaded videos.
         YouTubeData.Account.getPlaylistItems(uploadsListId);
+        console.log("Starting AJAX.........");
+        $.ajax({
+          url: "https://www.googleapis.com/plus/v1/people/"+response.items[0].contentDetails.googlePlusUserId,
+          type: 'GET',
+          // dataType: 'jsonp',
+          data: { response: response },
+          success: function(response) {
+            console.log("MOTHER FUCKING SUCCESS");
+            console.log(response);
+          }
+        })
       }
     });
   },
