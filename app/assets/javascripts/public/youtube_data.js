@@ -22,16 +22,16 @@ YouTubeData.Account = {
         // Use the uploads playlist ID to retrieve the list of uploaded videos.
         YouTubeData.Account.getPlaylistItems(uploadsListId);
         console.log("Starting AJAX.........");
-        $.ajax({
-          url: "https://www.googleapis.com/plus/v1/people/"+response.items[0].contentDetails.googlePlusUserId,
-          type: 'GET',
-          // dataType: 'jsonp',
-          data: { response: response },
-          success: function(response) {
-            console.log("SUCCESS");
-            console.log(response);
-          }
-        })
+        // $.ajax({
+        //   url: "https://www.googleapis.com/plus/v1/people/"+response.items[0].contentDetails.googlePlusUserId,
+        //   type: 'GET',
+        //   // dataType: 'jsonp',
+        //   data: { response: response },
+        //   success: function(response) {
+        //     console.log("SUCCESS");
+        //     console.log(response);
+        //   }
+        // })
       }
     });
   },
