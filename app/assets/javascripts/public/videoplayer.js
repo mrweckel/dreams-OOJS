@@ -30,10 +30,6 @@ VideoPlayer = {
     function onPlayerStateChange(event) {
       console.log('onPlayerStateChange', event)
 
-      // if (event.data == YT.PlayerState.PLAYING && !done) {
-      //   setTimeout(stopVideo, 10000);
-      //   done = true;
-      // }
       var past_first = false;
 
       if (event.data == YT.PlayerState.PLAYING && !past_first) {
@@ -52,24 +48,6 @@ VideoPlayer = {
     function onPlayerError(event) {
       console.log(event);
     }
-
-
-  // setInterval( function() {if (player.getCurrentTime() > 8) {
-  //   $('#player').fadeOut(3000)
-  // };}, 1000)
-
-
-
-
-  // if (player.getCurrentTime() > 8) {
-  //   $('#player').fadeOut(3000)
-  // };
-
-
-
-    // function fadeOutTimer() {
-    //   setTimeout(function() {$('#player').fadeOut(3000)}, 10000)
-    // }
 
     function stopVideo() {
       player.stopVideo();
@@ -90,21 +68,16 @@ VideoPlayer = {
       dreamPlaylist(userList1.cueList);
     }
 
-
     function videoList(videoId) {
       playTheVideo(videoId);
       player.playVideo();
     }
-
-
 
     function videoTimer(array) {
       if(array.length > 0) {
         setTimeout(function() { videoList(array[0])}, 10000);
       }
     }
-
-
 
     player = new YT.Player('player', {
       height: '576',
