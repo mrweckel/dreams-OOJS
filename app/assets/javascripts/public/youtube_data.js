@@ -69,6 +69,7 @@ YouTubeData.Account = {
       if ('error' in response) {
         GoogleAuth.View.displayMessage(response.error.message);
       } else {
+        console.log(response.items.length)
         if (response.items.length == 0){
           console.log("You gots no videos foo");
           var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token;
@@ -121,6 +122,7 @@ YouTubeData.Account = {
 
         var myVideo2 = ["l-gQLqv9f4o", "OPdbdjctx2I", "I3anjdi8lB4", "veFZPU8G8EU", "_ptjpy_oShY", "ORhEE9VVg", "za2rJeIa9KQ", "yHvFL92RXP4", "b1XGPvbWn0A"]
         VideoPlayer.main(videoArr);
+        console.log(videoArr);
       }
     });
   }
