@@ -29,6 +29,7 @@ function onYouTubeIframeAPIReady() {
     function onPlayerStateChange(event) {
       console.log('onPlayerStateChange', event)
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (event.data == YT.PlayerState.PLAYING) {
         $('#player').fadeIn({
           duration: 2000,
