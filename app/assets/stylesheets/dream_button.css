@@ -9,11 +9,12 @@
 }
 
 #login {
-	margin-top: 20%;
+	margin-top: 25%;
 }
 
 #login a{
 	font-size: 2em;
+	margin-left: .5em;
 	text-decoration: none;
 	background-color:rgba(0, 0, 0, 0.5);
 	border: solid white .1em;
