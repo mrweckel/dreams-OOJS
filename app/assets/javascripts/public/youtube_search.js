@@ -89,6 +89,8 @@ $(document).ready(function() {
     event.preventDefault();
     $("#dream-modal").hide();
     $("#dream-modal-container").fadeIn(1000);
+    $("input#youtube").focus();
+
     window.setTimeout(function() {
       YouTubeSearch.SearchBar.main();
     }, 1);
