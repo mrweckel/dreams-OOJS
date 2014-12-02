@@ -73,31 +73,45 @@ YouTubeData.Account = {
         // Get the jQuery wrapper for #video-list once outside the loop.
 
         // console.log(response.items[0].id);
-        videos_collection;
+        // videos_collection;
         // console.log(videos_collection);
         YouTubeData.View.showVideoTitles(response);
 
         // VideoPlayer.main(response.items);
-        var sortingArr = [];
-        for(var i = 0; i < response.items.length; i++) {
-          console.log(response.items[i].id)
+        function VideoObject(id, duration, startTime, endTime) {
+            this.id = id;
+            this.duration= duration;
+            this.startTime = startTime;
+            this.endTime = endTime;
+        }
+
+        MookieObjects = [];
+        // for(var i = 0; i < response.items.length; i++) {
+        //   console.log(response.items[i].id)
 
           function findId(object) {
-            object.items.id //object.items[0].id JIC
+            return object.id //object.items[0].id JIC
           }
 
           function getTime(object) {
-            var timeD = String(object.items.contentDetails.duration) // JIC
+            var timeD = String(object.contentDetails.duration) // JIC
             var semiformattedTime = timeD.replace("PT","").replace("H",":").replace("M",":").replace("S","")
             var arr = semiformattedTime.split(":")
-            var minutes_sec = parseInt(arr[0]);
-            var total_sec;
-            if (minutes_sec > 60) {
-              total_sec = parseInt(minutes_sec) + parseInt(arr[1])
-            }else {
-              total_sec = minutes_sec
+            if (arr.length == 1) {
+              var seconds = parseInt(arr[0]);
+              var total_sec = seconds
+            } else {
+              var minutes_sec = (parseInt(arr[0]) * 60);
+              var seconds = parseInt(arr[1]);
+              var total_sec = minutes_sec + seconds;
             }
+            // if (minutes_sec > 60) {
+            //   total_sec = parseInt(minutes_sec) + parseInt(arr[1])
+            // }else {
+            //   total_sec = minutes_sec
+            // }
             return total_sec //JIC remove it
+
           }
 
           function randomizeVideoStart(videoStartTime) {
@@ -108,21 +122,25 @@ YouTubeData.Account = {
           function endOfDays(time) {
              return time + 10
             }
-        }
+        // }
 
+        function dataParser(object){
+          id = findId(object);
+          duration = getTime(object);
+          startTime = randomizeVideoStart(duration)
+          endTime = endOfDays(startTime)
+          MookieObjects.push(new VideoObject(id, duration, startTime, endTime))
+        }
+        var stuff = response.items
+        stuff.forEach(function(item) {
+          dataParser(item);
+        });
         debugger
         VideoPlayer.main(videoArr);
-
-
-
       }
     });
   }
 }
-
-        var videos_collection = [];
-        var userList;
-        var userList2;
 
 YouTubeData.View = {
 
