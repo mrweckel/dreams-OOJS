@@ -28,7 +28,7 @@ YouTubeSearch.SearchBar = {
       },
       /* You can use transaction is selected here to */
       select: function( event, ui ) {
-        $.youtubeAPI(ui.item.label, 20); // Change integer to change number of search results
+        $.youtubeAPI(ui.item.label, 2); // Change integer to change number of search results
       }
     }).data("ui-autocomplete")._renderItem = function(ul, item) {
       var $a = $("<a></a>");
@@ -40,13 +40,13 @@ YouTubeSearch.SearchBar = {
       event.preventDefault();
       if(event.keyCode == 13){
         var value = $('input#youtube').val();
-        $.youtubeAPI(value, 20); // Change integer to change number of search results
+        $.youtubeAPI(value, 2); // Change integer to change number of search results
       }
     });
 
     $('button#submit').click(function(){
       var value = $('input#youtube').val();
-      $.youtubeAPI(value, 20); // Change integer to change number of search results
+      $.youtubeAPI(value, 2); // Change integer to change number of search results
     });
 
 
