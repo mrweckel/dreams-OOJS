@@ -12,7 +12,7 @@ YouTubeData.Account = {
       if ('error' in response) {
         // displayMessage(response.error.message);
       } else {
-        displayMessage(response.error.message);
+        // displayMessage(response.error.message);
         // We will need the channel's channel ID to make calls to the
         // Analytics API. The channel ID looks like "UCdLFeWKpkLhkguiMZUp8lWA".
         channelId = response.items[0].id;
@@ -21,20 +21,20 @@ YouTubeData.Account = {
         var uploadsListId = response.items[0].contentDetails.relatedPlaylists.uploads;
         // Use the uploads playlist ID to retrieve the list of uploaded videos.
         YouTubeData.Account.getPlaylistItems(uploadsListId);
-        console.log("Starting AJAX.........");
-        console.log("Printing apiKey: " + apiKey);
-        console.log("Printing response: " + response);
-        $.ajax({
-          url: '/users',
-          type: 'POST',
-          dataType: 'json',
-          data: { userId: response.items[0].contentDetails.googlePlusUserId }
-        }).done(function(response) {
-          console.log(response);
-          console.log("SUCCESS");
-        }).fail(function() {
-          console.log("error");
-        });
+        // console.log("Starting AJAX.........");
+        // console.log("Printing apiKey: " + apiKey);
+        // console.log("Printing response: " + response);
+        // $.ajax({
+        //   url: '/users',
+        //   type: 'POST',
+        //   dataType: 'json',
+        //   data: { userId: response.items[0].contentDetails.googlePlusUserId }
+        // }).done(function(response) {
+        //   console.log(response);
+        //   console.log("SUCCESS");
+        // }).fail(function() {
+        //   console.log("error");
+        // });
       }
     });
   },
@@ -109,13 +109,6 @@ YouTubeData.Account = {
     }
         // Get the jQuery wrapper for #video-list once outside the loop.
 
-        var video_test_data = {
-          YT_video_id: "1",
-          duration: "1",
-          start_time: "2",
-          end_time: "12"
-        }
-        SaveDream.save(video_test_data);
 
         YouTubeData.View.showVideoTitles(response);
         function VideoObject(id, duration, startTime, endTime) {
