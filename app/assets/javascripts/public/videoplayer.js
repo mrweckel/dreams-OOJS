@@ -8,9 +8,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 function onYouTubeIframeAPIReady() {
-}
-
-VideoPlayer = {
+  VideoPlayer = {
   main: function(videos) {
 
     VideoMaker = function(userVideos) {
@@ -30,6 +28,7 @@ VideoPlayer = {
     var done = false;
     function onPlayerStateChange(event) {
       console.log('onPlayerStateChange', event)
+<<<<<<< HEAD
       if (event.data == YT.PlayerState.PLAYING) {
         $('#player').fadeIn({
           duration: 2000,
@@ -51,7 +50,8 @@ VideoPlayer = {
 
     if ((event.data === 0) && (userList1.cueList.length === 0)) {
       console.log("this shit is over");
-      dreamHasEnded();
+      player.destroy();
+      BackGround.View.dreamHasEnded();
     }
   }
 
@@ -114,4 +114,8 @@ VideoPlayer = {
     dreamPlaylist(userList1.cueList)
   }
 }
+}
+
+
+
 
