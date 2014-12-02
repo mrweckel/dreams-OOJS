@@ -52,15 +52,57 @@ YouTubeSearch.SearchBar = {
         dataType: 'jsonp',
         success: function( response ){
 
-          var video_objects = response.data.items;
+        var video_objects = response.data.items;
 
+        function VideoObject(id, duration, startTime, endTime) {
+          this.id = id;
+          this.duration= duration;
+          this.startTime = startTime;
+          this.endTime = endTime;
+        }
+
+        BerthaObjects = [];
+        searchVidArr=[]
+        // Algorithm that gets all certian data from video objects
+          function findId(object) {
+            return object.id
+          }
+
+          function getTime(object) {
+            return object.duration
+          }
+
+          function randomizeVideoStart(videoStartTime) {
+            adjustedTime = videoStartTime - 12
+            return Math.floor(Math.random()*adjustedTime + 2)
+          }
+
+          function endOfDays(time) {
+            return time + 10
+          }
+
+          function dataParser(object){
+            id = findId(object);
+            duration = getTime(object);
+            startTime = randomizeVideoStart(duration)
+            endTime = endOfDays(startTime)
+            BerthaObjects.push(new VideoObject(id, duration, startTime, endTime))
+          }
+        video_objects.forEach(function(item) {
+          dataParser(item);
+          BerthaObjects.forEach(function(obj){
+             if (obj.duration > 10){
+               searchVidArr.push(obj)
+             }
+           });
+         });
           // UNCOMMENT HERE FOR TRULY RANDOM SAMPLING OF SEARCH RESULTS
           // video_objects = YouTubeSearch.SearchBar.sampleVideoObjects(video_objects);
 
           YouTubeSearch.SearchBar.compileVideoObjects(video_objects);
           console.log(results_values);
           BackGround.View.blackOut();
-          VideoPlayer.main(results_values)
+          VideoPlayer.main(searchVidArr)
           $("#dream-modal-container").hide();
 
         }

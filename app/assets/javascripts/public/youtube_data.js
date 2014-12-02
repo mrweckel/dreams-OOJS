@@ -130,13 +130,13 @@ YouTubeData.Account = {
         // });
         stuff.forEach(function(item) {
           dataParser(item);
-        MookieObjects.forEach(function(obj){
-          if (obj.duration > 10){
-            vidArr.push(obj)
-          }
+          MookieObjects.forEach(function(obj){
+            if (obj.duration > 10){
+              vidArr.push(obj)
+            }
+          });
         });
 
-        });
         VideoPlayer.main(vidArr);
       }
     });
