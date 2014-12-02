@@ -18,3 +18,4 @@ video2 = Video.create(YT_video_id: 2, start_time:"3", end_time:"13")
 
 dream1.videos << video1
 dream2.videos << video2
+

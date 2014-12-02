@@ -91,12 +91,6 @@ $(document).ready(function(){
       url: '/users/logout',
       type: 'GET'
     })
-    .done(function() {
-      console.log("success");
-    })
-    .fail(function() {
-      console.log("error");
-    });
 
 >>>>>>> Adds sessions logout to user
     var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token
