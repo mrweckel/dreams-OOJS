@@ -62,7 +62,7 @@ YouTubeData.Account = {
     var request = gapi.client.youtube.videos.list({
       // The 'id' property value is a comma-separated string of video IDs.
       id: videoIds.join(','),
-      part: 'id, snippet, statistics'
+      part: 'contentDetails, id, snippet, statistics'
     });
 
     request.execute(function(response) {
@@ -100,30 +100,40 @@ YouTubeData.Account = {
         YouTubeData.View.showVideoTitles(response);
 
         // VideoPlayer.main(response.items);
+        var sortingArr = [];
+        for(var i = 0; i < response.items.length; i++) {
+          console.log(response.items[i].id)
 
-        console.log(response.items)
-        console.log(response.items.length)
-        user_uploaded_videos = [];
-        user_videos_player1 = [];
-        user_videos_player2 = [];
-        user_uploaded_videos = user_uploaded_videos.concat(response.items)
-        console.log("printing user_uploaded_videos: " + user_uploaded_videos)
+          function findId(object) {
+            object.items.id //object.items[0].id JIC
+          }
 
-        for(i = 0; i < user_uploaded_videos.length; i++) {
-          if(i % 2 === 0) {
-            user_videos_player1.push(user_uploaded_videos[i])
-            } else {
-            user_videos_player2.push(user_uploaded_videos[i])
+          function getTime(object) {
+            var timeD = String(object.items.contentDetails.duration) // JIC
+            var semiformattedTime = timeD.replace("PT","").replace("H",":").replace("M",":").replace("S","")
+            var arr = semiformattedTime.split(":")
+            var minutes_sec = parseInt(arr[0]);
+            var total_sec;
+            if (minutes_sec > 60) {
+              total_sec = parseInt(minutes_sec) + parseInt(arr[1])
+            }else {
+              total_sec = minutes_sec
+            }
+            return total_sec //JIC remove it
+          }
+
+          function randomizeVideoStart(videoStartTime) {
+            adjustedTime = videoStartTime - 11
+          return Math.floor(Math.random()*adjustedTime + 1)
+          }
+
+          function endOfDays(time) {
+             return time + 10
             }
         }
-        var videoArr = [];
-        for(var i = 0; i < response.items.length; i++) {
-          videoArr[i] = response.items[i].id;
-        }
 
-        var myVideo2 = ["l-gQLqv9f4o", "OPdbdjctx2I", "I3anjdi8lB4", "veFZPU8G8EU", "_ptjpy_oShY", "ORhEE9VVg", "za2rJeIa9KQ", "yHvFL92RXP4", "b1XGPvbWn0A"]
+        debugger
         VideoPlayer.main(videoArr);
-        console.log(videoArr);
       }
     });
   }
