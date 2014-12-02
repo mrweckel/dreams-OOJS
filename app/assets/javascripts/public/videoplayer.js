@@ -36,19 +36,17 @@ VideoPlayer = {
       // }
       var past_first = false;
 
-       if (event.data == YT.PlayerState.PLAYING && !past_first) {
-        past_first = true; 
-       $('#player').fadeIn(3000) 
-       setTimeout(function() {$('#player').fadeOut(3000)}, 10000)
-        }
-
-        if (event.data == YT.PlayerState.PLAYING) {
-         setTimeout(function() {$('#player').fadeIn(3000)}, 10000)
-         setInterval( function() {if (player.getCurrentTime() > 8) {
-          $('#player').fadeOut(2000)
-          };}, 1000)
-        };
-      }
+      if (event.data == YT.PlayerState.PLAYING && !past_first) {
+        past_first = true;
+        $('#player').fadeIn(2000)
+        setTimeout(function() {$('#player').fadeOut(2000)}, 6000)
+      } else if (event.data == YT.PlayerState.PLAYING) {
+        setTimeout(function() {$('#player').fadeIn(2000)}, 10000)
+        setInterval( function() {if (player.getCurrentTime() > 8) {
+        $('#player').fadeOut(2000)
+        };}, 1000)
+      };
+    }
 
 
     function onPlayerError(event) {

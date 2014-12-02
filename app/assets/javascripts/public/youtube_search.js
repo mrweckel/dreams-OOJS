@@ -59,11 +59,8 @@ YouTubeSearch.SearchBar = {
 
           YouTubeSearch.SearchBar.compileVideoObjects(video_objects);
           console.log(results_values);
-
           BackGround.View.blackOut();
-
-          setTimeout(function() {VideoPlayer.main(results_values)}, 13500);
-          LoadBar.Controller.go();
+          VideoPlayer.main(results_values)
           $("#dream-modal-container").hide();
 
         }
