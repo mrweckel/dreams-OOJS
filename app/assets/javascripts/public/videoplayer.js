@@ -18,6 +18,7 @@ VideoPlayer = {
       this.cueList = [];
       this.playList = userVideos.shift()
       this.cueList = this.cueList.concat(userVideos)
+    debugger
     }
 
     var userList1 = new VideoMaker(videos)
