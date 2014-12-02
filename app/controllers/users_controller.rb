@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       else
         redirect_to(root_path)
       end
-    elsif User.exists?(user_id: params[:userId])
+    else
       session[:user_id] = @user.user_id
       p "*"*200
       p "printing sessions[:user_id] because user exists: #{session[:user_id]}"
