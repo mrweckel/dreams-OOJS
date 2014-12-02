@@ -4,9 +4,15 @@ BackGround.View ={
   blackOut: function(){
     $('#big-video-wrap').fadeOut('slow');
     $('#lean_overlay').fadeOut('slow');
+  },
+
+  reAppear: function(){
+    $('#big-video-wrap').fadeIn('slow');
+    loginFadeIn();
+    $("#error-novideos").fadeOut('fast');
+    $('#menu-toggle').fadeIn('slow');
   }
 }
-
 
 $(document).ready(function(){
   var BV;

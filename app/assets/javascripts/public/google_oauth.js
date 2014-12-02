@@ -85,6 +85,7 @@ $(document).ready(function(){
 
   $("#wake-up").on("click", "a",function(event){
     var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token
+    console.log("Wake up " + token);
     $.ajax({
       type: 'GET',
       url: logout,
@@ -92,6 +93,7 @@ $(document).ready(function(){
       contentType: "application/json",
       dataType: 'jsonp',
       success: function(nullResponse) {
+        console.log("Am I in here???")
         },
       error: function(e) {
       }
@@ -111,6 +113,7 @@ GoogleAuth.Controller.loadAPIClientInterfaces = function() {
     });
   });
 }
+
 
 
 

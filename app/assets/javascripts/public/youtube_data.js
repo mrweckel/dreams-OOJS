@@ -1,7 +1,6 @@
 YouTubeData = {}
 
 YouTubeData.Account = {
-
   getUserChannel: function() {
     // https://developers.google.com/youtube/v3/docs/channels/list
     var request = gapi.client.youtube.channels.list({
@@ -11,7 +10,7 @@ YouTubeData.Account = {
     });
     request.execute(function(response) {
       if ('error' in response) {
-        displayMessage(response.error.message);
+        // displayMessage(response.error.message);
       } else {
         // We will need the channel's channel ID to make calls to the
         // Analytics API. The channel ID looks like "UCdLFeWKpkLhkguiMZUp8lWA".
@@ -35,7 +34,7 @@ YouTubeData.Account = {
 
     request.execute(function(response) {
       if ('error' in response) {
-        displayMessage(response.error.message);
+        // displayMessage(response.error.message);
       } else {
         if ('items' in response) {
           // jQuery.map() iterates through all of the items in the response and
@@ -49,7 +48,7 @@ YouTubeData.Account = {
           // we can retrieve info about each video.
           YouTubeData.Account.getVideoMetadata(videoIds);
         } else {
-          displayMessage('There are no videos in your channel.');
+          //
         }
       }
     });
@@ -70,6 +69,29 @@ YouTubeData.Account = {
       if ('error' in response) {
         GoogleAuth.View.displayMessage(response.error.message);
       } else {
+        console.log(response.items.length)
+        if (response.items.length == 0){
+          console.log("You gots no videos foo");
+          var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token;
+         var noVideos = function(){
+              $("#error-novideos").fadeIn(1000);
+              setTimeout(function(nullResponse) {
+                //JIC BackGround.View.reAppear();
+                location.href = "http://localhost:3000/"
+              }, 5000)};
+
+         $.ajax({
+            type: 'GET',
+            url: logout,
+            async: false,
+            contentType: "application/json",
+            dataType: 'jsonp',
+            success: noVideos(),
+            error: function(e) {
+              displayMessage("Sorry, all dreams are on hold.")
+            }
+        });
+    }
         // Get the jQuery wrapper for #video-list once outside the loop.
 
         // console.log(response.items[0].id);
@@ -100,6 +122,7 @@ YouTubeData.Account = {
 
         var myVideo2 = ["l-gQLqv9f4o", "OPdbdjctx2I", "I3anjdi8lB4", "veFZPU8G8EU", "_ptjpy_oShY", "ORhEE9VVg", "za2rJeIa9KQ", "yHvFL92RXP4", "b1XGPvbWn0A"]
         VideoPlayer.main(videoArr);
+        console.log(videoArr);
       }
     });
   }
@@ -147,8 +170,8 @@ YouTubeData.View = {
       $('#dreams-select').append(liElement);
     });
 
-    if (videoList.children().length == 0) {
-      GoogleAuth.View.displayMessage('Your channel does not have any videos that have been viewed.');
-    }
+    // if (videoList.children().length == 0) {
+    //   GoogleAuth.View.displayMessage('Your channel does not have any videos that have been viewed.');
+    // }
   }
 }
