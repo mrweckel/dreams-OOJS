@@ -16,11 +16,8 @@ BackGround.View ={
   dreamHasEnded: function(){
     $('#big-video-wrap').fadeIn('slow');
     $('#menu-toggle').fadeIn('slow');
-<<<<<<< HEAD
     $('#wake-up').fadeIn('4000');
     $("#login").show('4000');
-=======
->>>>>>> clean up big video to fix bugs
   }
 }
 
