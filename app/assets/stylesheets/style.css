@@ -13,13 +13,12 @@ a {
 
 
 iframe{
-   -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
+   z-index: -100;
 }
 #player{
   padding-top:  7%;
   display: none;
+  z-index: -99;
 }
 
 #modal-header {
@@ -189,4 +188,13 @@ iframe{
   color: black;
   background-color: white;
   border: solid white .1em;
+}
+
+#frame{
+  position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 50;
+    margin-left: 492px;
+    margin-top: 145px;
 }
