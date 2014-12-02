@@ -93,6 +93,7 @@ YouTubeData.Account = {
         });
     }
         // Get the jQuery wrapper for #video-list once outside the loop.
+
         //Video Object Prototype
         YouTubeData.View.showVideoTitles(response);
         function VideoObject(id, duration, startTime, endTime) {
