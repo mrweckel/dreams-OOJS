@@ -147,7 +147,6 @@ YouTubeData.Account = {
           MookieObjects.push(new VideoObject(id, duration, startTime, endTime))
         }
         var stuff = response.items
-
         stuff.forEach(function(item) {
           dataParser(item);
           MookieObjects.forEach(function(obj){
@@ -156,7 +155,6 @@ YouTubeData.Account = {
             }
           });
         });
-
         VideoPlayer.main(vidArr);
       }
     });
