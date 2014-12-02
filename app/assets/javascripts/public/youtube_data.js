@@ -93,7 +93,6 @@ YouTubeData.Account = {
         });
     }
         // Get the jQuery wrapper for #video-list once outside the loop.
-
         //Video Object Prototype
         YouTubeData.View.showVideoTitles(response);
         function VideoObject(id, duration, startTime, endTime) {
@@ -147,9 +146,7 @@ YouTubeData.Account = {
           MookieObjects.push(new VideoObject(id, duration, startTime, endTime))
         }
         var stuff = response.items
-        //  stuff.forEach(function(item) {
-        //   if item.duration > 10 ;
-        // });
+
         stuff.forEach(function(item) {
           dataParser(item);
           MookieObjects.forEach(function(obj){
