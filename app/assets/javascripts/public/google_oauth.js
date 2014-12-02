@@ -30,7 +30,6 @@ var GoogleAuth = {}
         GoogleAuth.View.authSuccess();
         console.log(authResult);
         $('#menu-toggle').fadeOut('fast');
-        setTimeout(function(){LoadBar.Controller.go();}, 1000);
 
         GoogleAuth.Controller.loadAPIClientInterfaces();
 
