@@ -2,8 +2,8 @@ var BackGround = {}
 
 BackGround.View ={
   blackOut: function(){
-    setTimeout(function(){$('#big-video-wrap').fadeOut('slow')},9500);
-      setTimeout(function(){$('#lean_overlay').fadeOut('slow')},10000);
+    $('#big-video-wrap').fadeOut('slow');
+    $('#lean_overlay').fadeOut('slow');
   }
 }
 

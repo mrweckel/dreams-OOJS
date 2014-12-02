@@ -104,7 +104,7 @@ GoogleAuth.Controller.loadAPIClientInterfaces = function() {
       // After both client interfaces load, use the Data API to request
       // information about the authenticated user's channel.
       BackGround.View.blackOut();
-      setTimeout(function(){YouTubeData.Account.getUserChannel()},13500);
+      YouTubeData.Account.getUserChannel();
 
     });
   });
