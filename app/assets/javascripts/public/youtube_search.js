@@ -90,12 +90,12 @@ YouTubeSearch.SearchBar = {
           }
         video_objects.forEach(function(item) {
           dataParser(item);
-          BerthaObjects.forEach(function(obj){
-             if (obj.duration > 10){
-               searchVidArr.push(obj)
-             }
-           });
          });
+        BerthaObjects.forEach(function(obj){
+          if (obj.duration > 10){
+            searchVidArr.push(obj)
+          }
+        });
           // UNCOMMENT HERE FOR TRULY RANDOM SAMPLING OF SEARCH RESULTS
           // video_objects = YouTubeSearch.SearchBar.sampleVideoObjects(video_objects);
 
