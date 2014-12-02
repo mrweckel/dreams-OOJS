@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users
+  resources :users, except: :show
   match 'users/logout' => 'users#logout', :via => :get
   resources :dreams
   resources :videos
