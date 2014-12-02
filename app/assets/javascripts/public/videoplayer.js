@@ -113,7 +113,8 @@ VideoPlayer = {
       playerVars: {
         controls: 0,
         disablekb: 1,
-        showinfo: 0
+        showinfo: 0,
+        wmode: "opaque"
       },
       events: {
         'onReady': onPlayerReady,
