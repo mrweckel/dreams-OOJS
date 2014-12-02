@@ -198,3 +198,33 @@ iframe{
     margin-left: 492px;
     margin-top: 145px;
 }
+
+#error-novideos{
+  display:none;
+  width: 800px;
+  margin:0 auto;
+}
+
+#novideos-header{
+  color: #FFF;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:400px;
+  height:25px;
+  margin-left:-200px;
+  margin-top:-75px;
+  text-align: center;
+}
+
+#novideos-font{
+  color: #FFF;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:400px;
+  height:25px;
+  margin-left:-200px;
+  margin-top: 0px;
+  text-align: center;
+}
