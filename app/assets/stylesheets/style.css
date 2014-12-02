@@ -71,6 +71,15 @@ iframe{
   text-align: center;
 }
 
+.modal_close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: block;
+  margin-right: 150px;
+  z-index: 2; }
+
+
 #lean_overlay {
     position: fixed;
     z-index: 98;
@@ -143,4 +152,41 @@ iframe{
 
 .movieOn {
   display:block ;
+}
+
+#wake-up{
+  display:none;
+  width: 300px;
+  height: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+#wake-up {
+  margin-top: 20%;
+}
+
+#wake-up a{
+  font-size: 2em;
+  text-decoration: none;
+  background-color:rgba(0, 0, 0, 0.5);
+  border: solid white .1em;
+  padding-right: 1em;
+  padding-left: 1em;
+  color: white;
+  width: 40%;
+  height: 7.5%;
+  transition: background-color .5s;
+}
+
+#wake-up a:hover{
+  color: black;
+  background-color: white;
+  border: solid white .1em;
+}
+
+#wake-up a:active{
+  color: black;
+  background-color: white;
+  border: solid white .1em;
 }

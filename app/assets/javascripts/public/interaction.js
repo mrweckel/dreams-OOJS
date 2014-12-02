@@ -7,8 +7,16 @@ $(document).ready(function(){
     closeButton: ".modal_close",
     });
 
-  $(".login").on("click","a#dream-btn", function(){
-    $('.login').fadeOut("slow");
+  loginFadeOut = function(){
+    $('#login').fadeOut("slow");
+  }
+
+  loginFadeIn = function(){
+    $('#login').fadeIn("slow");
+  }
+
+  $("#login").on("click","a#dream-btn", function(){
+    loginFadeOut();
   });
 });
 

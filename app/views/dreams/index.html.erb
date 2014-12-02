@@ -1,7 +1,9 @@
 <div id="menu-toggle">
 	<%= image_tag "menu.png" %>
 </div>
-
+<div id="wake-up">
+  <a href="#">Wake Up</a>
+</div>
 <nav id="menu">
 	<h1>About Dreams</h1>
 	<p>Lorem ipsum dolor sit amet, his te alia clita utamur, ea est dicit percipit, usu aeque quando fabellas ne. Iudico partem debitis est ex. Est rebum ridens moderatius in, convenire consectetuer ut est, cum eius timeam volumus an. Ne est assum efficiantur. Ex duo scriptorem interpretaris, ei fuisset reformidans intellegebat quo.</p>
@@ -13,6 +15,7 @@
 </audio>
 
 <div id="dream-modal">
+  <a class="modal_close" href="#"><%= image_tag "close.png" %></a>
   <h1>
     <span id="modal-header">Welcome to Dreams</span>
   </h1>
@@ -47,7 +50,7 @@
   <h1>Choose your videos</h1>
 </nav>
 
-<div class="login">
+<div id="login">
 	<a id="dream-btn" href="#dream-modal">Dream</a>
 </div>
 <%= render 'google_signin' %>

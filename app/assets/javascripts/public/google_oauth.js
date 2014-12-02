@@ -33,19 +33,8 @@ var GoogleAuth = {}
 
         GoogleAuth.Controller.loadAPIClientInterfaces();
 
-        var token = authResult.access_token;
+        token = authResult.access_token;
         console.log(token)
-
-      $.ajax({
-        type:"POST",
-        url: "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=" + token,
-        dataType:'JSON'
-      }).done(function(data){
-        // Use to send auth data to elsewhere
-        console.log(data);
-      });
-
-
 
     } else {
 
@@ -86,15 +75,29 @@ var GoogleAuth = {}
 }
 
 $(document).ready(function(){
-      $(".sign-in").on("click","a", function(event){
-          event.preventDefault();
-          $("#dream-modal").hide();
-          gapi.auth.init(function() {
-            window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
-            //
-        });
-      });
+  $(".sign-in").on("click","a", function(event){
+    event.preventDefault();
+    $("#dream-modal").hide();
+    gapi.auth.init(function() {
+      window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
     });
+  });
+
+  $("#wake-up").on("click", "a",function(event){
+    var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token
+    $.ajax({
+      type: 'GET',
+      url: logout,
+      async: false,
+      contentType: "application/json",
+      dataType: 'jsonp',
+      success: function(nullResponse) {
+        },
+      error: function(e) {
+      }
+    });
+  });
+});
   /* In later steps, add additional functions above this line. */
 
 GoogleAuth.Controller.loadAPIClientInterfaces = function() {
