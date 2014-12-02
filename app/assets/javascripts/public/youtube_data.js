@@ -102,11 +102,12 @@ YouTubeData.Account = {
         // VideoPlayer.main(response.items);
 
         console.log(response.items)
+        console.log(response.items.length)
         user_uploaded_videos = [];
         user_videos_player1 = [];
         user_videos_player2 = [];
         user_uploaded_videos = user_uploaded_videos.concat(response.items)
-        console.log(user_uploaded_videos)
+        console.log("printing user_uploaded_videos: " + user_uploaded_videos)
 
         for(i = 0; i < user_uploaded_videos.length; i++) {
           if(i % 2 === 0) {
@@ -156,9 +157,9 @@ YouTubeData.View = {
       aElement.attr('href', '#');
       aElement.text(title);
       aElement.click(function() {
-        console.log(videoId)
+        console.log("printing videoId: " + videoId)
         videos_collection.push(videoId)
-        console.log(videos_collection)
+        console.log("printing videos_collection: " + videos_collection)
         // can use this for clicking on stuff, if needed.
         // should be DRYed out though....
       });

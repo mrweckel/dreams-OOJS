@@ -15,6 +15,7 @@ $(document).ready(function(){
     $('#login').fadeIn("slow");
   }
 
+// JIC: might be able to throw the AJAX for back-end login in this jquery
   $("#login").on("click","a#dream-btn", function(){
     loginFadeOut();
   });
