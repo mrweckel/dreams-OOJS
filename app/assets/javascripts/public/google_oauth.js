@@ -85,6 +85,13 @@ $(document).ready(function(){
 
   $("#wake-up").on("click", "a",function(event){
     $("#wake-up").fadeOut("slow");
+    $.ajax({
+      url: '/users/logout',
+      type: 'GET',
+      success: location.href= "http://localhost:3000/",
+      error: console.log("Logout error on AJAX")
+    });
+    
     var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token
     console.log("Wake up " + token);
     $.ajax({
