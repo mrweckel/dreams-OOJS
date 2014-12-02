@@ -72,12 +72,8 @@ YouTubeData.Account = {
       } else {
         // Get the jQuery wrapper for #video-list once outside the loop.
 
-        // console.log(response.items[0].id);
-        // videos_collection;
-        // console.log(videos_collection);
+        //Video Object Prototype
         YouTubeData.View.showVideoTitles(response);
-
-        // VideoPlayer.main(response.items);
         function VideoObject(id, duration, startTime, endTime) {
             this.id = id;
             this.duration= duration;
@@ -86,11 +82,9 @@ YouTubeData.Account = {
         }
 
         MookieObjects = [];
-        // for(var i = 0; i < response.items.length; i++) {
-        //   console.log(response.items[i].id)
-
+        // Algorithm that gets all certian data from video objects
           function findId(object) {
-            return object.id //object.items[0].id JIC
+            return object.id
           }
 
           function getTime(object) {
@@ -100,29 +94,27 @@ YouTubeData.Account = {
             if (arr.length == 1) {
               var seconds = parseInt(arr[0]);
               var total_sec = seconds
-            } else {
+            } else if (arr.length == 2) {
               var minutes_sec = (parseInt(arr[0]) * 60);
               var seconds = parseInt(arr[1]);
               var total_sec = minutes_sec + seconds;
+            } else {
+              var hours = (parseInt(arr)[0]*3600)
+              var minutes_sec = (parseInt(arr[1]) * 60);
+              var seconds = parseInt(arr[2]);
+              var total_sec = hours + minutes_sec + seconds;
             }
-            // if (minutes_sec > 60) {
-            //   total_sec = parseInt(minutes_sec) + parseInt(arr[1])
-            // }else {
-            //   total_sec = minutes_sec
-            // }
-            return total_sec //JIC remove it
-
+            return total_sec
           }
 
           function randomizeVideoStart(videoStartTime) {
-            adjustedTime = videoStartTime - 11
-          return Math.floor(Math.random()*adjustedTime + 1)
+            adjustedTime = videoStartTime - 12
+          return Math.floor(Math.random()*adjustedTime + 2)
           }
 
           function endOfDays(time) {
              return time + 10
             }
-        // }
 
         function dataParser(object){
           id = findId(object);
