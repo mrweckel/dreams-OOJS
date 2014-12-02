@@ -1,7 +1,6 @@
 YouTubeData = {}
 
 YouTubeData.Account = {
-
   getUserChannel: function() {
     // https://developers.google.com/youtube/v3/docs/channels/list
     var request = gapi.client.youtube.channels.list({
@@ -11,7 +10,7 @@ YouTubeData.Account = {
     });
     request.execute(function(response) {
       if ('error' in response) {
-        displayMessage(response.error.message);
+        // displayMessage(response.error.message);
       } else {
         // We will need the channel's channel ID to make calls to the
         // Analytics API. The channel ID looks like "UCdLFeWKpkLhkguiMZUp8lWA".
@@ -35,7 +34,7 @@ YouTubeData.Account = {
 
     request.execute(function(response) {
       if ('error' in response) {
-        displayMessage(response.error.message);
+        // displayMessage(response.error.message);
       } else {
         if ('items' in response) {
           // jQuery.map() iterates through all of the items in the response and
@@ -49,7 +48,7 @@ YouTubeData.Account = {
           // we can retrieve info about each video.
           YouTubeData.Account.getVideoMetadata(videoIds);
         } else {
-          displayMessage('There are no videos in your channel.');
+          //
         }
       }
     });
@@ -147,8 +146,8 @@ YouTubeData.View = {
       $('#dreams-select').append(liElement);
     });
 
-    if (videoList.children().length == 0) {
-      GoogleAuth.View.displayMessage('Your channel does not have any videos that have been viewed.');
-    }
+    // if (videoList.children().length == 0) {
+    //   GoogleAuth.View.displayMessage('Your channel does not have any videos that have been viewed.');
+    // }
   }
 }
