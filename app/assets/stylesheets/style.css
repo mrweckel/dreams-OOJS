@@ -154,7 +154,7 @@ iframe{
 }
 
 #wake-up{
-  display:none;
+/*  display:none;*/
   width: 300px;
   height: 400px;
   margin: auto;

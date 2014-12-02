@@ -170,6 +170,7 @@ YouTubeData.Account = {
             vidArr.push(obj)
           }
         });
+        SaveDream.save(vidArr);
         VideoPlayer.main(vidArr);
       }
     });
