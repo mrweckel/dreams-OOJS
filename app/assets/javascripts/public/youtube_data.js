@@ -75,7 +75,8 @@ YouTubeData.Account = {
          var noVideos = function(){
               $("#error-novideos").fadeIn(1000);
               setTimeout(function(nullResponse) {
-                BackGround.View.reAppear();
+                //JIC BackGround.View.reAppear();
+                location.href = "http://localhost:3000/"
               }, 5000)};
 
          $.ajax({
