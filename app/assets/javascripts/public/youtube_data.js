@@ -69,6 +69,27 @@ YouTubeData.Account = {
       if ('error' in response) {
         GoogleAuth.View.displayMessage(response.error.message);
       } else {
+        if (response.items.length == 0){
+          console.log("You gots no videos foo");
+          var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token;
+         var noVideos = function(){
+              $("#error-novideos").fadeIn(1000);
+              setTimeout(function(nullResponse) {
+                BackGround.View.reAppear();
+              }, 5000)};
+
+         $.ajax({
+            type: 'GET',
+            url: logout,
+            async: false,
+            contentType: "application/json",
+            dataType: 'jsonp',
+            success: noVideos(),
+            error: function(e) {
+              displayMessage("Sorry, all dreams are on hold.")
+            }
+        });
+    }
         // Get the jQuery wrapper for #video-list once outside the loop.
 
         // console.log(response.items[0].id);
