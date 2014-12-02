@@ -62,7 +62,7 @@ YouTubeData.Account = {
     var request = gapi.client.youtube.videos.list({
       // The 'id' property value is a comma-separated string of video IDs.
       id: videoIds.join(','),
-      part: 'id, snippet, statistics'
+      part: 'contentDetails, id, snippet, statistics'
     });
 
     request.execute(function(response) {
@@ -94,44 +94,72 @@ YouTubeData.Account = {
     }
         // Get the jQuery wrapper for #video-list once outside the loop.
 
-        // console.log(response.items[0].id);
-        videos_collection;
-        // console.log(videos_collection);
+        //Video Object Prototype
         YouTubeData.View.showVideoTitles(response);
+        function VideoObject(id, duration, startTime, endTime) {
+            this.id = id;
+            this.duration= duration;
+            this.startTime = startTime;
+            this.endTime = endTime;
+        }
 
-        // VideoPlayer.main(response.items);
+        MookieObjects = [];
+        vidArr=[]
+        // Algorithm that gets all certian data from video objects
+          function findId(object) {
+            return object.id
+          }
 
-        console.log(response.items)
-        console.log(response.items.length)
-        user_uploaded_videos = [];
-        user_videos_player1 = [];
-        user_videos_player2 = [];
-        user_uploaded_videos = user_uploaded_videos.concat(response.items)
-        console.log("printing user_uploaded_videos: " + user_uploaded_videos)
-
-        for(i = 0; i < user_uploaded_videos.length; i++) {
-          if(i % 2 === 0) {
-            user_videos_player1.push(user_uploaded_videos[i])
+          function getTime(object) {
+            var timeD = String(object.contentDetails.duration) // JIC
+            var semiformattedTime = timeD.replace("PT","").replace("H",":").replace("M",":").replace("S","")
+            var arr = semiformattedTime.split(":")
+            if (arr.length == 1) {
+              var seconds = parseInt(arr[0]);
+              var total_sec = seconds
+            } else if (arr.length == 2) {
+              var minutes_sec = (parseInt(arr[0]) * 60);
+              var seconds = parseInt(arr[1]);
+              var total_sec = minutes_sec + seconds;
             } else {
-            user_videos_player2.push(user_uploaded_videos[i])
+              var hours = (parseInt(arr)[0]*3600)
+              var minutes_sec = (parseInt(arr[1]) * 60);
+              var seconds = parseInt(arr[2]);
+              var total_sec = hours + minutes_sec + seconds;
             }
-        }
-        var videoArr = [];
-        for(var i = 0; i < response.items.length; i++) {
-          videoArr[i] = response.items[i].id;
-        }
+            return total_sec
+          }
 
-        var myVideo2 = ["l-gQLqv9f4o", "OPdbdjctx2I", "I3anjdi8lB4", "veFZPU8G8EU", "_ptjpy_oShY", "ORhEE9VVg", "za2rJeIa9KQ", "yHvFL92RXP4", "b1XGPvbWn0A"]
-        VideoPlayer.main(videoArr);
-        console.log(videoArr);
+          function randomizeVideoStart(videoStartTime) {
+            adjustedTime = videoStartTime - 12
+          return Math.floor(Math.random()*adjustedTime + 2)
+          }
+
+          function endOfDays(time) {
+             return time + 10
+            }
+
+        function dataParser(object){
+          id = findId(object);
+          duration = getTime(object);
+          startTime = randomizeVideoStart(duration)
+          endTime = endOfDays(startTime)
+          MookieObjects.push(new VideoObject(id, duration, startTime, endTime))
+        }
+        var stuff = response.items
+        stuff.forEach(function(item) {
+          dataParser(item);
+        });
+        MookieObjects.forEach(function(obj){
+          if (obj.duration > 10){
+            vidArr.push(obj)
+          }
+        });
+        VideoPlayer.main(vidArr);
       }
     });
   }
 }
-
-        var videos_collection = [];
-        var userList;
-        var userList2;
 
 YouTubeData.View = {
 

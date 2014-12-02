@@ -29,10 +29,7 @@ VideoPlayer = {
     var done = false;
     function onPlayerStateChange(event) {
       console.log('onPlayerStateChange', event)
-      // if (event.data == YT.PlayerState.PLAYING && !done) {
-      //   setTimeout(stopVideo, 10000);
-      //   done = true;
-      // }
+
       var past_first = false;
       if (event.data == YT.PlayerState.PLAYING && !past_first) {
         past_first = true;
@@ -55,24 +52,6 @@ VideoPlayer = {
       console.log(event);
     }
 
-
-  // setInterval( function() {if (player.getCurrentTime() > 8) {
-  //   $('#player').fadeOut(3000)
-  // };}, 1000)
-
-
-
-
-  // if (player.getCurrentTime() > 8) {
-  //   $('#player').fadeOut(3000)
-  // };
-
-
-
-    // function fadeOutTimer() {
-    //   setTimeout(function() {$('#player').fadeOut(3000)}, 10000)
-    // }
-
     function stopVideo() {
       player.stopVideo();
     }
@@ -84,23 +63,20 @@ VideoPlayer = {
       videoTimer(videoarray)
     }
 
-    function playTheVideo(video) {
+    function playTheVideo(object) {
       player.loadVideoById({
-        'videoId': video,
-        'startSeconds': 2,
-        'endSeconds': 12,
+        'videoId': object.id,
+        'startSeconds': object.startTime,
+        'endSeconds': object.endTime,
         'suggestedQuality': 'large'});
 
       dreamPlaylist(userList1.cueList);
     }
 
-
     function videoList(videoId) {
       playTheVideo(videoId);
       player.playVideo();
     }
-
-
 
     function videoTimer(array) {
       if(array.length > 0) {
@@ -110,8 +86,6 @@ VideoPlayer = {
         console.log("videoTimer says video array is empty");
       }
     }
-
-
 
     player = new YT.Player('player', {
       height: '576',
