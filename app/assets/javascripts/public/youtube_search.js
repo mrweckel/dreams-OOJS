@@ -17,6 +17,7 @@ YouTubeSearch.SearchBar = {
           dataType: 'jsonp',
           success: function(data) {
            response( $.map( data[1], function(item) {
+            console.log(item);
             return {
               label: item[0],
               value: item[0]
