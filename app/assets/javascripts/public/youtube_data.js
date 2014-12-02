@@ -82,6 +82,7 @@ YouTubeData.Account = {
         }
 
         MookieObjects = [];
+        vidArr=[]
         // Algorithm that gets all certian data from video objects
           function findId(object) {
             return object.id
@@ -124,11 +125,19 @@ YouTubeData.Account = {
           MookieObjects.push(new VideoObject(id, duration, startTime, endTime))
         }
         var stuff = response.items
+        //  stuff.forEach(function(item) {
+        //   if item.duration > 10 ;
+        // });
         stuff.forEach(function(item) {
           dataParser(item);
+        MookieObjects.forEach(function(obj){
+          if (obj.duration > 10){
+            vidArr.push(obj)
+          }
         });
-        debugger
-        VideoPlayer.main(videoArr);
+
+        });
+        VideoPlayer.main(vidArr);
       }
     });
   }

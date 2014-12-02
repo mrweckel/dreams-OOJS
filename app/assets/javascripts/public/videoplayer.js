@@ -18,6 +18,7 @@ VideoPlayer = {
       this.cueList = [];
       this.playList = userVideos.shift()
       this.cueList = this.cueList.concat(userVideos)
+    debugger
     }
 
     var userList1 = new VideoMaker(videos)
@@ -58,11 +59,11 @@ VideoPlayer = {
       videoTimer(videoarray)
     }
 
-    function playTheVideo(video) {
+    function playTheVideo(object) {
       player.loadVideoById({
-        'videoId': video,
-        'startSeconds': 2,
-        'endSeconds': 12,
+        'videoId': object.id,
+        'startSeconds': object.startTime,
+        'endSeconds': object.endTime,
         'suggestedQuality': 'large'});
 
       dreamPlaylist(userList1.cueList);
