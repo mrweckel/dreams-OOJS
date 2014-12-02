@@ -29,13 +29,11 @@ VideoPlayer = {
     var done = false;
     function onPlayerStateChange(event) {
       console.log('onPlayerStateChange', event)
-
       // if (event.data == YT.PlayerState.PLAYING && !done) {
       //   setTimeout(stopVideo, 10000);
       //   done = true;
       // }
       var past_first = false;
-
       if (event.data == YT.PlayerState.PLAYING && !past_first) {
         past_first = true;
         $('#player').fadeIn(2000)
@@ -46,6 +44,10 @@ VideoPlayer = {
         $('#player').fadeOut(2000)
         };}, 1000)
       };
+      if ((event.data === 0) && (userList1.cueList.length === 0)) {
+        console.log("this shit is over");
+        dreamHasEnded();
+      }
     }
 
 
@@ -77,6 +79,8 @@ VideoPlayer = {
 
     function dreamPlaylist(videoarray) {
       videoarray.shift()
+      console.log("printing videoarray.length after shift: ");
+      console.log(videoarray.length);
       videoTimer(videoarray)
     }
 
@@ -101,6 +105,9 @@ VideoPlayer = {
     function videoTimer(array) {
       if(array.length > 0) {
         setTimeout(function() { videoList(array[0])}, 10000);
+      }
+      else {
+        console.log("videoTimer says video array is empty");
       }
     }
 
