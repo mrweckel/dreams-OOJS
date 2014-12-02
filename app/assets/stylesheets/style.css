@@ -71,6 +71,15 @@ iframe{
   text-align: center;
 }
 
+.modal_close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: block;
+  margin-right: 150px;
+  z-index: 2; }
+
+
 #lean_overlay {
     position: fixed;
     z-index: 98;
