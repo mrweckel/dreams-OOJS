@@ -6,19 +6,18 @@ class DreamsController < ApplicationController
   end
 
   def new
+    # steven sez: i don't think you need dream_params here do you?
     @dream = Dream.new(dream_params)
   end
 
   def create
-    p "*"*200
-    p params
-    p params[:dream]
+    @user = User.find_by(user_id: session[:user_id])
+    p dream_params
+    @dream = @user.dreams.create(dream_params)
 
-      p "inside the create if session conditional"
-      @user = User.find_by(user_id: session[:user_id])
-      @dream = @user.dreams.create!(dream_params)
-      p "successfully created dream"
-
+    respond_to do |format|
+      format.json { render json: @dream }
+    end
   end
 
   def show
@@ -27,10 +26,7 @@ class DreamsController < ApplicationController
 
   private
   def dream_params
-    p "starting dream_params method"
-    p params
     params.require(:dream).permit(:YT_video_id, :duration, :start_time, :end_time)
-    p "dream_params successful"
   end
 
 end
