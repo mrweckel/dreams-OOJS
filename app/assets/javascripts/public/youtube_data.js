@@ -109,7 +109,14 @@ YouTubeData.Account = {
     }
         // Get the jQuery wrapper for #video-list once outside the loop.
 
-        //Video Object Prototype
+        var video_test_data = {
+          YT_video_id: "1",
+          duration: "1",
+          start_time: "2",
+          end_time: "12"
+        }
+        SaveDream.save(video_test_data);
+
         YouTubeData.View.showVideoTitles(response);
         function VideoObject(id, duration, startTime, endTime) {
             this.id = id;

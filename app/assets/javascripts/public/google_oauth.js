@@ -84,15 +84,7 @@ $(document).ready(function(){
   });
 
   $("#wake-up").on("click", "a",function(event){
-<<<<<<< HEAD
     $("#wake-up").fadeOut("slow");
-=======
-    $.ajax({
-      url: '/users/logout',
-      type: 'GET'
-    })
-
->>>>>>> Adds sessions logout to user
     var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token
     console.log("Wake up " + token);
     $.ajax({

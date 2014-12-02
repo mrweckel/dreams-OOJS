@@ -1,4 +1,5 @@
 class DreamsController < ApplicationController
+  respond_to :json
 
   def index
     render 'index'
@@ -9,13 +10,27 @@ class DreamsController < ApplicationController
   end
 
   def create
-    # dreams params should potentially have a dream_name user inputs
-    # this should create a dream that will be populated with the video objects
-    @dream = Dream.create(dream_params)
+    p "*"*200
+    p params
+    p params[:dream]
+
+      p "inside the create if session conditional"
+      @user = User.find_by(user_id: session[:user_id])
+      @dream = @user.dreams.create!(dream_params)
+      p "successfully created dream"
+
   end
 
   def show
-    @dreams = Dream.find(sessions[:YT_uid])
+    @dreams = Dream.find(sessions[:user_id])
+  end
+
+  private
+  def dream_params
+    p "starting dream_params method"
+    p params
+    params.require(:dream).permit(:YT_video_id, :duration, :start_time, :end_time)
+    p "dream_params successful"
   end
 
 end

@@ -7,5 +7,8 @@ SaveDream = {
       data: { dream: video_data },
       success: console.log("SUCCESS!")
     })
+    .done(function() {
+      console.log("success");
+    })
   }
 }
