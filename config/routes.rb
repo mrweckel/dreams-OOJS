@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :users do
-    get "logout"
-  end
+  resources :users
+  match 'users/logout' => 'users#logout', :via => :get
   resources :dreams
   resources :videos
+  resources :sessions
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root to: 'dreams#index'
