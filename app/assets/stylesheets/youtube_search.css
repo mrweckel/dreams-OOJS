@@ -14,13 +14,15 @@
     color: darkred
 }
 .youtube p {
-    padding-top: 10px
+    padding-top: 3em;
 }
 
 .youtube_search {
-    padding: 10px
+    padding: 10px;
 }
 .youtube_search p {
+    font-size: 1.2em;
+    margin-left: 3em;
     font-weight: normal;
     color: #FFF;
     padding-bottom: 5px
@@ -43,4 +45,8 @@
     left: 40%;
     z-index: 9000;
     /*background-color: #FFF;*/
+}
+
+#youtube{
+    margin-left: 40px;
 }
