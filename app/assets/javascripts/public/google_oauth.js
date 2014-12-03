@@ -76,9 +76,13 @@ var GoogleAuth = {}
 }
 
 $(document).ready(function(){
+  volumeSet = new Audio.Controller();
+  volumeSet.audioSet()
+
   $(".sign-in").on("click","a", function(event){
     event.preventDefault();
     $("#dream-modal").hide();
+
     gapi.auth.init(function() {
       window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
     });
@@ -117,6 +121,8 @@ GoogleAuth.Controller.loadAPIClientInterfaces = function() {
       // After both client interfaces load, use the Data API to request
       // information about the authenticated user's channel.
       BackGround.View.blackOut();
+      changeSong = new Audio.Controller;
+      changeSong.audioChange("/audio/audio4.mp3")
       YouTubeData.Account.getUserChannel();
 
     });

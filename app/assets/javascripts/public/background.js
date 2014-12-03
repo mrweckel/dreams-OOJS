@@ -14,11 +14,25 @@ BackGround.View ={
   },
 
   dreamHasEnded: function(){
-    $('#big-video-wrap').fadeIn('slow');
-    $('#menu-toggle').fadeIn('slow');
-    $('#wake-up').fadeIn('4000');
-    $("#login").show('4000');
+    if('undefined' !== typeof token){
+   var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token;
+   console.log("Wake up " + token);
+   $.ajax({
+      type: 'GET',
+      url: logout,
+      async: false,
+      contentType: "application/json",
+      dataType: 'jsonp',
+      success: function(nullResponse) {
+        location.href = "http://localhost:3000/";
+      },
+      error: function(e) {
+      }
+    });
+  } else {
+    location.href = "http://localhost:3000/";
   }
+ }
 }
 
 $(document).ready(function(){
