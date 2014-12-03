@@ -28,9 +28,6 @@ function onYouTubeIframeAPIReady() {
     var done = false;
     function onPlayerStateChange(event) {
       console.log('onPlayerStateChange', event)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
       if (event.data == YT.PlayerState.PLAYING) {
         $('#player').fadeIn({
           duration: 2000,
@@ -41,15 +38,16 @@ function onYouTubeIframeAPIReady() {
         });
         setTimeout(function() {
           $('#player').fadeOut({
-            duration: 3000,
+            duration: 2000,
             step: function(now,fx){
               console.log(now);
               player.setVolume(now*100);
             }
           });
-        }, 7500);
+        }, 6000);
 
     if ((event.data === 0) && (userList1.cueList.length === 0)) {
+      console.log("wtf");
       player.destroy();
       Background.View.dreamHasEnded();
       }
