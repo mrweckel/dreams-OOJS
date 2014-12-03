@@ -32,7 +32,6 @@ function onYouTubeIframeAPIReady() {}
         $('#player').fadeIn({
           duration: 2000,
           step: function(now,fx){
-            console.log(now);
             player.setVolume(now*100);
           }
         });
@@ -40,7 +39,6 @@ function onYouTubeIframeAPIReady() {}
           $('#player').fadeOut({
             duration: 2000,
             step: function(now,fx){
-              console.log(now);
               player.setVolume(now*100);
             }
           });
@@ -54,9 +52,13 @@ function onYouTubeIframeAPIReady() {}
       }
   }
 
-    function onPlayerError(event) {
-      console.log(event);
-    }
+    // function onPlayerError(event) {
+    //   console.log(event);
+    //   if (event) {
+    //     player.destroy
+    //     VideoPlayer.main(searchVidArr)
+    //   }
+    // }
 
     function stopVideo() {
       player.stopVideo();
@@ -106,7 +108,7 @@ function onYouTubeIframeAPIReady() {}
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange,
-        'onError': onPlayerError
+        // 'onError': onPlayerError
       },
     });
 
