@@ -1,17 +1,21 @@
-ul.ui-menu {
-    list-style:none;
-    padding: 0px;
-    margin: 0;
-    display: block;
-    width: 227px;
+.loading {
+    display: none;
+    width: 16px;
+    height: 16px;
+    background-image: url(loading.gif);
+    vertical-align: text-bottom;
+}
+/* autocomplete adds the ui-autocomplete-loading class to the textbox when it is _busy_, use general sibling combinator ingeniously */
+#autocomplete.ui-autocomplete-loading ~ .loading {
+    display: inline-block;
 }
 
-li.ui-menu-item {
-    margin: 0;
-    padding: 0;
-    font-family: 'Quattrocento', serif;
+.ui-autocomplete .result {
+    margin-right: 1em;
     font-size: 14px;
+    font-family: 'Quattrocento', serif;
 }
+
 
 .ui-front {
     z-index: 9001;

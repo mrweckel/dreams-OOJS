@@ -17,6 +17,7 @@ YouTubeSearch.SearchBar = {
           dataType: 'jsonp',
           success: function(data) {
            response( $.map( data[1], function(item) {
+            console.log(item);
             return {
               label: item[0],
               value: item[0]
@@ -29,7 +30,11 @@ YouTubeSearch.SearchBar = {
       select: function( event, ui ) {
         $.youtubeAPI(ui.item.label, 20); // Change integer to change number of search results
       }
-    });
+    }).data("ui-autocomplete")._renderItem = function(ul, item) {
+      var $a = $("<a></a>");
+      $("<span class='result'></span>").text(item.label).appendTo($a);
+      return $("<li></li>").append($a).appendTo(ul);
+    };
 
     $('input#youtube').keyup(function(event){
       event.preventDefault();
