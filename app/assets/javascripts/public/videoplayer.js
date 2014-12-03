@@ -8,9 +8,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 function onYouTubeIframeAPIReady() {
-}
-
-VideoPlayer = {
+  VideoPlayer = {
   main: function(videos) {
 
     VideoMaker = function(userVideos) {
@@ -40,18 +38,19 @@ VideoPlayer = {
         });
         setTimeout(function() {
           $('#player').fadeOut({
-            duration: 3000,
+            duration: 2000,
             step: function(now,fx){
               console.log(now);
               player.setVolume(now*100);
             }
           });
-        }, 7500);
-      }
+        }, 6000);
 
     if ((event.data === 0) && (userList1.cueList.length === 0)) {
-      console.log("this shit is over");
-      dreamHasEnded();
+      console.log("wtf");
+      player.destroy();
+      Background.View.dreamHasEnded();
+      }
     }
   }
 
@@ -114,4 +113,8 @@ VideoPlayer = {
     dreamPlaylist(userList1.cueList)
   }
 }
+}
+
+
+
 

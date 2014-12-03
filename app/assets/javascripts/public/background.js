@@ -11,6 +11,13 @@ BackGround.View ={
     loginFadeIn();
     $("#error-novideos").fadeOut('fast');
     $('#menu-toggle').fadeIn('slow');
+  },
+
+  dreamHasEnded: function(){
+    $('#big-video-wrap').fadeIn('slow');
+    $('#menu-toggle').fadeIn('slow');
+    $('#wake-up').fadeIn('4000');
+    $("#login").show('4000');
   }
 }
 

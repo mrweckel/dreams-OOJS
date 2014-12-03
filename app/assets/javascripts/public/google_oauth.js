@@ -84,6 +84,7 @@ $(document).ready(function(){
   });
 
   $("#wake-up").on("click", "a",function(event){
+    $("#wake-up").fadeOut("slow");
     var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token
     console.log("Wake up " + token);
     $.ajax({
@@ -93,7 +94,7 @@ $(document).ready(function(){
       contentType: "application/json",
       dataType: 'jsonp',
       success: function(nullResponse) {
-        console.log("Am I in here???")
+        location.href = "http://localhost:3000/";
         },
       error: function(e) {
       }
