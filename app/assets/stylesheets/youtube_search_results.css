@@ -15,6 +15,22 @@
     font-family: 'Quattrocento', serif;
 }
 
+.ui-autocomplete {
+    opacity: 0;
+    display: none;
+    transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+}
+
+.ui-autocomplete.opened {
+    opacity: 1;
+    transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -o-transition: opacity 1s;
+}
 
 .ui-front {
     z-index: 9001;
