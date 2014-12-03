@@ -40,46 +40,19 @@ VideoPlayer = {
         });
         setTimeout(function() {
           $('#player').fadeOut({
-            duration: 2000,
+            duration: 3000,
             step: function(now,fx){
               console.log(now);
               player.setVolume(now*100);
             }
           });
-        }, 8000);
+        }, 7500);
       }
 
       if ((event.data === 0) && (userList1.cueList.length === 0)) {
         console.log("this shit is over");
         dreamHasEnded();
       }
-
-      // var past_first = false;
-
-      // var dynamicVolume = $('#player').animate({ left: 100 }, {duration: 1000,
-      //    step: function(now, fx){
-      //       var volume = now;
-      //       player.setVolume(volume);
-      //       console.log(volume)
-      //   }
-      // });
-
-
-      // if (event.data == YT.PlayerState.PLAYING && !past_first) {
-      //   past_first = true;
-      //   $('#player').fadeIn(2000)
-      //   setTimeout(function() {$('#player').fadeOut(2000)}, 6000)
-      //   // setTimeout(function(){dynamicVolume},6000)
-      // } else if (event.data == YT.PlayerState.PLAYING) {
-      //   setTimeout(function() {$('#player').fadeIn(2000)}, 10000)
-      //   setInterval( function() {if (player.getCurrentTime() > 8) {
-      //   $('#player').fadeOut(2000)
-      //   };}, 1000)
-      // };
-      // if ((event.data === 0) && (userList1.cueList.length === 0)) {
-      //   console.log("this shit is over");
-      //   dreamHasEnded();
-      // }
     }
 
 
