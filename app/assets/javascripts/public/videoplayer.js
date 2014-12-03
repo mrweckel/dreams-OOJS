@@ -1,5 +1,5 @@
 var clientId = '974537623396-tvvr2jn442jsf1ifr4qblfhaje5cd0i2.apps.googleusercontent.com';
-var apiKey = 'AIzaSyBHlHFpUocBCj-VbXZXy5BKaIkvXh2jpgI';
+var apiKey = GoogleAuth.Keys.apiKey;
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
