@@ -14,11 +14,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def show
-  #   @user = User.find(@user.user_id)
-  #   # redirect_to "/users/#{@user.user_id}", layout: false
-  # end
-
   def logout
     session[:user_id] = nil
   end

@@ -1,5 +1,4 @@
 class DreamsController < ApplicationController
-  # respond_to :json
 
   def index
     render 'index'
@@ -22,10 +21,5 @@ class DreamsController < ApplicationController
       format.json { render json: @dream.video_properties }
     end
   end
-
-  # private
-  # def dream_params
-  #   params.require(:dream).permit(:YT_video_id, :duration, :start_time, :end_time)
-  # end
 
 end
