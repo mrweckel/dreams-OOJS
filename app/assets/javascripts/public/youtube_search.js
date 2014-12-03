@@ -23,8 +23,7 @@ YouTubeSearch.SearchBar = {
               value: item[0]
             }
           }));
-         }
-       });
+       }});
       },
       /* You can use transaction is selected here to */
       select: function( event, ui ) {
@@ -44,9 +43,10 @@ YouTubeSearch.SearchBar = {
       }
     });
 
+
     $('button#submit').click(function(){
       var value = $('input#youtube').val();
-      $.youtubeAPI(value, 2); // Change integer to change number of search results
+      $.youtubeAPI(value, 10); // Change integer to change number of search results
     });
 
 
