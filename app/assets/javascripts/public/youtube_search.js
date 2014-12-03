@@ -30,10 +30,13 @@ YouTubeSearch.SearchBar = {
         $.youtubeAPI(ui.item.label, 10); // Change integer to change number of search results
       },
       open: function () {
-        $('ul.ui-autocomplete').addClass('opened')
+        $('ul.ui-autocomplete').addClass('opened');
       },
       close: function () {
-        $('ul.ui-autocomplete').removeClass('opened').css('display','block');
+        $('ul.ui-autocomplete').removeClass('opened').css('display', 'block');
+
+        // $('ul.ui-autocomplete').addClass('changes');
+        // $('ul.ui-autocomplete').fadeOut(400);
       }
     }).data("ui-autocomplete")._renderItem = function(ul, item) {
       var $a = $("<a></a>");
@@ -147,6 +150,15 @@ $(document).ready(function() {
     window.setTimeout(function() {
       YouTubeSearch.SearchBar.main();
     }, 1);
+
+    var event_counter = 0;
+    $("body").on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd',".ui-autocomplete",
+      function() {
+        if(event_counter % 2 != 0) {
+           $('ul.ui-autocomplete').css('display', 'none');
+         }
+        event_counter ++;
+     });
   });
 });
 
