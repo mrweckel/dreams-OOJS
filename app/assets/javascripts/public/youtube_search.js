@@ -75,10 +75,6 @@ YouTubeSearch.SearchBar = {
           this.startTime = startTime;
           this.endTime = endTime;
         }
-      }
-    }).fail(function(){
-          console.log("error!")
-      });
 
         BerthaObjects = [];
         searchVidArr=[]
