@@ -7,7 +7,7 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
-function onYouTubeIframeAPIReady() {
+function onYouTubeIframeAPIReady() {}
   VideoPlayer = {
   main: function(videos) {
 
@@ -45,13 +45,13 @@ function onYouTubeIframeAPIReady() {
             }
           });
         }, 6000);
+    }
 
     if ((event.data === 0) && (userList1.cueList.length === 0)) {
       console.log("wtf");
       player.destroy();
-      Background.View.dreamHasEnded();
+      BackGround.View.dreamHasEnded();
       }
-    }
   }
 
     function onPlayerError(event) {
@@ -113,7 +113,7 @@ function onYouTubeIframeAPIReady() {
     dreamPlaylist(userList1.cueList)
   }
 }
-}
+
 
 
 
