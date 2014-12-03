@@ -1,4 +1,4 @@
-var clientId = '974537623396-tvvr2jn442jsf1ifr4qblfhaje5cd0i2.apps.googleusercontent.com';
+var clientId = GoogleAuth.Keys.client_id;
 var apiKey = GoogleAuth.Keys.apiKey;
 var tag = document.createElement('script');
 
@@ -69,7 +69,6 @@ function onYouTubeIframeAPIReady() {}
         'suggestedQuality': 'large'});
     } else {
       console.log("oh damn");
-      player.destroy();
       VideoPlayer.main(searchVidArray);
 
     }
@@ -95,12 +94,12 @@ function onYouTubeIframeAPIReady() {}
     player = new YT.Player('player', {
       height: '576',
       width: '1024',
-      'videoId': userList1.playList,
+      videoId: userList1.playList,
       playerVars: {
-        controls: 0,
-        disablekb: 1,
-        showinfo: 0,
-        wmode: "opaque"
+        'controls': 0,
+        'disablekb': 1,
+        'showinfo': 0,
+        'wmode': "opaque"
       },
       events: {
         'onReady': onPlayerReady,
