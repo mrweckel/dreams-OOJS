@@ -24,6 +24,15 @@
     -o-transition: opacity 1s;
 }
 
+.ui-autocomplete-done {
+    display: none;
+
+    transition: display 1s ease 2s;
+    -moz-transition: display 1s ease 2s;
+    -webkit-transition: display 1s ease 2s;
+    -o-transition: display 1s ease 2s;
+}
+
 .ui-autocomplete {
     max-height: 325px;
     overflow-y: auto;
