@@ -1,5 +1,5 @@
 class DreamsController < ApplicationController
-  respond_to :json
+  # respond_to :json
 
   def index
     render 'index'
@@ -10,13 +10,26 @@ class DreamsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(user_id: session[:user_id])
-    @dream = @user.dreams.create(dream_params)
 
     respond_to do |format|
-      format.html
       format.json { render json: @dream }
     end
+
+    @user = User.find_by(user_id: session[:user_id])
+    properties = params.to_json
+    @dream = @user.dreams.create(properties: properties)
+    p "*"*100
+    params.each do |param|
+      param.each do |video|
+        # video.each do |video_attr|
+        #   p "*"*200
+        #     p video_attr
+        #   p "*"*200
+        # end
+      end
+    end
+    p "*"*100
+
   end
 
   def show

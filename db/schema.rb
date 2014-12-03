@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20141130183637) do
     t.string   "duration"
     t.string   "start_time"
     t.string   "end_time"
+    t.text     "properties"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
