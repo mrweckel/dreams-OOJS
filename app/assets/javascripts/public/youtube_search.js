@@ -62,6 +62,9 @@ YouTubeSearch.SearchBar = {
         type: 'GET',
         url: 'https://gdata.youtube.com/feeds/api/videos?q=' + query + '&max-results=' + max_results + '&v=2&alt=jsonc',
         dataType: 'jsonp',
+        error: function(){
+          console.log("You found me!")
+        },
         success: function( response ){
 
         var video_objects = response.data.items;
