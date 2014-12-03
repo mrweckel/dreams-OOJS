@@ -34,9 +34,6 @@ YouTubeSearch.SearchBar = {
       },
       close: function () {
         $('ul.ui-autocomplete').removeClass('opened').css('display', 'block');
-
-        // $('ul.ui-autocomplete').addClass('changes');
-        // $('ul.ui-autocomplete').fadeOut(400);
       }
     }).data("ui-autocomplete")._renderItem = function(ul, item) {
       var $a = $("<a></a>");
