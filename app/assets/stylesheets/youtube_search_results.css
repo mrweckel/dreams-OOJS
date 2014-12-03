@@ -2,7 +2,6 @@
     display: none;
     width: 16px;
     height: 16px;
-    background-image: url(loading.gif);
     vertical-align: text-bottom;
 }
 /* autocomplete adds the ui-autocomplete-loading class to the textbox when it is _busy_, use general sibling combinator ingeniously */
