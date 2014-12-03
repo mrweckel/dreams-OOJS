@@ -1,5 +1,5 @@
-var clientId = '974537623396-tvvr2jn442jsf1ifr4qblfhaje5cd0i2.apps.googleusercontent.com';
-var apiKey = 'AIzaSyBHlHFpUocBCj-VbXZXy5BKaIkvXh2jpgI';
+var clientId = GoogleAuth.Keys.client_id;
+var apiKey = GoogleAuth.Keys.apiKey;
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
@@ -8,6 +8,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 function onYouTubeIframeAPIReady() {}
+
   VideoPlayer = {
   main: function(videos) {
 
@@ -60,11 +61,17 @@ function onYouTubeIframeAPIReady() {}
     }
 
     function playTheVideo(object) {
+      if(player.loadVideoById){
       player.loadVideoById({
         'videoId': object.id,
         'startSeconds': object.startTime,
         'endSeconds': object.endTime,
         'suggestedQuality': 'large'});
+    } else {
+      console.log("oh damn");
+      VideoPlayer.main(searchVidArray);
+
+    }
 
       dreamPlaylist(userList1.cueList);
     }
@@ -87,12 +94,12 @@ function onYouTubeIframeAPIReady() {}
     player = new YT.Player('player', {
       height: '576',
       width: '1024',
-      'videoId': userList1.playList,
+      videoId: userList1.playList,
       playerVars: {
-        controls: 0,
-        disablekb: 1,
-        showinfo: 0,
-        wmode: "opaque"
+        'controls': 0,
+        'disablekb': 1,
+        'showinfo': 0,
+        'wmode': "opaque"
       },
       events: {
         'onReady': onPlayerReady,

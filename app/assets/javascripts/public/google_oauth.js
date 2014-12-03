@@ -2,6 +2,7 @@ var GoogleAuth = {}
 
   GoogleAuth.Keys = {
     client_id: '340894032158-a7ro9gvu0cm86sotbepj9pei5sgi1nk9.apps.googleusercontent.com',
+    api_key: 'AIzaSyB_0aoJfPRmF5PGZj0uEA5InZKBT6BTELg',
     scopes: ['https://www.googleapis.com/auth/youtube','https://www.googleapis.com/auth/yt-analytics.readonly']
   }
 
@@ -20,6 +21,8 @@ var GoogleAuth = {}
         immediate: false },
         GoogleAuth.Controller.handleAuthResult);
     },
+
+
 
 
   // Handle the result of a gapi.auth.authorize() call.
@@ -75,9 +78,13 @@ var GoogleAuth = {}
 }
 
 $(document).ready(function(){
+  volumeSet = new Audio.Controller();
+  volumeSet.audioSet()
+
   $(".sign-in").on("click","a", function(event){
     event.preventDefault();
     $("#dream-modal").hide();
+
     gapi.auth.init(function() {
       window.setTimeout(GoogleAuth.Controller.checkAuth, 1);
     });
@@ -91,9 +98,9 @@ $(document).ready(function(){
       success: location.href= "http://localhost:3000/",
       error: console.log("Logout error on AJAX")
     });
-    
-    var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token
-    console.log("Wake up " + token);
+
+    var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token;
+
     $.ajax({
       type: 'GET',
       url: logout,
@@ -116,6 +123,8 @@ GoogleAuth.Controller.loadAPIClientInterfaces = function() {
       // After both client interfaces load, use the Data API to request
       // information about the authenticated user's channel.
       BackGround.View.blackOut();
+      changeSong = new Audio.Controller;
+      changeSong.audioChange("/audio/audio4.mp3")
       YouTubeData.Account.getUserChannel();
 
     });

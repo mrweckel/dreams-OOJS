@@ -1,4 +1,4 @@
-var apiKey = 'AI39si7ZLU83bKtKd4MrdzqcjTVI3DK9FvwJR6a4kB_SW_Dbuskit-mEYqskkSsFLxN5DiG1OBzdHzYfW0zXWjxirQKyxJfdkg';
+var apiKey = GoogleAuth.Keys.apiKey;
 
 var results_values = [];
 
@@ -16,6 +16,7 @@ YouTubeSearch.SearchBar = {
           url: "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q="+query+"&key="+apiKey+"&format=5&alt=json&callback=?",
           dataType: 'jsonp',
           success: function(data) {
+
            response( $.map( data[1], function(item) {
             console.log(item);
             return {
@@ -61,6 +62,9 @@ YouTubeSearch.SearchBar = {
         type: 'GET',
         url: 'https://gdata.youtube.com/feeds/api/videos?q=' + query + '&max-results=' + max_results + '&v=2&alt=jsonc',
         dataType: 'jsonp',
+        error: function(){
+          console.log("You found me!")
+        },
         success: function( response ){
 
         var video_objects = response.data.items;
