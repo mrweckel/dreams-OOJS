@@ -19,6 +19,9 @@
 
 .youtube_search {
     padding: 10px;
+    width: 35%;
+    margin: auto;
+    display: inline-block;
 }
 .youtube_search p {
     font-size: 1.2em;
@@ -48,5 +51,5 @@
 }
 
 #youtube{
-    margin-left: 40px;
+    margin-left: .8em;
 }
