@@ -14,6 +14,7 @@ class DreamsController < ApplicationController
     @dream = @user.dreams.create(video_properties: video_properties)
   end
 
+# Find the dream by the dream_id provided/clicked by user
   def show
     @dream = Dream.find()
 
