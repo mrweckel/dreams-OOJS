@@ -54,11 +54,8 @@ function onYouTubeIframeAPIReady() {}
 
     // function onPlayerError(event) {
     //   console.log(event);
-    //   if (event) {
-    //     player.destroy
-    //     VideoPlayer.main(searchVidArr)
     //   }
-    // }
+    // } //JIC action 
 
     function stopVideo() {
       player.stopVideo();
