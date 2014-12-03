@@ -69,7 +69,8 @@ function onYouTubeIframeAPIReady() {}
         'suggestedQuality': 'large'});
     } else {
       console.log("oh damn");
-      VideoPlayer.main(searchVidArray);
+      player.destroy();
+      VideoPlayer.main(searchVidArr);
 
     }
 
