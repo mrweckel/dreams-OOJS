@@ -13,7 +13,7 @@ YouTubeSearch.SearchBar = {
         var query = request.term;
         /* youtube query */
         $.ajax({
-          url: "http://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q="+query+"&key="+apiKey+"&format=5&alt=json&callback=?",
+          url: "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q="+query+"&key="+apiKey+"&format=5&alt=json&callback=?",
           dataType: 'jsonp',
           success: function(data) {
            response( $.map( data[1], function(item) {
@@ -59,7 +59,7 @@ YouTubeSearch.SearchBar = {
     $.youtubeAPI = function(query, max_results){
       $.ajax({
         type: 'GET',
-        url: 'http://gdata.youtube.com/feeds/api/videos?q=' + query + '&max-results=' + max_results + '&v=2&alt=jsonc',
+        url: 'https://gdata.youtube.com/feeds/api/videos?q=' + query + '&max-results=' + max_results + '&v=2&alt=jsonc',
         dataType: 'jsonp',
         success: function( response ){
 
