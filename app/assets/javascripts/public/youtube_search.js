@@ -28,6 +28,12 @@ YouTubeSearch.SearchBar = {
       /* You can use transaction is selected here to */
       select: function( event, ui ) {
         $.youtubeAPI(ui.item.label, 10); // Change integer to change number of search results
+      },
+      open: function () {
+        $('ul.ui-autocomplete').addClass('opened')
+      },
+      close: function () {
+        $('ul.ui-autocomplete').removeClass('opened').css('display','block');
       }
     }).data("ui-autocomplete")._renderItem = function(ul, item) {
       var $a = $("<a></a>");
