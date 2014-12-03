@@ -47,20 +47,22 @@ function onYouTubeIframeAPIReady() {}
 
     if ((event.data === 0) && (userList1.cueList.length === 0)) {
       console.log("wtf");
-      // BackGround.View.dreamHasEnded();
+      player.destroy();
+      BackGround.View.dreamHasEnded();
       }
   }
 
     // function onPlayerError(event) {
     //   console.log(event);
-    
-    // }  
+    //   }
+    // } //JIC action 
 
     function stopVideo() {
       player.stopVideo();
     }
 
     function dreamPlaylist(videoarray) {
+      videoarray.shift()
       console.log("printing videoarray.length after shift: ");
       console.log(videoarray.length);
       videoTimer(videoarray)
@@ -81,13 +83,12 @@ function onYouTubeIframeAPIReady() {}
       player.playVideo();
     }
 
-    var count = 0
     function videoTimer(array) {
-      if(count == 0) {
-        setTimeout(function() { videoList(array[0]), array.shift()}, 1000);
-        count += 1
-      } else if(array.length > 0) {
-        setTimeout(function() { videoList(array[0]), array.shift()}, 10000);
+      if(array.length > 0) {
+        setTimeout(function() { videoList(array[0])}, 10000);
+      }
+      else {
+        console.log("videoTimer says video array is empty");
       }
     }
 
