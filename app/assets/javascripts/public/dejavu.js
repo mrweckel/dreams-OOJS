@@ -2,7 +2,7 @@ DejaVu = {
   show: function() {
     $.ajax({
       type: 'GET',
-      url: 'dreams/show/1',
+      url: 'dreams/1', // Replace the 1 with :id provided by the id parameter clicked by user
       dataType: 'JSON',
       success: function(videoParams, textStatus, xhr) {
         console.log(videoParams);

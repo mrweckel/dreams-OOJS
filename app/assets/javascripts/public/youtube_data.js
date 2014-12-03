@@ -12,6 +12,7 @@ YouTubeData.Account = {
       if ('error' in response) {
         // displayMessage(response.error.message);
       } else {
+        // displayMessage(response.error.message);
         // We will need the channel's channel ID to make calls to the
         // Analytics API. The channel ID looks like "UCdLFeWKpkLhkguiMZUp8lWA".
         channelId = response.items[0].id;
@@ -20,6 +21,14 @@ YouTubeData.Account = {
         var uploadsListId = response.items[0].contentDetails.relatedPlaylists.uploads;
         // Use the uploads playlist ID to retrieve the list of uploaded videos.
         YouTubeData.Account.getPlaylistItems(uploadsListId);
+        $.ajax({
+          url: '/users',
+          type: 'POST',
+          dataType: 'json',
+          data: { userId: response.items[0].contentDetails.googlePlusUserId }
+        }).done(function() {
+          console.log("SUCCESS");
+        });
       }
     });
   },
@@ -94,7 +103,7 @@ YouTubeData.Account = {
     }
         // Get the jQuery wrapper for #video-list once outside the loop.
 
-        //Video Object Prototype
+
         YouTubeData.View.showVideoTitles(response);
         function VideoObject(id, duration, startTime, endTime) {
             this.id = id;
@@ -155,6 +164,7 @@ YouTubeData.Account = {
             vidArr.push(obj)
           }
         });
+        SaveDream.save(vidArr);
         VideoPlayer.main(vidArr);
       }
     });

@@ -1,4 +1,4 @@
 class Dream < ActiveRecord::Base
-  has_many :videos
+  serialize :video_properties, JSON
   belongs_to :user
 end
