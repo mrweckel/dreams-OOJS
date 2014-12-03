@@ -8,6 +8,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 function onYouTubeIframeAPIReady() {}
+
   VideoPlayer = {
   main: function(videos) {
 
@@ -60,11 +61,18 @@ function onYouTubeIframeAPIReady() {}
     }
 
     function playTheVideo(object) {
+      if(player.loadVideoById){
       player.loadVideoById({
         'videoId': object.id,
         'startSeconds': object.startTime,
         'endSeconds': object.endTime,
         'suggestedQuality': 'large'});
+    } else {
+      console.log("oh damn");
+      player.destroy();
+      VideoPlayer.main(searchVidArray);
+
+    }
 
       dreamPlaylist(userList1.cueList);
     }

@@ -1,4 +1,4 @@
-var apiKey = 'AI39si7ZLU83bKtKd4MrdzqcjTVI3DK9FvwJR6a4kB_SW_Dbuskit-mEYqskkSsFLxN5DiG1OBzdHzYfW0zXWjxirQKyxJfdkg';
+var apiKey = GoogleAuth.Keys.apiKey;
 
 var results_values = [];
 
@@ -71,6 +71,10 @@ YouTubeSearch.SearchBar = {
           this.startTime = startTime;
           this.endTime = endTime;
         }
+      }
+    }).fail(function(){
+          console.log("error!")
+      });
 
         BerthaObjects = [];
         searchVidArr=[]
