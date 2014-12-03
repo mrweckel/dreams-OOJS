@@ -26,13 +26,7 @@
 	font-family: 'Oswald', sans-serif;
 	color: white;
 	text-align: center;
-	font-size: 3em;
-}
-
-#menu p {
-	color: white;
-	text-align: center;
-	font-size: 3em;
+	font-size: 2em;
 }
 
 #menu p {
@@ -43,7 +37,7 @@
 	margin: 10px 10px 10px 10px;
 	border-radius: 100px;
 	transition: all 0.2s ease;
-	font-size: 1.3em;
+	font-size: 1em;
 }
 
 #menu a:hover {
