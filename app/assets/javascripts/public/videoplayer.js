@@ -51,7 +51,8 @@ function onYouTubeIframeAPIReady() {
 
     if ((event.data === 0) && (userList1.cueList.length === 0)) {
       player.destroy();
-      BackGround.View.dreamHasEnded();
+      Background.View.dreamHasEnded();
+      }
     }
   }
 
