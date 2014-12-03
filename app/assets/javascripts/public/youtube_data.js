@@ -21,19 +21,13 @@ YouTubeData.Account = {
         var uploadsListId = response.items[0].contentDetails.relatedPlaylists.uploads;
         // Use the uploads playlist ID to retrieve the list of uploaded videos.
         YouTubeData.Account.getPlaylistItems(uploadsListId);
-        console.log("Starting AJAX.........");
-        console.log("Printing apiKey: " + apiKey);
-        console.log("Printing response: " + response);
         $.ajax({
           url: '/users',
           type: 'POST',
           dataType: 'json',
           data: { userId: response.items[0].contentDetails.googlePlusUserId }
-        }).done(function(response) {
-          console.log(response);
+        }).done(function() {
           console.log("SUCCESS");
-        }).fail(function() {
-          console.log("error");
         });
       }
     });
