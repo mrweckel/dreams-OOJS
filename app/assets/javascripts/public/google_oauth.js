@@ -23,6 +23,8 @@ var GoogleAuth = {}
     },
 
 
+
+
   // Handle the result of a gapi.auth.authorize() call.
     handleAuthResult: function(authResult) {
       if (authResult) {
@@ -96,9 +98,9 @@ $(document).ready(function(){
       success: location.href= "http://localhost:3000/",
       error: console.log("Logout error on AJAX")
     });
-    
-    var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token
-    console.log("Wake up " + token);
+
+    var logout = "https://accounts.google.com/o/oauth2/revoke?token=" + token;
+
     $.ajax({
       type: 'GET',
       url: logout,

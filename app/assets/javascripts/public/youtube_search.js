@@ -16,6 +16,7 @@ YouTubeSearch.SearchBar = {
           url: "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q="+query+"&key="+apiKey+"&format=5&alt=json&callback=?",
           dataType: 'jsonp',
           success: function(data) {
+
            response( $.map( data[1], function(item) {
             console.log(item);
             return {
