@@ -19,11 +19,7 @@ ActiveRecord::Schema.define(version: 20141130183637) do
   create_table "dreams", force: true do |t|
     t.integer  "user_id"
     t.string   "dream_name"
-    t.string   "YT_video_id"
-    t.string   "duration"
-    t.string   "start_time"
-    t.string   "end_time"
-    t.text     "properties"
+    t.text     "video_properties"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
