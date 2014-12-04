@@ -24,7 +24,7 @@ BackGround.View ={
       contentType: "application/json",
       dataType: 'jsonp',
       success: function(nullResponse) {
-        location.href = "http://localhost:3000/";
+       location.reload ();
       },
       error: function(e) {
       }
