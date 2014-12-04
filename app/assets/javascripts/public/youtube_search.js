@@ -2,6 +2,8 @@ var apiKey = GoogleAuth.Keys.apiKey;
 
 var results_values = [];
 
+var selected_search = false;
+
 YouTubeSearch = {}
 
 YouTubeSearch.SearchBar = {
@@ -28,6 +30,7 @@ YouTubeSearch.SearchBar = {
       },
       /* You can use transaction is selected here to */
       select: function( event, ui ) {
+        selected_search = true;
         $.youtubeAPI(ui.item.label, 10); // Change integer to change number of search results
       },
       open: function () {
@@ -44,7 +47,7 @@ YouTubeSearch.SearchBar = {
 
     $('input#youtube').keyup(function(event){
       event.preventDefault();
-      if(event.keyCode == 13){
+      if(event.keyCode == 13 && selected_search == false){
         var value = $('input#youtube').val();
         $.youtubeAPI(value, 10); // Change integer to change number of search results
       }
@@ -58,6 +61,7 @@ YouTubeSearch.SearchBar = {
 
 
     $.youtubeAPI = function(query, max_results){
+      console.log(query);
       $.ajax({
         type: 'GET',
         url: 'https://gdata.youtube.com/feeds/api/videos?q=' + query + '&max-results=' + max_results + '&v=2&alt=jsonc',
