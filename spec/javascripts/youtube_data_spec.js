@@ -33,10 +33,4 @@ describe('Youtube_Data', function() {
     expect(youtube_account.getUserChannel.request).not.toBe(null);
   });
 
-  // it("should have getUserChannel call getPlaylistItems method", function() {
-  //   var spy = spyOn(youtube_account, 'getUserChannel');
-  //   youtube_account.getUserChannel();
-  //   expect(spy.getPlaylistItems()).toHaveBeenCalled();
-  // });
-
 });
