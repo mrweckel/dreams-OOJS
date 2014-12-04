@@ -30,7 +30,7 @@ BackGround.View ={
       }
     });
   } else {
-    location.href = "http://localhost:3000/";
+    location.reload ();
   }
  }
 }
