@@ -102,9 +102,9 @@ YouTubeData.Account = {
         });
     }
         // Get the jQuery wrapper for #video-list once outside the loop.
-
-
         YouTubeData.View.showVideoTitles(response);
+
+        //VideoObject Class
         function VideoObject(id, duration, startTime, endTime) {
             this.id = id;
             this.duration= duration;
@@ -114,7 +114,7 @@ YouTubeData.Account = {
 
         userVideoObjects = [];
         vidArr=[]
-        // Algorithm that gets all certian data from video objects
+        // Algorithm that gets certian data from video objects
           function findId(object) {
             return object.id
           }
