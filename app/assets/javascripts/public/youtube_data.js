@@ -120,16 +120,13 @@ YouTubeData.Account = {
           }
 
           function getTime(object) {
+            var total_sec, hours, minutes_sec, seconds;
             var timeD = String(object.contentDetails.duration) // JIC
             var semiformattedTime = timeD.replace("PT","").replace("H",":").replace("M",":").replace("S","");
             var arr = semiformattedTime.split(":");
-            var total_sec;
-            var hours;
-            var minutes_sec;
-            var seconds;
-            if (arr.length == 1) {
+            if (arr.length === 1) {
               total_sec = parseInt(arr[0]);
-            } else if (arr.length == 2) {
+            } else if (arr.length === 2) {
               minutes_sec = (parseInt(arr[0]) * 60);
               seconds = parseInt(arr[1]);
               total_sec = minutes_sec + seconds;
