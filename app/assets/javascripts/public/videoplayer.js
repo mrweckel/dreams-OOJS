@@ -9,7 +9,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {}
 
-  VideoPlayer = {
+VideoPlayer = {
   main: function(videos) {
 
     VideoMaker = function(userVideos) {
