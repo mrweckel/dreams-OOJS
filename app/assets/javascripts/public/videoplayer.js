@@ -29,7 +29,6 @@ VideoPlayer = {
     var done = false;
 
     function onPlayerStateChange(event) {
-      console.log('onPlayerStateChange', event)
       if (event.data == YT.PlayerState.PLAYING) {
         $('#player').fadeIn({
           duration: 2000,
@@ -45,9 +44,9 @@ VideoPlayer = {
             }
           });
         }, 6000);
-    }
+      }
 
-    if ((event.data === 0) && (userList1.cueList.length === 0)) {
+      if ((event.data === 0) && (userList1.cueList.length === 0)) {
       BackGround.View.dreamHasEnded();
       }
   }
