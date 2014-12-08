@@ -112,7 +112,7 @@ YouTubeData.Account = {
             this.endTime = endTime;
         }
 
-        MookieObjects = [];
+        userVideoObjects = [];
         vidArr=[]
         // Algorithm that gets all certian data from video objects
           function findId(object) {
@@ -143,26 +143,26 @@ YouTubeData.Account = {
           }
 
           function randomizeVideoStart(videoStartTime) {
-            adjustedTime = videoStartTime - 12
-          return Math.floor(Math.random()*adjustedTime + 2)
+            adjustedTime = videoStartTime - 11
+          return Math.floor(Math.random()*adjustedTime + 1)
           }
 
-          function endOfDays(time) {
+          function calculatedEndTime(time) {
              return time + 10
-            }
+          }
 
         function dataParser(object){
-          id = findId(object);
-          duration = getTime(object);
-          startTime = randomizeVideoStart(duration)
-          endTime = endOfDays(startTime)
-          MookieObjects.push(new VideoObject(id, duration, startTime, endTime))
+          var id = findId(object);
+          var duration = getTime(object);
+          var startTime = randomizeVideoStart(duration)
+          var endTime = calculatedEndTime(startTime)
+          userVideoObjects.push(new VideoObject(id, duration, startTime, endTime))
         }
-        var stuff = response.items
-        stuff.forEach(function(item) {
+        var userData = response.items
+        userData.forEach(function(item) {
           dataParser(item);
         });
-        MookieObjects.forEach(function(obj){
+        userVideoObjects.forEach(function(obj){
           if (obj.duration > 10){
             vidArr.push(obj)
           }
