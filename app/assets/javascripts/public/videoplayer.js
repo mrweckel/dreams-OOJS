@@ -9,7 +9,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {}
 
-  VideoPlayer = {
+VideoPlayer = {
   main: function(videos) {
 
     VideoMaker = function(userVideos) {
@@ -19,7 +19,7 @@ function onYouTubeIframeAPIReady() {}
       this.cueList = this.cueList.concat(userVideos)
     }
 
-    var userList1 = new VideoMaker(videos)
+    var userList1 = new VideoMaker(videos);
 
     function onPlayerReady(event) {
       event.target.setVolume(0);
@@ -27,8 +27,8 @@ function onYouTubeIframeAPIReady() {}
     }
 
     var done = false;
+
     function onPlayerStateChange(event) {
-      console.log('onPlayerStateChange', event)
       if (event.data == YT.PlayerState.PLAYING) {
         $('#player').fadeIn({
           duration: 2000,
@@ -44,36 +44,32 @@ function onYouTubeIframeAPIReady() {}
             }
           });
         }, 6000);
-    }
+      }
 
-    if ((event.data === 0) && (userList1.cueList.length === 0)) {
+      if ((event.data === 0) && (userList1.cueList.length === 0)) {
       BackGround.View.dreamHasEnded();
       }
-  }
+    }
 
     function stopVideo() {
       player.stopVideo();
     }
 
     function dreamPlaylist(videoarray) {
-      console.log(videoarray.length);
       videoTimer(videoarray)
     }
 
     function playTheVideo(object) {
       if(player.loadVideoById){
-      player.loadVideoById({
-        'videoId': object.id,
-        'startSeconds': object.startTime,
-        'endSeconds': object.endTime,
-        'suggestedQuality': 'large'});
-    } else {
-      console.log("oh damn");
-      player.destroy();
-      VideoPlayer.main(searchVidArr);
-
-    }
-
+        player.loadVideoById({
+          'videoId': object.id,
+          'startSeconds': object.startTime,
+          'endSeconds': object.endTime,
+          'suggestedQuality': 'large'});
+      } else {
+        player.destroy();
+        VideoPlayer.main(searchVidArr);
+      }
       dreamPlaylist(userList1.cueList);
     }
 
@@ -83,6 +79,7 @@ function onYouTubeIframeAPIReady() {}
     }
 
     var count = 0;
+
     function videoTimer(array) {
       if(count == 0) {
         setTimeout(function() {videoList(array[0]), array.shift()}, 1000);
@@ -107,7 +104,7 @@ function onYouTubeIframeAPIReady() {}
         'onStateChange': onPlayerStateChange
       },
     });
-
+    
     dreamPlaylist(userList1.cueList)
   }
 }
