@@ -19,7 +19,7 @@ VideoPlayer = {
       this.cueList = this.cueList.concat(userVideos)
     }
 
-    var userList1 = new VideoMaker(videos)
+    var userList1 = new VideoMaker(videos);
 
     function onPlayerReady(event) {
       event.target.setVolume(0);
@@ -27,6 +27,7 @@ VideoPlayer = {
     }
 
     var done = false;
+
     function onPlayerStateChange(event) {
       console.log('onPlayerStateChange', event)
       if (event.data == YT.PlayerState.PLAYING) {
