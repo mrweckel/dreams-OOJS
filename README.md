@@ -6,5 +6,5 @@ Dreams is an app designed to seamlessly take a trip down memory lane with your Y
 
 Checkout the Page at: [Dreams](http://memoryfinder.herokuapp.com/)
 
-Questions? Comments? Concerncs? 
+Questions? Comments? Concerns? 
 contact us at: TheDreamsDevelopmentTeam@gmail.com
