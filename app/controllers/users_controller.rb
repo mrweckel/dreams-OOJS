@@ -9,12 +9,16 @@ class UsersController < ApplicationController
         redirect_to(root_path)
       end
     else
-      @user = User.find_by(user_id: params[:userId])
+      @user = User.where(user_id: params[:userId])
       session[:user_id] = @user.user_id
     end
   end
 
   def index
+    p "*"*200
+    p params[:userId]
+    p "*"*200
+    p session[:user_id]
     user = User.where(user_id: session[:user_id])
     p "*"*200
     p user
