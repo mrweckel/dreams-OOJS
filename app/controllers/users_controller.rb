@@ -14,6 +14,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    user = User.where(user_id: session[:user_id])
+    p "*"*200
+    p user
+    p "*"*200
+    @dreams = user.dreams
+    p @dreams
+  end
+
   def logout
     session[:user_id] = nil
   end

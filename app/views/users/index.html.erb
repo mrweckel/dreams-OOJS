@@ -1,1 +1,5 @@
 User Profile
+
+<% @dreams.each do |dream| %>
+	<%= link_to "#{dream.id}" %>
+<% end %>
