@@ -8,3 +8,33 @@ Checkout the Page at: [Dreams](http://memoryfinder.herokuapp.com/)
 
 Questions? Comments? Concerns? 
 contact us at: TheDreamsDevelopmentTeam@gmail.com
+
+
+
+
+##Team Members
+
+####Matt Weckle
+* GitHub: https://github.com/mrweckel
+* LinkedIn: https://www.linkedin.com/pub/matt-weckel/75/397/aa4
+* Email: mrweckel@gmail.com
+
+####Robert Yang
+* GitHub: https://github.com/unknownbreaker
+* LinkedIn: https://www.linkedin.com/in/robwyang
+* Email: rob.yang@gmail.com
+
+####Michael Angelo
+* GitHub: https://github.com/Yamikamisama
+* LinkedIn: http://www.linkedin.com/pub/michael-angelo/9a/a93/1b0/
+* Email: yamikamisama@gmail.com
+
+####James Hwang
+* GitHub: https://github.com/jhwang90
+* LinkedIn: https://www.linkedin.com/in/jameswhwang
+* Email: hwang.w.james@gmail.com
+
+####Steph Reaves
+* GitHub:https://github.com/StephReaves
+* LinkedIn: https://www.linkedin.com/in/stephreaves
+* Email: stephanie.reaves@gmail.com 
