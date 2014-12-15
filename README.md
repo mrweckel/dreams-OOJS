@@ -14,7 +14,7 @@ contact us at: TheDreamsDevelopmentTeam@gmail.com
 
 ##Team Members
 
-####Matt Weckle
+####Matt Weckel
 * GitHub: https://github.com/mrweckel
 * LinkedIn: https://www.linkedin.com/pub/matt-weckel/75/397/aa4
 * Email: mrweckel@gmail.com
