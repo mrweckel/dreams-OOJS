@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    p "*"*200
-    p "sessions id: "
-    p session[:user_id]
-    p "*"*200
   	@current_user ||= User.find_by(user_id: session[:user_id]) if session[:user_id]
   end 
 

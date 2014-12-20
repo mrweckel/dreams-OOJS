@@ -19,13 +19,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    p "*"*200
-    @user = current_user
-    p "*"*200
-    p @user
-    p "*"*200
+    user = current_user
     @dreams = user.dreams
-    p @dreams
   end
 
   def logout
