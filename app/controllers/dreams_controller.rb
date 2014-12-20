@@ -1,6 +1,8 @@
 class DreamsController < ApplicationController
 
   def index
+    user = current_user
+    @dreams = user.dreams
     render 'index'
   end
 
