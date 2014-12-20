@@ -2,6 +2,9 @@ class DreamsController < ApplicationController
 
   def index
     user = current_user
+    p "*"*200
+    p user
+    p "*"*200
     @dreams = user.dreams
     render 'index'
   end
