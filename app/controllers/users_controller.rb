@@ -18,18 +18,15 @@ class UsersController < ApplicationController
     end
   end
 
-  # def index
-  #   p "*"*200
-  #   p params[:userId]
-  #   p "*"*200
-  #   p session[:user_id]
-  #   user = User.where(user_id: session[:user_id])
-  #   p "*"*200
-  #   p user
-  #   p "*"*200
-  #   @dreams = user.dreams
-  #   p @dreams
-  # end
+  def index
+    p "*"*200
+    @user = current_user
+    p "*"*200
+    p @user
+    p "*"*200
+    @dreams = user.dreams
+    p @dreams
+  end
 
   def logout
     session[:user_id] = nil
