@@ -40,8 +40,12 @@
 	font-size: 1.3em;
 }
 
+#menu a {
+	color: white;
+}
+
 #menu a:hover {
-	background: rgb(50, 50, 50);
+	color: black;
 }
 
 #menu-toggle {
