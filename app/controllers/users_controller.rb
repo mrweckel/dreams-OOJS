@@ -18,11 +18,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    user = current_user
-    @dreams = user.dreams
-  end
-
   def logout
     session[:user_id] = nil
   end
