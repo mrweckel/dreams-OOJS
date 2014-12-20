@@ -1,11 +1,10 @@
 class DreamsController < ApplicationController
 
   def index
-    user = current_user
-    p "*"*200
-    p user
-    p "*"*200
-    @dreams = user.dreams
+    if current_user
+      user = current_user
+      @dreams = user.dreams
+    end
     render 'index'
   end
 
