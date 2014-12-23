@@ -3,7 +3,7 @@ var GoogleAuth = {}
   GoogleAuth.Keys = {
     client_id:
       $.ajax({
-        url: '/keys',
+        url: '/client_key',
         type: 'GET',
         dataType: 'JSON'
       }),

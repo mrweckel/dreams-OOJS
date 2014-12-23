@@ -30,7 +30,7 @@ class DreamsController < ApplicationController
     end
   end
 
-  def keys
+  def client_key
     client_id = ENV['CLIENT_ID']
     respond_to do |format|
       format.json {render json: client_id}
