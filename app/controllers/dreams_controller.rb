@@ -15,7 +15,7 @@ class DreamsController < ApplicationController
     #is saving the dream with the params passed in. need to test with click implemented
   end
 
-# Find the dream by the dream_id provided/clicked by user
+# Fix this method to be able to find the dream by the dream_id provided/clicked by user
   def show
     @dream = Dream.find()
 
