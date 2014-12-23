@@ -8,10 +8,6 @@ class DreamsController < ApplicationController
     render 'index'
   end
 
-  def new
-    @dream = Dream.new
-  end
-
   def create
     @user = User.find_by(user_id: session[:user_id])
     video_properties = params.to_json
