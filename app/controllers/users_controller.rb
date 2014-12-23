@@ -2,15 +2,19 @@ class UsersController < ApplicationController
 
   def create
     if !User.exists?(user_id: params[:userId])
-      @user = User.new(user_id: params[:userId])
-      if @user.save
-        session[:user_id] = @user.user_id
-      else
+      @user = User.create(user_id: params[:userId])
+      if @user
+        session[:user_id] = @user.id
+      else 
         redirect_to(root_path)
-      end
+      end 
+      # need to figure out how we want to handle this as it's atypical implemenation -- is it because of UX
+      # in earlier version?
     else
-      @user = User.find_by(user_id: params[:userId])
-      session[:user_id] = @user.user_id
+       @user = User.find_by(user_id: params[:userId])
+       session[:user_id] = @user.user_id
+       current_user = session[:user_id]
+       redirect_to(root_path)
     end
   end
 

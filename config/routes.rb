@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :users, except: :show
   match 'users/logout' => 'users#logout', :via => :get
+  match 'users/discard' => 'users#discard', :via => :get
   resources :dreams
   resources :videos
   resources :sessions
