@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :videos
   resources :sessions
 
-  get "/client_key", to: "dreams#client_key"
+  get "/client", to: "dreams#client"
+
+  get "/api", to: "dreams#api"
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root to: 'dreams#index'
