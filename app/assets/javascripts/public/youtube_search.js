@@ -1,4 +1,4 @@
-var apiKey = GoogleAuth.Keys.apiKey;
+var apiKey = GoogleAuth.Keys.apiKey.responseText;
 
 var results_values = [];
 

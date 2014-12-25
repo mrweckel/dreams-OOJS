@@ -3,12 +3,18 @@ var GoogleAuth = {}
   GoogleAuth.Keys = {
     client_id:
       $.ajax({
-        url: '/client_key',
+        url: '/client',
         type: 'GET',
         dataType: 'JSON'
       }),
 
-    api_key: 'AIzaSyB_0aoJfPRmF5PGZj0uEA5InZKBT6BTELg',
+    apiKey:
+      $.ajax({
+        url: '/api',
+        type: 'GET',
+        dataType: 'JSON'
+    }),
+
     scopes: ['https://www.googleapis.com/auth/youtube','https://www.googleapis.com/auth/yt-analytics.readonly']
   }
 
@@ -51,7 +57,7 @@ var GoogleAuth = {}
 
       $('#login-link').click(function() {
         gapi.auth.authorize({
-          client_id: GoogleAuth.Keys.client_id,
+          client_id: GoogleAuth.Keys.client_id.responseText,
           scope: GoogleAuth.Keys.scopes,
           immediate: false
           }, GoogleAuth.Controller.handleAuthResult);
