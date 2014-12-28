@@ -14,7 +14,6 @@ var GoogleAuth = {}
         type: 'GET',
         dataType: 'JSON'
     }),
-
     scopes: ['https://www.googleapis.com/auth/youtube','https://www.googleapis.com/auth/yt-analytics.readonly']
   }
 
