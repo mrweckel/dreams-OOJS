@@ -30,4 +30,18 @@ class DreamsController < ApplicationController
     end
   end
 
+  def client
+    client_id = ENV['CLIENT_ID']
+    respond_to do |format|
+      format.json {render json: client_id}
+    end
+  end
+
+  def api
+    api = ENV['API_KEY']
+    respond_to do |format|
+      format.json {render json: api}
+    end
+  end
+
 end

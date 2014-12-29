@@ -1,5 +1,5 @@
-var clientId = GoogleAuth.Keys.client_id;
-var apiKey = GoogleAuth.Keys.apiKey;
+var clientId = ENV['CLIENT_ID'];
+var apiKey = ENV['API_KEY'];
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
@@ -104,7 +104,7 @@ VideoPlayer = {
         'onStateChange': onPlayerStateChange
       },
     });
-    
+
     dreamPlaylist(userList1.cueList)
   }
 }
