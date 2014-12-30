@@ -1,5 +1,5 @@
-var clientId = ENV['CLIENT_ID'];
-var apiKey = ENV['API_KEY'];
+var clientId = GoogleAuth.Keys.client_id.responseText;
+var apiKey = GoogleAuth.Keys.client_id.responseText;
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
