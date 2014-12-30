@@ -18,10 +18,6 @@ require 'json'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
-clientId = ENV['CLIENT_ID']
-apiKey = ENV['API_KEY']
-
 module Dreams
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
