@@ -1,0 +1,82 @@
+#login{
+  @include buttons(25%, 2em);
+  visibility: visible;
+  a{
+    margin-left: .5em;
+  }
+}
+
+#modal-header {
+  color: #FFF;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:400px;
+  height:0px;
+  margin-left:-200px;
+  margin-top:-150px;
+  text-align: center;
+}
+
+#modal-font{
+  color: #FFF;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:400px;
+  height:25px;
+  margin-left:-200px;
+  text-align: center;
+  &.signin{
+    margin-top: -75px;
+  }
+  &.or{
+    margin-top:25px;
+  }
+  &.random{
+    margin-top:50px;
+  }
+}
+
+.modal_close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: block;
+  margin-right: 150px;
+  z-index: 2;
+}
+
+
+#lean_overlay {
+  position: fixed;
+  z-index: 98;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:100%;
+  background: #000;
+  display: none;
+}
+
+#dream-modal{
+  display:none;
+  width: 800px;
+  height: 400px;
+  position: absolute;
+}
+
+.modal-btn{
+  @include buttons(20%, 1.5em);
+}
+
+#novideos-header{
+  @extend #modal-font;
+  margin-top: -75px;
+}
+
+#novideos-font{
+  @extend #modal-font;
+  margin-top: 0px;
+}
+
