@@ -1,13 +1,14 @@
-var apiKey = GoogleAuth.Keys.apiKey.responseText;
+Dreams.YouTubeSearch = function(apiKey, background){
+  this.apiKey = apiKey;
+  this.background = background;
+}
 
-var results_values = [];
+Dreams.YouTubeSearch.prototype = {
+  results_values: [],
 
-var selected_search = false;
-
-YouTubeSearch = {}
-
-YouTubeSearch.SearchBar = {
   main: function() {
+    var that = this;
+    var apiKey = this.apiKey.responseText;
     $('#youtube').autocomplete({
       source: function(request, response){
         /* Google Developer ID (optional) */
@@ -15,7 +16,7 @@ YouTubeSearch.SearchBar = {
         var query = request.term;
         /* youtube query */
         $.ajax({
-          url: "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q="+query+"&key="+apiKey+"&format=5&alt=json&callback=?",
+          url: "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q="+query+"&key="+ apiKey +"&format=5&alt=json&callback=?",
           dataType: 'jsonp',
           success: function(data) {
 
@@ -117,10 +118,10 @@ YouTubeSearch.SearchBar = {
         });
           // UNCOMMENT HERE FOR TRULY RANDOM SAMPLING OF SEARCH RESULTS
           // video_objects = YouTubeSearch.SearchBar.sampleVideoObjects(video_objects);
-
-          YouTubeSearch.SearchBar.compileVideoObjects(video_objects);
-          console.log(results_values);
-          BackGround.View.blackOut();
+          // debugger;
+          that.compileVideoObjects(video_objects);
+          console.log(that.results_values);
+          background.blackOut();
           VideoPlayer.main(searchVidArr)
           $("#dream-modal-container").hide();
 
@@ -135,36 +136,13 @@ YouTubeSearch.SearchBar = {
 
   compileVideoObjects: function(video_objects) {
     for(var i = 0; i < video_objects.length; i++) {
-      results_values[i] = (YouTubeSearch.SearchBar.parseVideoObject(video_objects[i]));
+      this.results_values[i] = (this.parseVideoObject(video_objects[i]));
     }
-
   },
 
   sampleVideoObjects: function(video_objects) {
     return _(video_objects).sample(10);
   }
 }
-
-$(document).ready(function() {
-  $(".random-dream").on("click","a", function(event){
-    event.preventDefault();
-    $("#dream-modal").hide();
-    $("#dream-modal-container").fadeIn(1000);
-    $("input#youtube").focus();
-
-    window.setTimeout(function() {
-      YouTubeSearch.SearchBar.main();
-    }, 1);
-
-    var event_counter = 0;
-    $("body").on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd',".ui-autocomplete",
-      function() {
-        if(event_counter % 2 != 0) {
-           $('ul.ui-autocomplete').css('display', 'none');
-         }
-        event_counter ++;
-     });
-  });
-});
 
 

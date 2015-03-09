@@ -1,6 +1,8 @@
-var BackGround = {}
+Dreams.BackGround = function(){
 
-BackGround.View ={
+};
+
+Dreams.BackGround.prototype = {
   blackOut: function(){
     $('#big-video-wrap').fadeOut('slow');
     $('#lean_overlay').fadeOut('slow');
@@ -8,7 +10,9 @@ BackGround.View ={
 
   reAppear: function(){
     $('#big-video-wrap').fadeIn('slow');
-    loginFadeIn();
+
+    $('#login').fadeIn("slow");
+
     $("#error-novideos").fadeOut('fast');
     $('#menu-toggle').fadeIn('slow');
   },
@@ -34,13 +38,3 @@ BackGround.View ={
   }
  }
 }
-
-$(document).ready(function(){
-  var BV;
-  $(function() {
-    // initialize BigVideo
-    BV = new $.BigVideo();
-    BV.init();
-    BV.show(['videos/vid1.mp4','videos/vid2.mp4','videos/vid3.mp4','videos/vid4.mp4','videos/vid5.mp4','videos/vid6.mp4']);
-    });
-});

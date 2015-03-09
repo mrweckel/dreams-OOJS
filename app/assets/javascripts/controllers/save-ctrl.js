@@ -1,4 +1,8 @@
-SaveDream = {
+Dreams.SaveCtrl = function(){
+
+}
+
+Dreams.SaveCtrl.prototype = {
   save: function(video_data) {
     $.ajax({
       url: '/dreams',
