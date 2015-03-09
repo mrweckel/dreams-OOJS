@@ -164,7 +164,8 @@ YouTubeData.Account = {
             vidArr.push(obj)
           }
         });
-        SaveDream.save(vidArr);
+        var dream = new Dreams.SaveCtrl;
+        dream.save(vidArr);
         VideoPlayer.main(vidArr);
       }
     });
