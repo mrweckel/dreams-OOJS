@@ -13,7 +13,6 @@ Dreams.GoogleAuthCtrl.prototype = {
   },
 
   checkAuth: function() {
-    debugger;
     gapi.auth.authorize({
       client_id: this.ga_ctrl.keys.client_id.responseText
         , scope: this.ga_ctrl.keys.scopes
