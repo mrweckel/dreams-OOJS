@@ -1,34 +1,39 @@
-.youtubeplay { display: none; background: #ddd; padding: 10px }
-.youtube {
-    border: 1px solid #ddd;
+.youtubeplay {
+    display: none;
+    background: #ddd;
     padding: 10px;
-    margin: 10px;
-    overflow: hidden
 }
-.youtube img {
+
+.youtube {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  overflow: hidden;
+  img{
     float: left;
     margin-right: 15px
-}
-.youtube a {
+  }
+  a{
     text-decoration: none;
     color: darkred
-}
-.youtube p {
+  }
+  p{
     padding-top: 3em;
+  }
 }
 
 .youtube_search {
-    padding: 10px;
-    width: 35%;
-    margin: auto;
-    display: inline-block;
-}
-.youtube_search p {
+  padding: 10px;
+  width: 35%;
+  margin: auto;
+  display: inline-block;
+  p{
     font-size: 1.2em;
     margin-left: 3em;
     font-weight: normal;
     color: #FFF;
     padding-bottom: 5px
+  }
 }
 
 .fail {

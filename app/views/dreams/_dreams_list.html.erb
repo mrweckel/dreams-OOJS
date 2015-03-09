@@ -1,0 +1,5 @@
+  <% if @dreams %>
+    <% @dreams.each do |dream| %>
+      <p><%= link_to "Dream #{dream.id}" %></p>
+    <% end %>
+  <% end %>

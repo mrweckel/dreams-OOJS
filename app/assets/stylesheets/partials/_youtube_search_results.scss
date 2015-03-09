@@ -1,36 +1,29 @@
 .loading {
-    display: none;
-    width: 16px;
-    height: 16px;
-    vertical-align: text-bottom;
+  display: none;
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
 }
 /* autocomplete adds the ui-autocomplete-loading class to the textbox when it is _busy_, use general sibling combinator ingeniously */
 #autocomplete.ui-autocomplete-loading ~ .loading {
-    display: inline-block;
+      display: inline-block;
 }
 
 .ui-autocomplete .result {
-    margin-right: 1em;
-    font-size: 14px;
-    font-family: 'Quattrocento', serif;
+  margin-right: 1em;
+  font-size: 14px;
+  font-family: 'Quattrocento', serif;
 }
 
 .ui-autocomplete {
-    opacity: 0;
-    display: none;
-    transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -webkit-transition: opacity 1s;
-    -o-transition: opacity 1s;
+  opacity: 0;
+  display: none;
+  @include trans(opacity 1s);
 }
 
 .ui-autocomplete-done {
-    display: none;
-
-    transition: display 1s ease 2s;
-    -moz-transition: display 1s ease 2s;
-    -webkit-transition: display 1s ease 2s;
-    -o-transition: display 1s ease 2s;
+  display: none;
+  @include trans(display 1s ease 2s);
 }
 
 .ui-autocomplete {
@@ -38,16 +31,12 @@
     overflow-y: auto;
     /* prevent horizontal scrollbar */
     overflow-x: hidden;
-
     width: 189px;
 }
 
 .ui-autocomplete.opened {
     opacity: 1;
-    transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -webkit-transition: opacity 1s;
-    -o-transition: opacity 1s;
+    @include trans(opacity 1s);
 }
 
 ::-webkit-scrollbar {

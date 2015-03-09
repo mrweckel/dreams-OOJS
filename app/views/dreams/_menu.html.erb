@@ -3,11 +3,7 @@
 </div>
 
 <nav id="menu">
-	<% if @dreams %>
-		<% @dreams.each do |dream| %>
-			<p><%= link_to "Dream #{dream.id}" %></p>
-		<% end %>
-	<% end %>	
+
 
 <h1>About Dreams</h1>
   <p>Dreams is an app designed to seamlessly take a trip down memory lane with your YouTube videos or simply explore random topics of interest. We use Google oAuth, the YouTube Player API, and the YouTube Data API, to weave separate videos into a dreamlike sequence that is unique every time. With Dreams you spend less time organizing your videos and more time enjoying and remembering your experiences.</p>
