@@ -56,7 +56,7 @@ Dreams.GoogleAuthCtrl.prototype = {
         // information about the authenticated user's channel.
           var bg = new Dreams.BackGround;
           bg.blackOut();
-          var changeSong = new Audio.Controller;
+          var changeSong = new Dreams.AudioCtrl($(".audio_player"));
           changeSong.audioChange("/audio/audio4.mp3")
           YouTubeData.Account.getUserChannel();
 

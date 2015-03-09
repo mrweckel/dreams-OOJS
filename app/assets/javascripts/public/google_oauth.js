@@ -1,6 +1,6 @@
 $(document).ready(function(){
   window.controller = new Dreams.GoogleAuthCtrl;
-  var volumeSet = new Audio.Controller();
+  var volumeSet = new Dreams.AudioCtrl($(".audio_player"));
   volumeSet.audioSet()
 
   $(".sign-in").on("click","a", function(event){
