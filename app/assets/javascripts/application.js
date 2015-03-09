@@ -15,6 +15,6 @@
 //= require jquery-ui
 //= require 'public/app.js'
 //= require_tree './models'
-//= require 'public/initialize.js'
+//= require 'dreams-app.js'
 //= require_tree .
 
