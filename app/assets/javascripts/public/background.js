@@ -1,6 +1,8 @@
-var BackGround = {}
+Dreams.BackGround = function(){
 
-BackGround.View ={
+};
+
+Dreams.BackGround.prototype = {
   blackOut: function(){
     $('#big-video-wrap').fadeOut('slow');
     $('#lean_overlay').fadeOut('slow');

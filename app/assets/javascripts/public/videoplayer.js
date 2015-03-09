@@ -1,5 +1,7 @@
-var clientId = GoogleAuth.Keys.client_id.responseText;
-var apiKey = GoogleAuth.Keys.client_id.responseText;
+window.keys = new Dreams.GoogleAuthKeys;
+
+var clientId = keys.client_id.responseText;
+var apiKey = keys.client_id.responseText;
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
