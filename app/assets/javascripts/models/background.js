@@ -10,7 +10,9 @@ Dreams.BackGround.prototype = {
 
   reAppear: function(){
     $('#big-video-wrap').fadeIn('slow');
-    loginFadeIn();
+
+    $('#login').fadeIn("slow");
+
     $("#error-novideos").fadeOut('fast');
     $('#menu-toggle').fadeIn('slow');
   },
