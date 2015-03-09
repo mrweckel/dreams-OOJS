@@ -15,4 +15,6 @@
 //= require jquery-ui
 //= require 'public/app.js'
 //= require_tree './models'
+//= require 'public/initialize.js'
 //= require_tree .
+

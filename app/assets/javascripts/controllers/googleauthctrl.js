@@ -1,5 +1,5 @@
-Dreams.GoogleAuthCtrl = function(){
-
+Dreams.GoogleAuthCtrl = function(keys){
+  this.keys = keys;
 }
 
 Dreams.GoogleAuthCtrl.prototype = {
@@ -8,19 +8,16 @@ Dreams.GoogleAuthCtrl.prototype = {
     return new Dreams.GoogleAuthView;
   },
 
-  keys: function(){
-    return new Dreams.GoogleAuthKeys;
-  },
-
   receiveMessage: function(event){
     if (event.origin !== "https://accounts.google.com") return;
   },
 
   checkAuth: function() {
+    debugger;
     gapi.auth.authorize({
-      client_id: this.controller.keys().client_id.responseText
-        , scope: this.controller.keys().scopes
-        , immediate: false }, this.controller.handleAuthResult);
+      client_id: this.ga_ctrl.keys.client_id.responseText
+        , scope: this.ga_ctrl.keys.scopes
+        , immediate: false }, this.ga_ctrl.handleAuthResult);
     },
 
   // Handle the result of a gapi.auth.authorize() call.
@@ -28,23 +25,23 @@ Dreams.GoogleAuthCtrl.prototype = {
       if (authResult) {
         // Auth was successful. Hide auth prompts and show things
         // that should be visible after auth succeeds.
-        this.controller.view().authSuccess;
+        this.ga_ctrl.view().authSuccess;
 
         $('#menu-toggle').fadeOut('fast');
 
         token = authResult.access_token;
 
-        this.controller.loadAPIClientInterfaces();
+        this.ga_ctrl.loadAPIClientInterfaces();
 
     } else {
       this.contoller.view().authFail();
 
       $('#login-link').click(function() {
         gapi.auth.authorize({
-          client_id: this.controller.keys().client_id.responseText,
-          scope: this.controller.keys().scopes,
+          client_id: this.ga_ctrl.keys.client_id.responseText,
+          scope: this.ga_ctrl.keys.scopes,
           immediate: false
-          }, this.controller.handleAuthResult);
+          }, this.ga_ctrl.handleAuthResult);
         });
       }
     },
